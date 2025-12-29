@@ -12,7 +12,7 @@ sections:
   - block: collection
     content:
       title: Selected Projects
-        Our lab enjoys conducting research and applying it to practice, safeguarding societies. Here is a selection of projects that we have worked on over the years.
+      text: Our lab enjoys conducting research and applying it to practice, safeguarding societies. Here is a selection of projects that we have worked on over the years.
       filters:
         folders:
           - projects
