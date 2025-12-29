@@ -1,8 +1,9 @@
 ---
-title: "An example journal article"
+title: "Rethinking disaster resilience in high-density cities: Towards an urban resilience knowledge system"
 authors:
 - me
-- Robert Ford
+- JOhnny C. L. Chan
+- Shauhrat S. Chopra
 author_notes:
 - "Equal contribution"
 - "Equal contribution"
@@ -17,13 +18,13 @@ publishDate: "2017-01-01T00:00:00Z"
 publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*Journal of Source Themes, 1*(1)"
+publication: "*Sustainable Cities and Society, 9*(1)"
 publication_short: ""
 
-abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.
+abstract: Fostering high-resolution disaster resilience assessment is essential for high-density cities (HDCs) given their congested built environment. This study introduces and demonstrates a spatial disaster resilience profiling (S-DReP) framework for HDCs. First, an indicator set is presented for resilience assessment in HDCs within a built environment. Second, this indicator set is adopted to identify the spatially-varying patterns of neighbourhood disaster resilience in HDCs. In contrast to typical resilience frameworks, the developed framework also takes into account the spatio-environmental factors within the built environment. As an illustrative example, we demonstrate the application of S-DReP framework to one of the most populated districts in Hong Kong, namely Sha Tin. Building-level data for 24 indicators and infrastructure data are used to compute a spatially-relative disaster resilience index. To inform the planners with disparities among different resilience components, the Analysis of Variance approach is employed to explore the distribution of resilience. To identify the priority intervention areas, the spatial assessments are made using several geo-information models. The proposed S-DReP framework provides a roadmap to establish an urban resilience knowledge system in HDCs enabling practitioners, decision-makers, and local bodies to design action plans for future vigilance reducing the worsening impacts of hazards on cities.
 
 # Summary. An optional shortened abstract.
-summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
+summary: A spatial disaster resilience profiling (S-DReP) framework is proposed for HDCs.
 
 tags:
 - Source Themes
