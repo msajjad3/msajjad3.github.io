@@ -2,18 +2,17 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: Dr. Alex Johnson
-  given: Alex
-  family: Johnson
+  display: Dr. SAJJAD Muhammad
+  given: Muhammad
+  family: Sajjad
   alternate: ''  # Example: 王伟
   pronunciation: ''  # Example: Wáng Wěi
   pronouns: he/him
 postnominals:
   - PhD
-  - MIEEE
 status:
   icon: "☕️"
-role: Senior AI Research Scientist
+role: Research Assistant Professor
 bio: |
   Alex Johnson is a Senior AI Research Scientist at Meta AI. His research
   has been published in top conferences like NeurIPS and ICML, with over
@@ -21,49 +20,50 @@ bio: |
   while ensuring ethical development.
 
 affiliations:
-  - name: Meta AI
-    url: https://ai.meta.com/
+  - name: The Chinese University of Hong Kong
+    url: https://www.grm.cuhk.edu.hk/en/profile/professor-sajjad-muhammad/
 
 links:
   - icon: at-symbol
-    url: mailto:alex.johnson@example.com
+    url: mailto:muhammadsajjad@cuhk.edu.hk
     label: E-mail Me
   - icon: brands/x
-    url: https://x.com/example
+    url: https://x.com/Mah_Sajjad
   - icon: brands/github
-    url: https://github.com/example
+    url: https://github.com/msajjad3
   - icon: brands/linkedin
-    url: https://www.linkedin.com/in/example/
+    url: https://www.linkedin.com/in/muhammad-sajjad-ph-d-05590865/
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=example
+    url: https://scholar.google.com.hk/citations?hl=en&user=iuXamUEAAAAJ&view_op=list_works
   - icon: academicons/orcid
-    url: https://orcid.org/0000-0002-1825-0097
+    url: https://orcid.org/0000-0002-1576-1342
 
 interests:
-  - Large Language Models
-  - Computer Vision
-  - Reinforcement Learning
-  - AI Ethics
+  - Data Fusion for Sustainability
+  - Remote Sensing and GIS
+  - Geospatial Technologies
+  - GeoAI and ML Applications
+  -Climate Change Impacts
 
 education:
-  - degree: PhD Computer Science
-    institution: Stanford University
-    start: 2015-09-01
-    end: 2019-06-30
+  - degree: PhD
+    institution: City University of Hong Kong
+    start: 2017-09-01
+    end: 2020-10-05
     summary: |
-      Thesis on scaling laws for neural language models. Published 5 papers in NeurIPS and ICML.
+      Thesis on Risk-Resilience-Sustainability Nexus.
     button:
       text: Download dissertation
       url: /resume.pdf
       icon: hero/arrow-down-tray
-  - degree: MS Computer Science
-    institution: Carnegie Mellon University
-    start: 2013-09-01
-    end: 2015-05-31
-  - degree: BS Computer Science
-    institution: MIT
+  - degree: MS Marine Affairs
+    institution: Xiamen University, China
+    start: 2015-09-01
+    end: 2017-07-31
+  - degree: BS (Hons) Geography
+    institution: GC University Faisalabad, Pakistan
     start: 2009-09-01
-    end: 2013-05-31
+    end: 2013-07-31
 
 experience:
   - role: Senior AI Research Scientist
@@ -80,7 +80,7 @@ experience:
     start: 2019-06-01
     end: 2019-12-31
     summary: |
-      Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
+      Worked on GPT-3 scaling. Co-authored a paper on prompt engineering.
 
 skills:
   - name: Technical Skills
@@ -89,7 +89,7 @@ skills:
         level: 5
       - label: Machine Learning
         level: 5
-      - label: Cloud Computing
+      - label: Geospatial Technologies
         level: 4
   - name: Research & Communication
     items:
@@ -103,14 +103,14 @@ skills:
 languages:
   - name: English
     level: 5
+    label: Fluent and Professional Working Proficiency
+  - name: Urdu
+    level: 5
     label: Native
-  - name: Spanish
-    level: 4
-    label: Fluent
 
 awards:
-  - title: Best Paper Award
-    awarder: NeurIPS
-    date: "2022-12-01"
-    summary: Awarded for groundbreaking work on efficient training of large models.
+  - title: Award of Excellence for International Students
+    awarder: Xiamen University
+    date: "2016-06-01"
+    summary: Awarded for excellent academic and research work.
     icon: hero/trophy
