@@ -39,7 +39,7 @@ sections:
         shape: circle # Options: circle (default), square, rounded
   - block: markdown
     content:
-      title: '📚 Our Mission'
+      title: '📚 SAJJAD Lab Mission'
       subtitle: ''
       text: |-
         ## Our Research Portfolio
