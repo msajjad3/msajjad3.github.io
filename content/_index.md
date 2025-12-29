@@ -39,12 +39,29 @@ sections:
         shape: circle # Options: circle (default), square, rounded
   - block: markdown
     content:
-      title: '📚 My Research'
+      title: '📚 Our Mission'
       subtitle: ''
       text: |-
-        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
-
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
+        ## Our Research Portfolio
+        ### 1. Disaster Risk Assessment & Forecasting
+        Developing predictive models for coastal flooding, typhoons, and multi-hazard risks using spatial statistics and machine learning.
+        ### 2. Urban Resilience in High-Density Cities
+        Studying how high-density urban systems can enhance their resilience to climate change and natural hazards.
+        ### 3. Environmental Remote Sensing & Monitoring
+        Applying satellite data (Landsat, Sentinel) to monitor land cover change, wetland dynamics, and carbon storage.
+        ### 4. Geospatial AI & Machine Learning
+        Advancing methods in spatial data science for above-ground biomass estimation, thermal variance analysis, and habitat conservation.
+        ### 5. Coastal Zone Management
+        Assessing vulnerability and restoration strategies for coastal ecosystems under changing climate conditions.
+        
+        ---
+        
+        ## Featured Work
+        
+        - **Hurricane Flood Risk Modeling** (US Atlantic & Gulf Coasts)
+        - **Pakistan Coastal Change Assessment** (30-year geospatial analysis)
+        - **Himalayan Forest Biomass Estimation** using Landsat-9 and ML
+        - **Urban Thermal Field Variance** in response to land cover change
 
         Please reach out to collaborate 😃
     design:
