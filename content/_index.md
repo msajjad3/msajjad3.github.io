@@ -40,7 +40,7 @@ sections:
   - block: markdown
     content:
       title: '📚 SAJJAD Lab Mission'
-      subtitle: "Our Research Portfolio"
+      subtitle: ''
       text: |-
         ### 1. Disaster Risk Assessment & Forecasting
         Developing predictive models for coastal flooding, typhoons, and multi-hazard risks using spatial statistics and machine learning.
@@ -52,6 +52,7 @@ sections:
         Advancing methods in spatial data science for above-ground biomass estimation, thermal variance analysis, and habitat conservation.
         ### 5. Coastal Zone Management
         Assessing vulnerability and restoration strategies for coastal ecosystems under changing climate conditions.
+    
         ---
         ### Featured Work
         - **Hurricane Flood Risk Modeling** (US Atlantic & Gulf Coasts)
