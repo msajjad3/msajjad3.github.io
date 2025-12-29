@@ -21,7 +21,7 @@ hugoblox:
     # Short tagline displayed on your site
     tagline: "Spatial Analytics for Joint Forecasting & Adaptive-Disaster Resilience Lab"
     # Site meta description for search engines and social sharing
-    description: "**SAJJAD** سجّاد represents **"one who is devoutly persistent"** – reflecting our lab's ethos of rigorous, devoted inquiry into spatial problems for societal benefit."
+    description: '**SAJJAD** سجّاد represents **"one who is devoutly persistent"** – reflecting our lab's ethos of rigorous, devoted inquiry into spatial problems for societal benefit.'
     # Social accounts (used for meta tags like Twitter Cards)
     social:
       twitter: "BuildLore"              # Twitter/X handle for Twitter Cards (without @)
