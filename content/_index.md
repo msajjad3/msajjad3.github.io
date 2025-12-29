@@ -39,10 +39,9 @@ sections:
         shape: circle # Options: circle (default), square, rounded
   - block: markdown
     content:
-      title: '📚 SAJJAD Lab Mission'
-      subtitle: ''
+      ## title: '📚 SAJJAD Lab Mission'
+      ### subtitle: 'Our Research Portfolio'
       text: |-
-        ## Our Research Portfolio
         ### 1. Disaster Risk Assessment & Forecasting
         Developing predictive models for coastal flooding, typhoons, and multi-hazard risks using spatial statistics and machine learning.
         ### 2. Urban Resilience in High-Density Cities
@@ -55,9 +54,7 @@ sections:
         Assessing vulnerability and restoration strategies for coastal ecosystems under changing climate conditions.
         
         ---
-        
-        ## Featured Work
-        
+        ### Featured Work
         - **Hurricane Flood Risk Modeling** (US Atlantic & Gulf Coasts)
         - **Pakistan Coastal Change Assessment** (30-year geospatial analysis)
         - **Himalayan Forest Biomass Estimation** using Landsat-9 and ML
