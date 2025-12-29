@@ -14,10 +14,10 @@ status:
   icon: "☕️"
 role: Research Assistant Professor
 bio: |
-  SAJJAD Muhammad is a Research Assistant Professor at The Chinese University of Hong Kong, HKSAR. His research
-  has been published in top conferences like NeurIPS and ICML, with over
-  10,000 citations. Alex is passionate about pushing the boundaries of AI
-  while ensuring ethical development.
+  The SAJJAD Lab (Spatial Analytics for Joint Forecasting & Adaptive-Disaster Resilience Lab) is devoted to advancing integrative geospatial science through persistent innovation in analytics and data science. 
+  We are committed to mapping environmental risks, modeling complex human-environment systems, and co-creating pathways for adaptation and resilience.
+  The Lab is led by Dr. SAJJAD Muhammad, a Research Assistant Professor at The Chinese University of Hong Kong, HKSAR. The Lab has produced over 40+ peer reviewed papers, several conferences,
+  and notable book chapters. Our work has 1800+ citations with an H-index of 26 andan i-10 Index of 29 as of December 2025.
 
 affiliations:
   - name: The Chinese University of Hong Kong
@@ -56,6 +56,10 @@ education:
       text: Download dissertation
       url: /resume.pdf
       icon: hero/arrow-down-tray
+  - degree: Visiting Scholar
+    institution: Princeton University, USA
+    start: 2018-09-01
+    end: 2019-08-31
   - degree: MS Marine Affairs
     institution: Xiamen University, China
     start: 2015-09-01
@@ -66,21 +70,21 @@ education:
     end: 2013-07-31
 
 experience:
-  - role: Senior AI Research Scientist
-    org: Meta AI
-    start: 2020-01-01
+  - role: Research Assistant Professor
+    org: The Chinese University of Hong Kong
+    start: 2025-08-04
     summary: |
-      Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models.
+      Leading research on geospatial technologies and GeoAI integration for multi-source data fusion in the context of environmental sustainability.
     button:
       text: View portfolio
       url: /
       icon: hero/arrow-down-tray
-  - role: AI Research Intern
-    org: OpenAI
-    start: 2019-06-01
-    end: 2019-12-31
+  - role: Research Assistant Professor
+    org: The University of Hong Kong
+    start: 2024-09-05
+    end: 2025-07-31
     summary: |
-      Worked on GPT-3 scaling. Co-authored a paper on prompt engineering.
+      Supervised six master's students for their final research thesis on topics relevant to environmental risks, disasters, and the application of advanced tools.
 
 skills:
   - name: Technical Skills
