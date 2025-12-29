@@ -42,18 +42,18 @@ sections:
       title: '📚 SAJJAD Lab Mission'
       subtitle: 'Our Research Portfolio'
       text: |-
-        **1. Disaster Risk Assessment & Forecasting**
+        ###1. Disaster Risk Assessment & Forecasting
         Developing predictive models for coastal flooding, typhoons, and multi-hazard risks using spatial statistics and machine learning.
-        **2. Urban Resilience in High-Density Cities**
+        ###2. Urban Resilience in High-Density Cities
         Studying how high-density urban systems can enhance their resilience to climate change and natural hazards.
-        **3. Environmental Remote Sensing & Monitoring**
+        ###3. Environmental Remote Sensing & Monitoring
         Applying satellite data (Landsat, Sentinel) to monitor land cover change, wetland dynamics, and carbon storage.
-        **4. Geospatial AI & Machine Learning**
+        ###4. Geospatial AI & Machine Learning
         Advancing methods in spatial data science for above-ground biomass estimation, thermal variance analysis, and habitat conservation.
-        **5. Coastal Zone Management**
+        ###5. Coastal Zone Management
         Assessing vulnerability and restoration strategies for coastal ecosystems under changing climate conditions.
         ---
-        subtitle: 'Featured Work'
+        ###Featured Work
         - **Hurricane Flood Risk Modeling** (US Atlantic & Gulf Coasts)
         - **Pakistan Coastal Change Assessment** (30-year geospatial analysis)
         - **Himalayan Forest Biomass Estimation** using Landsat-9 and ML
