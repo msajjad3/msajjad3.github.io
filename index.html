@@ -11,15 +11,7 @@
             /* MARINE THEME (Default) */
             --primary-color: #1a5f7a;
             --secondary-color: #2a9d8f;
-            --accent-color: #e76f51;
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --text-color: #264653;
-            --text-light: #6c757d;
-            --border-color: #dee2e6;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
-        }
+            --accent-color: #e76f51;/* ===== MOBILE NAVIGATION FIX ===== */
 
         /* COFFEE THEME */
         .theme-coffee {
@@ -197,60 +189,21 @@
         }
 
         /* ===== NAVIGATION ===== */
+/* ===== MOBILE NAVIGATION FIX ===== */
         nav {
             background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #e0e0e0;
         }
         
         .nav-container {
-            display: flex;
-            flex-direction: column;
-            padding: 0;
+            position: relative;
+            padding: 0 15px;
         }
         
-        /* Mobile-first navigation */
-        .nav-links {
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-            width: 100%;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-links.active {
-            max-height: 500px; /* Enough to show all items */
-        }
-        
-        .nav-links li {
-            width: 100%;
-        }
-        
-        .nav-links a {
-            display: block;
-            padding: 16px 20px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            border-bottom: 1px solid var(--border-color);
-            transition: var(--transition);
-            font-size: 1rem;
-        }
-        
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--primary-color);
-            background-color: rgba(0, 0, 0, 0.02);
-            border-left: 4px solid var(--primary-color);
-        }
-        
-        /* Mobile menu button */
+        /* Mobile Menu Button - HIDDEN ON DESKTOP */
         .mobile-menu-btn {
             display: none;
             width: 100%;
@@ -271,167 +224,98 @@
             color: #1a5f7a;
         }
         
-        /* Social links in navigation - mobile specific */
-        .nav-social {
+        /* Navigation Links - DESKTOP DEFAULT */
+        .nav-links {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 15px 20px;
-            border-top: 1px solid var(--border-color);
-            background-color: rgba(0, 0, 0, 0.01);
-        }
-        /* ===== MOBILE HEADER OPTIMIZATION ===== */
-        @media (max-width: 768px) {
-            header {
-                padding: 1rem 0;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            
-            .logo-full img {
-                max-height: 60px;
-                width: auto;
-            }
-            
-            .controls {
-                flex-direction: column;
-                gap: 12px;
-                width: 100%;
-                align-items: center;
-            }
-            
-            .theme-selector, .mode-toggle {
-                width: 100%;
-                max-width: 250px;
-                justify-content: center;
-            }
-            
-            /* Ensure touch targets are large enough */
-            .btn, .social-link, .theme-selector, .mode-toggle {
-                min-height: 44px;
-                min-width: 44px;
-            }
-        }
-        /* ===== MOBILE CONTENT OPTIMIZATION ===== */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            main {
-                padding: 1.5rem 0;
-            }
-            
-            .content-card {
-                padding: 1.5rem;
-                margin-bottom: 1.5rem;
-                border-radius: 10px;
-            }
-            
-            .content-card h2 {
-                font-size: 1.4rem;
-                margin-bottom: 1.2rem;
-            }
-            
-            .content-card h3 {
-                font-size: 1.2rem;
-            }
-            
-            /* Team and project grids become single column */
-            .team-grid, .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-            
-            /* Publication items more compact */
-            .publication-item {
-                padding: 1.2rem 0;
-            }
-            
-            .pub-title {
-                font-size: 1rem;
-                line-height: 1.4;
-            }
-            
-            /* Button stack vertically */
-            .pub-links, .content-card .btn-group {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
-                text-align: center;
-            }
-            
-            /* Contact items stack */
-            .contact-info {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            /* Fix text overflow */
-            .tag, .member-focus, .pub-authors {
-                word-break: break-word;
-                overflow-wrap: break-word;
-            }
-            
-            /* Improve spacing in PI section */
-            #pi .content-card > div > div {
-                flex-direction: column;
-                text-align: center;
-                gap: 1.5rem;
-            }
-            
-            #pi .logo-image {
-                margin: 0 auto;
-            }
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
         
-        /* Desktop styles */
-        @media (min-width: 769px) {
-            .nav-container {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0 20px;
-            }
-            
+        .nav-links li {
+            flex: 1;
+        }
+        
+        .nav-links a {
+            display: block;
+            padding: 18px 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            text-align: center;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1a5f7a;
+            border-bottom-color: #1a5f7a;
+            background-color: rgba(26, 95, 122, 0.05);
+        }
+        
+        /* Social links in nav (optional) */
+        .nav-social {
+            display: none;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        /* MOBILE STYLES (under 768px) */
+        @media (max-width: 768px) {
             .mobile-menu-btn {
-                display: block;
+                display: block; /* Show menu button */
             }
             
             .nav-links {
-                flex-direction: row;
-                max-height: none;
-                overflow: visible;
-                width: auto;
+                display: none; /* Hide links by default */
+                flex-direction: column;
+                width: 100%;
+                background: white;
+            }
+            
+            .nav-links.active {
+                display: flex; /* Show when active */
             }
             
             .nav-links li {
-                width: auto;
+                width: 100%;
+            }
+            
+            .nav-links a {
+                padding: 16px 20px;
+                text-align: left;
+                border-bottom: 1px solid #f0f0f0;
+                border-left: 4px solid transparent;
+            }
+            
+            .nav-links a:hover,
+            .nav-links a.active {
+                border-left-color: #1a5f7a;
+                border-bottom-color: #f0f0f0;
+                background-color: rgba(26, 95, 122, 0.05);
+            }
+            
+            .nav-social {
+                display: flex;
+            }
+        }
+        
+        /* DESKTOP STYLES (768px and above) */
+        @media (min-width: 769px) {
+            .nav-links {
+                display: flex !important;
             }
             
             .nav-links a {
                 padding: 22px 20px;
-                border-bottom: 3px solid transparent;
-                border-left: none;
                 white-space: nowrap;
             }
             
-            .nav-links a:hover, .nav-links a.active {
-                border-left: none;
-                border-bottom: 3px solid var(--primary-color);
-                background-color: transparent;
-            }
-            
             .nav-social {
-                display: none; /* Social links handled elsewhere on desktop */
+                display: none; /* Hide on desktop if you have social elsewhere */
             }
         }
 
