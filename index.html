@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAJJAD Lab - Spatial Analytics for Resilience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -103,7 +103,7 @@
         }
         
         .logo-full img {
-            max-height: 200px;  /* Adjust this value to control logo size */
+            max-height: 300px;  /* Adjust this value to control logo size */
             width: auto;
             object-fit: contain;
         }
@@ -119,24 +119,10 @@
         }
 
         .theme-selector, .mode-toggle {
-            background: rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 25px;
             padding: 8px 15px;
-            color: var(--text-color);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--transition);
-            font-size: 0.9rem;
-        }
-        
-        .theme-selector, .mode-toggle {
-            background: var(--primary-color);
-            border: 1px solid var(--primary-color);
-            border-radius: 25px;
-            padding: 10px 18px;
             color: white;
             cursor: pointer;
             display: flex;
@@ -144,29 +130,22 @@
             gap: 8px;
             transition: var(--transition);
             font-size: 0.9rem;
-            font-weight: 500;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .theme-selector:hover, .mode-toggle:hover {
-            background: var(--secondary-color);
-            border-color: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.25);
         }
-        
+
         .theme-selector select {
             background: transparent;
             border: none;
             color: white;
             cursor: pointer;
             font-size: 0.9rem;
-            font-weight: 500;
         }
-        
-        .theme-selector select option {
+
+        .theme-selector option {
             color: #333;
-            background: white;
         }
 
         /* ===== SOCIAL LINKS ===== */
@@ -198,245 +177,55 @@
 
         /* ===== NAVIGATION ===== */
         nav {
-            background-color: white;
+            background-color: var(--card-bg);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .nav-container {
             display: flex;
-            flex-direction: column;
-            padding: 0;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        /* Mobile-first navigation */
+
         .nav-links {
             display: flex;
-            flex-direction: column;
             list-style: none;
-            width: 100%;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            margin: 0;
+            overflow-x: auto;
             padding: 0;
         }
-        
-        .nav-links.active {
-            max-height: 500px; /* Enough to show all items */
-        }
-        
+
         .nav-links li {
-            width: 100%;
+            flex-shrink: 0;
         }
-        
+
         .nav-links a {
             display: block;
-            padding: 16px 20px;
+            padding: 18px 20px;
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 3px solid transparent;
             transition: var(--transition);
-            font-size: 1rem;
+            white-space: nowrap;
         }
-        
+
         .nav-links a:hover, .nav-links a.active {
             color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
             background-color: rgba(0, 0, 0, 0.02);
-            border-left: 4px solid var(--primary-color);
         }
-        
-        /* Mobile menu button */
+
         .mobile-menu-btn {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 16px 20px;
+            display: none;
             background: none;
             border: none;
+            font-size: 1.5rem;
             color: var(--text-color);
-            font-size: 1.1rem;
-            font-weight: 500;
             cursor: pointer;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .mobile-menu-btn i {
-            font-size: 1.3rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .mobile-menu-btn.active i {
-            transform: rotate(180deg);
-        }
-        
-        /* Social links in navigation - mobile specific */
-        .nav-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 15px 20px;
-            border-top: 1px solid var(--border-color);
-            background-color: rgba(0, 0, 0, 0.01);
-        }
-        /* ===== MOBILE HEADER OPTIMIZATION ===== */
-        @media (max-width: 768px) {
-            header {
-                padding: 1rem 0;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            
-            .logo-full img {
-                max-height: 60px;
-                width: auto;
-            }
-            
-            .controls {
-                flex-direction: column;
-                gap: 12px;
-                width: 100%;
-                align-items: center;
-            }
-            
-            .theme-selector, .mode-toggle {
-                width: 100%;
-                max-width: 250px;
-                justify-content: center;
-            }
-            
-            /* Ensure touch targets are large enough */
-            .btn, .social-link, .theme-selector, .mode-toggle {
-                min-height: 44px;
-                min-width: 44px;
-            }
-        }
-        /* ===== MOBILE CONTENT OPTIMIZATION ===== */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            main {
-                padding: 1.5rem 0;
-            }
-            
-            .content-card {
-                padding: 1.5rem;
-                margin-bottom: 1.5rem;
-                border-radius: 10px;
-            }
-            
-            .content-card h2 {
-                font-size: 1.4rem;
-                margin-bottom: 1.2rem;
-            }
-            
-            .content-card h3 {
-                font-size: 1.2rem;
-            }
-            
-            /* Team and project grids become single column */
-            .team-grid, .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-            
-            /* Publication items more compact */
-            .publication-item {
-                padding: 1.2rem 0;
-            }
-            
-            .pub-title {
-                font-size: 1rem;
-                line-height: 1.4;
-            }
-            
-            /* Button stack vertically */
-            .pub-links, .content-card .btn-group {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
-                text-align: center;
-            }
-            
-            /* Contact items stack */
-            .contact-info {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            /* Fix text overflow */
-            .tag, .member-focus, .pub-authors {
-                word-break: break-word;
-                overflow-wrap: break-word;
-            }
-            
-            /* Improve spacing in PI section */
-            #pi .content-card > div > div {
-                flex-direction: column;
-                text-align: center;
-                gap: 1.5rem;
-            }
-            
-            #pi .logo-image {
-                margin: 0 auto;
-            }
-        }
-        
-        /* Desktop styles */
-        @media (min-width: 769px) {
-            .nav-container {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0 20px;
-            }
-            
-            .mobile-menu-btn {
-                display: none;
-            }
-            
-            .nav-links {
-                flex-direction: row;
-                max-height: none;
-                overflow: visible;
-                width: auto;
-            }
-            
-            .nav-links li {
-                width: auto;
-            }
-            
-            .nav-links a {
-                padding: 22px 20px;
-                border-bottom: 3px solid transparent;
-                border-left: none;
-                white-space: nowrap;
-            }
-            
-            .nav-links a:hover, .nav-links a.active {
-                border-left: none;
-                border-bottom: 3px solid var(--primary-color);
-                background-color: transparent;
-            }
-            
-            .nav-social {
-                display: none; /* Social links handled elsewhere on desktop */
-            }
         }
 
         /* ===== MAIN CONTENT ===== */
@@ -719,166 +508,6 @@
             color: var(--accent-color);
             font-weight: 600;
         }
-        /* 1. IMPROVE BASE TYPOGRAPHY & READABILITY */
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background-color: #fdfdfd;
-        }
-        
-        /* Limit line length for optimal reading */
-        .content-card p, .content-card li, .content-card td {
-            max-width: 65ch;
-        }
-        
-        /* 2. CREATE CARD STYLES */
-        .content-card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
-            border: 1px solid #eaeaea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .content-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.09);
-        }
-        
-        /* Card Headers */
-        .content-card h2 {
-            color: var(--primary-color, #1a5f7a);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #eaeaea;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-        }
-        
-        .content-card h3 {
-            color: var(--secondary-color, #2a9d8f);
-            margin: 2rem 0 1rem 0;
-            font-weight: 600;
-        }
-        
-        /* 3. STYLE SPECIFIC CARD CONTENT */
-        
-        /* Team Member Cards */
-        .team-member, .project-card {
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            padding: 1.8rem;
-            border: 1px solid #e0e0e0;
-            transition: all 0.3s ease;
-            margin-bottom: 1.5rem;
-        }
-        
-        .team-member:hover, .project-card:hover {
-            background-color: #f0f8ff;
-            border-color: var(--primary-color, #1a5f7a);
-            transform: translateY(-3px);
-        }
-        
-        /* Publication Items */
-        .publication-item {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #eee;
-            line-height: 1.65;
-        }
-        
-        .publication-item:last-child {
-            border-bottom: none;
-        }
-        
-        .pub-title {
-            font-weight: 700;
-            color: #222;
-            margin-bottom: 0.4rem;
-            font-size: 1.1rem;
-        }
-        
-        .pub-authors, .pub-venue {
-            color: #555;
-            font-size: 0.95rem;
-            margin-bottom: 0.3rem;
-        }
-        
-        /* 4. IMPROVE LISTS & TAGS */
-        .content-card ul, .content-card ol {
-            padding-left: 1.8rem;
-            margin: 1rem 0;
-        }
-        
-        .content-card li {
-            margin-bottom: 0.7rem;
-        }
-        
-        .tag {
-            display: inline-block;
-            background-color: #edf2f7;
-            color: #2d3748;
-            padding: 0.4rem 0.9rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin: 0.3rem;
-            border: 1px solid #cbd5e0;
-            font-weight: 500;
-        }
-        
-        /* 5. ENHANCE BUTTONS & LINKS */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: var(--accent-color, #e76f51);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(231, 111, 81, 0.2);
-        }
-        
-        .btn:hover {
-            background-color: #d65c40;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(231, 111, 81, 0.3);
-        }
-        
-        /* Link Styling */
-        .content-card a:not(.btn):not(.social-link) {
-            color: var(--primary-color, #1a5f7a);
-            text-decoration: none;
-            border-bottom: 1px dotted currentColor;
-            transition: color 0.2s ease;
-        }
-        
-        .content-card a:not(.btn):not(.social-link):hover {
-            color: #e76f51;
-            border-bottom-style: solid;
-        }
-        
-        /* 6. RESPONSIVE ADJUSTMENTS */
-        @media (max-width: 768px) {
-            .content-card {
-                padding: 1.8rem;
-                margin-bottom: 1.8rem;
-            }
-            
-            .content-card h2 {
-                font-size: 1.5rem;
-            }
-            
-            .team-member, .project-card {
-                padding: 1.5rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -932,17 +561,11 @@
                 <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="social-link" title="Google Scholar" target="_blank">
                     <i class="fas fa-graduation-cap"></i>
                 </a>
-                <a href="https://x.com/Mah_Sajjad" class="social-link" title="X" target="_blank">
-                    <i class="fab fa-x"></i>
+                <a href="https://twitter.com" class="social-link" title="Twitter" target="_blank">
+                    <i class="fab fa-twitter"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/muhammad-sajjad-ph-d-05590865/" class="social-link" title="LinkedIn" target="_blank">
+                <a href="https://linkedin.com" class="social-link" title="LinkedIn" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://www.researchgate.net/profile/Muhammad-Sajjad-Phd?ev=hdr_xprf" class="social-link" title="ResearchGate" target="_blank">
-                    <i class="fab fa-researchgate"></i>
-                </a>
-                <a href="https://orcid.org/0000-0002-1576-1342" class="social-link" title="ORCID" target="_blank">
-                    <i class="fab fa-orcid"></i>
                 </a>
             </div>
         </div>
@@ -1355,46 +978,6 @@
         const navLinks = document.getElementById('navLinks');
         const navItems = document.querySelectorAll('.nav-link');
         const tabContents = document.querySelectorAll('.tab-content');
-        if (mobileMenuBtn && navLinks) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                mobileMenuBtn.classList.toggle('active');
-                
-                // Update ARIA attributes for accessibility
-                const isExpanded = navLinks.classList.contains('active');
-                mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
-                
-                // Change icon
-                const icon = mobileMenuBtn.querySelector('i');
-                if (icon) {
-                    icon.className = isExpanded ? 'fas fa-times' : 'fas fa-bars';
-                }
-            });
-            
-            // Close menu when clicking outside on mobile
-            document.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                        navLinks.classList.remove('active');
-                        mobileMenuBtn.classList.remove('active');
-                        mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
-                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    }
-                }
-            });
-            
-            // Close menu after clicking a link (on mobile)
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) {
-                        navLinks.classList.remove('active');
-                        mobileMenuBtn.classList.remove('active');
-                        mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
-                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            });
-        }
 
         // Initialize theme from localStorage or default
         document.addEventListener('DOMContentLoaded', () => {
@@ -1504,28 +1087,13 @@
             if (!activeTab) {
                 switchTab('about');
             }
-            // ADD THIS LINE: Scroll to top of page
-            window.scrollTo(0, 0);
         }
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                
-                // Check if it's a tab navigation link
-                const isTabLink = this.classList.contains('nav-link') || 
-                                 this.getAttribute('data-tab');
-                
-                // If it's a tab link, prevent scrolling
-                if (isTabLink) {
-                    e.preventDefault();
-                    // Just switch tabs without scrolling
-                    const tabId = href.substring(1);
-                    switchTab(tabId);
-                } 
-                // For other anchor links (like footer, within page), allow smooth scroll
-                else if (href !== '#' && href.startsWith('#') && document.querySelector(href)) {
+                if (href !== '#' && href.startsWith('#') && document.querySelector(href)) {
                     e.preventDefault();
                     document.querySelector(href).scrollIntoView({
                         behavior: 'smooth'
