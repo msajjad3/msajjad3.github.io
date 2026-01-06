@@ -529,6 +529,166 @@
             color: var(--accent-color);
             font-weight: 600;
         }
+        /* 1. IMPROVE BASE TYPOGRAPHY & READABILITY */
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #fdfdfd;
+        }
+        
+        /* Limit line length for optimal reading */
+        .content-card p, .content-card li, .content-card td {
+            max-width: 65ch;
+        }
+        
+        /* 2. CREATE CARD STYLES */
+        .content-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+            border: 1px solid #eaeaea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.09);
+        }
+        
+        /* Card Headers */
+        .content-card h2 {
+            color: var(--primary-color, #1a5f7a);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #eaeaea;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        
+        .content-card h3 {
+            color: var(--secondary-color, #2a9d8f);
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+        
+        /* 3. STYLE SPECIFIC CARD CONTENT */
+        
+        /* Team Member Cards */
+        .team-member, .project-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 1.8rem;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+        
+        .team-member:hover, .project-card:hover {
+            background-color: #f0f8ff;
+            border-color: var(--primary-color, #1a5f7a);
+            transform: translateY(-3px);
+        }
+        
+        /* Publication Items */
+        .publication-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #eee;
+            line-height: 1.65;
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        .pub-title {
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 0.4rem;
+            font-size: 1.1rem;
+        }
+        
+        .pub-authors, .pub-venue {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* 4. IMPROVE LISTS & TAGS */
+        .content-card ul, .content-card ol {
+            padding-left: 1.8rem;
+            margin: 1rem 0;
+        }
+        
+        .content-card li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: #edf2f7;
+            color: #2d3748;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.3rem;
+            border: 1px solid #cbd5e0;
+            font-weight: 500;
+        }
+        
+        /* 5. ENHANCE BUTTONS & LINKS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--accent-color, #e76f51);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(231, 111, 81, 0.2);
+        }
+        
+        .btn:hover {
+            background-color: #d65c40;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(231, 111, 81, 0.3);
+        }
+        
+        /* Link Styling */
+        .content-card a:not(.btn):not(.social-link) {
+            color: var(--primary-color, #1a5f7a);
+            text-decoration: none;
+            border-bottom: 1px dotted currentColor;
+            transition: color 0.2s ease;
+        }
+        
+        .content-card a:not(.btn):not(.social-link):hover {
+            color: #e76f51;
+            border-bottom-style: solid;
+        }
+        
+        /* 6. RESPONSIVE ADJUSTMENTS */
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 1.8rem;
+                margin-bottom: 1.8rem;
+            }
+            
+            .content-card h2 {
+                font-size: 1.5rem;
+            }
+            
+            .team-member, .project-card {
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
