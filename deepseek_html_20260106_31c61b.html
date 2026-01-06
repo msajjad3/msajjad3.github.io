@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAJJAD Lab - Spatial Analytics for Resilience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== ROOT VARIABLES & THEMES ===== */
+        :root {
+            /* MARINE THEME (Default) */
+            --primary-color: #1a5f7a;
+            --secondary-color: #2a9d8f;
+            --accent-color: #e76f51;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #264653;
+            --text-light: #6c757d;
+            --border-color: #dee2e6;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        /* COFFEE THEME */
+        .theme-coffee {
+            --primary-color: #6f4e37;
+            --secondary-color: #c19a6b;
+            --accent-color: #8b4513;
+            --bg-color: #f5ebe0;
+            --card-bg: #ffffff;
+            --text-color: #3e2723;
+            --text-light: #795548;
+            --border-color: #d7ccc8;
+        }
+
+        /* RETRO THEME */
+        .theme-retro {
+            --primary-color: #d4a017;
+            --secondary-color: #9b4f96;
+            --accent-color: #2a9d8f;
+            --bg-color: #fef9f3;
+            --card-bg: #fffaf0;
+            --text-color: #2a2a2a;
+            --text-light: #666666;
+            --border-color: #e6d5b8;
+        }
+
+        /* DARK MODE */
+        .dark-mode {
+            --primary-color: #4dabf7;
+            --secondary-color: #20c997;
+            --accent-color: #ff922b;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e9ecef;
+            --text-light: #adb5bd;
+            --border-color: #343a40;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ===== BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* ===== CONTROLS ===== */
+        .controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-top: 15px;
+            width: 100%;
+            justify-content: flex-end;
+        }
+
+        .theme-selector, .mode-toggle {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 8px 15px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .theme-selector:hover, .mode-toggle:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .theme-selector select {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .theme-selector option {
+            color: #333;
+        }
+
+        /* ===== SOCIAL LINKS ===== */
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            overflow-x: auto;
+            padding: 0;
+        }
+
+        .nav-links li {
+            flex-shrink: 0;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        main {
+            padding: 3rem 0;
+            min-height: 60vh;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== CONTENT CARDS ===== */
+        .content-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .content-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-card h2 i {
+            color: var(--accent-color);
+        }
+
+        .content-card h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        /* ===== TEAM & PROJECT GRIDS ===== */
+        .team-grid, .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .team-member, .project-card {
+            background-color: rgba(0, 0, 0, 0.02);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .team-member:hover, .project-card:hover {
+            background-color: rgba(0, 0, 0, 0.04);
+            transform: translateY(-3px);
+        }
+
+        .member-role {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+
+        .member-focus {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        /* ===== PUBLICATIONS LIST ===== */
+        .publication-list {
+            list-style: none;
+        }
+
+        .publication-item {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .pub-authors, .pub-venue {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+        }
+
+        .pub-links {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .pub-link:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== NEWS ===== */
+        .news-item {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-date {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .controls {
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 15px;
+                border-bottom: 1px solid var(--border-color);
+                border-left: 3px solid transparent;
+            }
+
+            .nav-links a:hover, .nav-links a.active {
+                border-left-color: var(--primary-color);
+                border-bottom-color: var(--border-color);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                align-self: flex-end;
+                margin: 10px 0;
+            }
+
+            .team-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.08);
+            color: var(--text-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 3px;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe-asia"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>SAJJAD Lab</h1>
+                    <p>Spatial Analytics for Joint Forecasting & Adaptive-Disaster Resilience</p>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="theme-selector">
+                    <i class="fas fa-palette"></i>
+                    <select id="themeSelect">
+                        <option value="default">Marine Theme</option>
+                        <option value="coffee">Coffee Theme</option>
+                        <option value="retro">Retro Theme</option>
+                    </select>
+                </div>
+                
+                <button class="mode-toggle" id="modeToggle">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container nav-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link active" data-tab="about">About the Lab</a></li>
+                <li><a href="#pi" class="nav-link" data-tab="pi">Lab PI</a></li>
+                <li><a href="#team" class="nav-link" data-tab="team">Team</a></li>
+                <li><a href="#projects" class="nav-link" data-tab="projects">Projects</a></li>
+                <li><a href="#publications" class="nav-link" data-tab="publications">Publications</a></li>
+                <li><a href="#news" class="nav-link" data-tab="news">News</a></li>
+                <li><a href="#contact" class="nav-link" data-tab="contact">Contact Us</a></li>
+            </ul>
+            
+            <div class="social-links">
+                <a href="https://github.com/msajjad3" class="social-link" title="GitHub" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="social-link" title="Google Scholar" target="_blank">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="https://twitter.com" class="social-link" title="Twitter" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com" class="social-link" title="LinkedIn" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <!-- ABOUT TAB -->
+        <section id="about" class="tab-content active">
+            <div class="content-card">
+                <h2><i class="fas fa-flask"></i> About the Lab</h2>
+                <p>The <span class="highlight">SAJJAD Lab</span> (Spatial Analytics for Joint Forecasting & Adaptive-Disaster Resilience) is a research group at The Chinese University of Hong Kong dedicated to advancing geospatial intelligence for systemic resilience.</p>
+                
+                <h3>Our Mission</h3>
+                <p>To develop integrative spatial analytics and forecasting frameworks that enhance community resilience to environmental hazards and climate change through evidence-based, actionable research.</p>
+                
+                <h3>Research Philosophy</h3>
+                <p>We believe in <span class="highlight">translational geospatial science</span> – bridging advanced analytics with practical applications for disaster risk reduction, sustainable urban development, and climate adaptation.</p>
+                
+                <h3>Core Values</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                    <span class="tag">Interdisciplinary Integration</span>
+                    <span class="tag">Methodological Rigor</span>
+                    <span class="tag">Societal Impact</span>
+                    <span class="tag">Open Science</span>
+                    <span class="tag">Collaborative Innovation</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- LAB PI TAB -->
+        <section id="pi" class="tab-content">
+            <div class="content-card">
+                <h2><i class="fas fa-user-tie"></i> Lab Principal Investigator</h2>
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;">
+                        <div style="flex-shrink: 0;">
+                            <div style="width: 150px; height: 150px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3>Dr. Muhammad Sajjad</h3>
+                            <p class="member-role">Research Assistant Professor</p>
+                            <p>The Chinese University of Hong Kong</p>
+                            <p style="margin-top: 15px;">Dr. Sajjad's research focuses on geospatial data science for disaster risk reduction, coastal vulnerability assessment, and urban resilience planning. His work integrates remote sensing, machine learning, and spatial modeling to address complex human-environment challenges.</p>
+                            
+                            <div style="margin-top: 20px;">
+                                <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="btn" target="_blank">
+                                    <i class="fas fa-graduation-cap"></i> Google Scholar
+                                </a>
+                                <a href="mailto:lab.sajjad@cuhk.edu.hk" class="btn" style="background-color: var(--secondary-color);">
+                                    <i class="fas fa-envelope"></i> Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3>Research Interests</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
+                            <span class="tag">Disaster Resilience</span>
+                            <span class="tag">Coastal Vulnerability</span>
+                            <span class="tag">Remote Sensing</span>
+                            <span class="tag">Spatial Data Science</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Climate Adaptation</span>
+                            <span class="tag">Urban Sustainability</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3>Education & Background</h3>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>PhD in Geography/Geospatial Sciences</li>
+                            <li>Visiting Scholar, Princeton University, USA</li>
+                            <li>Research Assistant Professor, The Chinese University of Hong Kong</li>
+                            <li>Extensive publication record in high-impact journals</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM TAB -->
+        <section id="team" class="tab-content">
+            <div class="content-card">
+                <h2><i class="fas fa-users"></i> Team Members</h2>
+                <p>Our interdisciplinary team brings together expertise in geography, data science, environmental science, and urban planning.</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h3>Dr. Muhammad Sajjad</h3>
+                        <p class="member-role">Principal Investigator</p>
+                        <p>Geospatial data science, disaster resilience, remote sensing</p>
+                        <p class="member-focus">
+                            <i class="fas fa-map-marker-alt"></i> Primary focus: Coastal vulnerability assessment
+                        </p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h3>Open Position</h3>
+                        <p class="member-role">Postdoctoral Researcher</p>
+                        <p>We are seeking candidates with expertise in remote sensing, machine learning, or spatial statistics.</p>
+                        <p class="member-focus">
+                            <i class="fas fa-bullhorn"></i> Position available starting 2024
+                        </p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h3>Open Position</h3>
+                        <p class="member-role">PhD Student</p>
+                        <p>Opportunities for doctoral research in geospatial analytics for disaster risk reduction.</p>
+                        <p class="member-focus">
+                            <i class="fas fa-university"></i> CUHK PhD programs
+                        </p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h3>Collaborators</h3>
+                        <p class="member-role">Research Partners</p>
+                        <p>Network of collaborators from Princeton University, international institutions, and industry partners.</p>
+                        <p class="member-focus">
+                            <i class="fas fa-handshake"></i> Global collaborations
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background-color: rgba(0, 0, 0, 0.03); border-radius: 8px;">
+                    <h3><i class="fas fa-user-plus"></i> Join Our Team</h3>
+                    <p>We welcome inquiries from motivated researchers interested in geospatial science, disaster resilience, and sustainable development. Please see the <a href="#contact" class="nav-link" style="display: inline; color: var(--primary-color);">Contact Us</a> section for opportunities.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS TAB -->
+        <section id="projects" class="tab-content">
+            <div class="content-card">
+                <h2><i class="fas fa-project-diagram"></i> Research Projects</h2>
+                <p>Our lab engages in interdisciplinary research projects at the intersection of geospatial science, disaster resilience, and sustainability.</p>
+                
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Coastal Risk Forecasting</h3>
+                        <p>Developing machine learning models for predicting coastal flood risks under climate change scenarios.</p>
+                        <div style="margin-top: 15px;">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Coastal Hazards</span>
+                            <span class="tag">Climate Change</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Urban Resilience Metrics</h3>
+                        <p>Creating spatial indicators for assessing and monitoring resilience in high-density urban environments.</p>
+                        <div style="margin-top: 15px;">
+                            <span class="tag">Urban Analytics</span>
+                            <span class="tag">Resilience Indicators</span>
+                            <span class="tag">Spatial Modeling</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Geospatial AI for Biomass Estimation</h3>
+                        <p>Integrating remote sensing and AI for above-ground biomass estimation in temperate forests.</p>
+                        <div style="margin-top: 15px;">
+                            <span class="tag">Remote Sensing</span>
+                            <span class="tag">AI/ML</span>
+                            <span class="tag">Forest Ecology</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Multi-Hazard Risk Assessment</h3>
+                        <p>Developing integrated frameworks for assessing compound and cascading disaster risks.</p>
+                        <div style="margin-top: 15px;">
+                            <span class="tag">Multi-Hazard</span>
+                            <span class="tag">Risk Assessment</span>
+                            <span class="tag">Spatial Statistics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h3>Funding & Collaborations</h3>
+                    <p>Our research is supported by competitive grants and collaborations with international partners, including Princeton University and various governmental agencies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLICATIONS TAB -->
+        <section id="publications" class="tab-content">
+            <div class="content-card">
+                <h2><i class="fas fa-file-alt"></i> Selected Publications</h2>
+                <p>High-impact publications showcasing our research contributions to geospatial science and disaster resilience.</p>
+                
+                <ul class="publication-list">
+                    <li class="publication-item">
+                        <div class="pub-title">Rethinking disaster resilience in high-density cities: Towards an urban resilience knowledge system</div>
+                        <div class="pub-authors">Sajjad, M., Chan, J.C.L., Chopra, S.S.</div>
+                        <div class="pub-venue">Sustainable Cities and Society, 69, 102850 (2021)</div>
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1016/j.scs.2021.102850" class="pub-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                            <a href="#" class="pub-link">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                        </div>
+                    </li>
+                    
+                    <li class="publication-item">
+                        <div class="pub-title">Assessing hazard vulnerability, habitat conservation, and restoration for the enhancement of mainland China's coastal resilience</div>
+                        <div class="pub-authors">Sajjad, M., Li, Y., Tang, Z., Cao, L., Liu, X.</div>
+                        <div class="pub-venue">Earth's Future, 6(3), 326-338 (2018)</div>
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1002/2017EF000676" class="pub-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </li>
+                    
+                    <li class="publication-item">
+                        <div class="pub-title">Integration of machine learning and remote sensing for above ground biomass estimation</div>
+                        <div class="pub-authors">Anees, S.A., Mehmood, K., Khan, W.R., Sajjad, M., et al.</div>
+                        <div class="pub-venue">Ecological Informatics, 82, 102732 (2024)</div>
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1016/j.ecoinf.2024.102732" class="pub-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </li>
+                    
+                    <li class="publication-item">
+                        <div class="pub-title">Risk assessment for the sustainability of coastal communities: A preliminary study</div>
+                        <div class="pub-authors">Sajjad, M., Chan, J.C.L.</div>
+                        <div class="pub-venue">Science of the Total Environment, 671, 339-350 (2019)</div>
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1016/j.scitotenv.2019.03.350" class="pub-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="btn" target="_blank">
+                        <i class="fas fa-graduation-cap"></i> View Complete Publication List on Google Scholar
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWS TAB -->
+        <section id="news" class="tab-content">
+            <div class="content-card">
+                <h2><i class="fas fa-newspaper"></i> Lab News & Updates</h2>
+                
+                <div class="news-item">
+                    <div class="news-date">December 2024</div>
+                    <h3>New Lab Website Launched</h3>
+                    <p>We're excited to launch our new lab website to share our research and connect with collaborators.</p>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">November 2024</div>
+                    <h3>Paper Accepted in Ecological Informatics</h3>
+                    <p>Our research on "Integration of machine learning and remote sensing for above ground biomass estimation" has been accepted for publication.</p>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">October 2024</div>
+                    <h3>Conference Presentation at AGU Fall Meeting</h3>
+                    <p>Lab members presented research on coastal resilience frameworks at the American Geophysical Union conference.</p>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">September 2024</div>
+                    <h3>New Research Grant Awarded</h3>
+                    <p>Received funding for a project on "Multi-hazard risk assessment in coastal urban areas under climate change."</p>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">August 2024</div>
+                    <h3>Postdoctoral Position Opening</h3>
+                    <p>We're seeking a postdoctoral researcher with expertise in geospatial AI and remote sensing. Applications now open.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT TAB -->
+        <section id="contact" class="tab-content">
+            <div class="content-card">
+                <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+                <p>We welcome inquiries about research collaborations, student opportunities, and potential partnerships.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>SAJJAD Lab<br>
+                            Department of Geography and Resource Management<br>
+                            The Chinese University of Hong Kong<br>
+                            Shatin, New Territories, Hong Kong</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>For general inquiries:<br>
+                            <strong>lab.sajjad@cuhk.edu.hk</strong></p>
+                            <p style="margin-top: 10px;">For collaboration proposals:<br>
+                            <strong>collaborate.sajjad@cuhk.edu.hk</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div>
+                            <h3>Opportunities</h3>
+                            <p>We're always interested in talented researchers. Current openings:</p>
+                            <ul style="padding-left: 20px; margin-top: 10px;">
+                                <li>Postdoctoral Researchers</li>
+                                <li>PhD Students</li>
+                                <li>Visiting Scholars</li>
+                                <li>Research Assistants</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background-color: rgba(0, 0, 0, 0.03); border-radius: 8px;">
+                    <h3><i class="fas fa-handshake"></i> Collaboration Interests</h3>
+                    <p>We actively seek collaborations with:</p>
+                    <ul style="columns: 2; margin-top: 10px;">
+                        <li>Government agencies</li>
+                        <li>International research institutions</li>
+                        <li>Industry partners in geospatial tech</li>
+                        <li>NGOs focused on disaster risk reduction</li>
+                        <li>Universities worldwide</li>
+                        <li>Community organizations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>SAJJAD Lab • Spatial Analytics for Joint Forecasting & Adaptive-Disaster Resilience</p>
+            <p>The Chinese University of Hong Kong • © 2024</p>
+            <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+                <a href="https://github.com/msajjad3" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="social-link" title="Google Scholar">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="https://twitter.com" class="social-link" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // DOM Elements
+        const themeSelect = document.getElementById('themeSelect');
+        const modeToggle = document.getElementById('modeToggle');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const navItems = document.querySelectorAll('.nav-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        // Initialize theme from localStorage or default
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('sajjadLabTheme') || 'default';
+            const savedMode = localStorage.getItem('sajjadLabMode') || 'light';
+            
+            // Apply saved theme
+            document.body.classList.remove('theme-coffee', 'theme-retro');
+            if (savedTheme !== 'default') {
+                document.body.classList.add(`theme-${savedTheme}`);
+            }
+            themeSelect.value = savedTheme;
+            
+            // Apply saved mode
+            if (savedMode === 'dark') {
+                document.body.classList.add('dark-mode');
+                modeToggle.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+            }
+            
+            // Set active tab from URL hash or default
+            const hash = window.location.hash.substring(1) || 'about';
+            switchTab(hash);
+        });
+
+        // Theme Selector
+        themeSelect.addEventListener('change', (e) => {
+            const theme = e.target.value;
+            
+            // Remove all theme classes
+            document.body.classList.remove('theme-coffee', 'theme-retro');
+            
+            // Add selected theme class
+            if (theme !== 'default') {
+                document.body.classList.add(`theme-${theme}`);
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('sajjadLabTheme', theme);
+        });
+
+        // Dark/Light Mode Toggle
+        modeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                modeToggle.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+                localStorage.setItem('sajjadLabMode', 'dark');
+            } else {
+                modeToggle.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
+                localStorage.setItem('sajjadLabMode', 'light');
+            }
+        });
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Tab Navigation
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tabId = item.getAttribute('data-tab');
+                
+                // Update URL hash without scrolling
+                history.pushState(null, null, `#${tabId}`);
+                
+                // Switch tab
+                switchTab(tabId);
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash.substring(1) || 'about';
+            switchTab(hash);
+        });
+
+        // Tab switching function
+        function switchTab(tabId) {
+            // Hide all tabs
+            tabContents.forEach(tab => tab.classList.remove('active'));
+            navItems.forEach(item => item.classList.remove('active'));
+            
+            // Show selected tab
+            const activeTab = document.getElementById(tabId);
+            if (activeTab) {
+                activeTab.classList.add('active');
+            }
+            
+            // Activate corresponding nav link
+            const activeNavLink = document.querySelector(`.nav-link[data-tab="${tabId}"]`);
+            if (activeNavLink) {
+                activeNavLink.classList.add('active');
+            }
+            
+            // If tab doesn't exist, default to about
+            if (!activeTab) {
+                switchTab('about');
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.startsWith('#') && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update copyright year
+        document.querySelector('footer p:last-of-type').innerHTML = 
+            `The Chinese University of Hong Kong • © ${new Date().getFullYear()}`;
+    </script>
+</body>
+</html>
