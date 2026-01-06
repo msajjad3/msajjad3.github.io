@@ -119,11 +119,11 @@
         }
 
         .theme-selector, .mode-toggle {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.15);
             border-radius: 25px;
             padding: 8px 15px;
-            color: white;
+            color: var(--text-color);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -131,9 +131,23 @@
             transition: var(--transition);
             font-size: 0.9rem;
         }
-
+        
         .theme-selector:hover, .mode-toggle:hover {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Update the select dropdown text color */
+        .theme-selector select {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .theme-selector select option {
+            color: #333;
         }
 
         .theme-selector select {
@@ -1087,13 +1101,28 @@
             if (!activeTab) {
                 switchTab('about');
             }
+            // ADD THIS LINE: Scroll to top of page
+            window.scrollTo(0, 0);
         }
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                if (href !== '#' && href.startsWith('#') && document.querySelector(href)) {
+                
+                // Check if it's a tab navigation link
+                const isTabLink = this.classList.contains('nav-link') || 
+                                 this.getAttribute('data-tab');
+                
+                // If it's a tab link, prevent scrolling
+                if (isTabLink) {
+                    e.preventDefault();
+                    // Just switch tabs without scrolling
+                    const tabId = href.substring(1);
+                    switchTab(tabId);
+                } 
+                // For other anchor links (like footer, within page), allow smooth scroll
+                else if (href !== '#' && href.startsWith('#') && document.querySelector(href)) {
                     e.preventDefault();
                     document.querySelector(href).scrollIntoView({
                         behavior: 'smooth'
