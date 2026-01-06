@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>SAJJAD Lab - Spatial Analytics for Resilience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -198,55 +198,245 @@
 
         /* ===== NAVIGATION ===== */
         nav {
-            background-color: var(--card-bg);
+            background-color: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
             border-bottom: 1px solid var(--border-color);
         }
-
+        
         .nav-container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            overflow-x: auto;
+            flex-direction: column;
             padding: 0;
         }
-
-        .nav-links li {
-            flex-shrink: 0;
+        
+        /* Mobile-first navigation */
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            width: 100%;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            margin: 0;
+            padding: 0;
         }
-
+        
+        .nav-links.active {
+            max-height: 500px; /* Enough to show all items */
+        }
+        
+        .nav-links li {
+            width: 100%;
+        }
+        
         .nav-links a {
             display: block;
-            padding: 18px 20px;
+            padding: 16px 20px;
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
-            border-bottom: 3px solid transparent;
+            border-bottom: 1px solid var(--border-color);
             transition: var(--transition);
-            white-space: nowrap;
+            font-size: 1rem;
         }
-
+        
         .nav-links a:hover, .nav-links a.active {
             color: var(--primary-color);
-            border-bottom-color: var(--primary-color);
             background-color: rgba(0, 0, 0, 0.02);
+            border-left: 4px solid var(--primary-color);
         }
-
+        
+        /* Mobile menu button */
         .mobile-menu-btn {
-            display: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 16px 20px;
             background: none;
             border: none;
-            font-size: 1.5rem;
             color: var(--text-color);
+            font-size: 1.1rem;
+            font-weight: 500;
             cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .mobile-menu-btn i {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu-btn.active i {
+            transform: rotate(180deg);
+        }
+        
+        /* Social links in navigation - mobile specific */
+        .nav-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px 20px;
+            border-top: 1px solid var(--border-color);
+            background-color: rgba(0, 0, 0, 0.01);
+        }
+        /* ===== MOBILE HEADER OPTIMIZATION ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 0;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .logo-full img {
+                max-height: 60px;
+                width: auto;
+            }
+            
+            .controls {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+                align-items: center;
+            }
+            
+            .theme-selector, .mode-toggle {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+            
+            /* Ensure touch targets are large enough */
+            .btn, .social-link, .theme-selector, .mode-toggle {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+        /* ===== MOBILE CONTENT OPTIMIZATION ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            main {
+                padding: 1.5rem 0;
+            }
+            
+            .content-card {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                border-radius: 10px;
+            }
+            
+            .content-card h2 {
+                font-size: 1.4rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .content-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            /* Team and project grids become single column */
+            .team-grid, .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            
+            /* Publication items more compact */
+            .publication-item {
+                padding: 1.2rem 0;
+            }
+            
+            .pub-title {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+            
+            /* Button stack vertically */
+            .pub-links, .content-card .btn-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            /* Contact items stack */
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            /* Fix text overflow */
+            .tag, .member-focus, .pub-authors {
+                word-break: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            /* Improve spacing in PI section */
+            #pi .content-card > div > div {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            
+            #pi .logo-image {
+                margin: 0 auto;
+            }
+        }
+        
+        /* Desktop styles */
+        @media (min-width: 769px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .nav-links {
+                flex-direction: row;
+                max-height: none;
+                overflow: visible;
+                width: auto;
+            }
+            
+            .nav-links li {
+                width: auto;
+            }
+            
+            .nav-links a {
+                padding: 22px 20px;
+                border-bottom: 3px solid transparent;
+                border-left: none;
+                white-space: nowrap;
+            }
+            
+            .nav-links a:hover, .nav-links a.active {
+                border-left: none;
+                border-bottom: 3px solid var(--primary-color);
+                background-color: transparent;
+            }
+            
+            .nav-social {
+                display: none; /* Social links handled elsewhere on desktop */
+            }
         }
 
         /* ===== MAIN CONTENT ===== */
@@ -1165,6 +1355,46 @@
         const navLinks = document.getElementById('navLinks');
         const navItems = document.querySelectorAll('.nav-link');
         const tabContents = document.querySelectorAll('.tab-content');
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+                
+                // Update ARIA attributes for accessibility
+                const isExpanded = navLinks.classList.contains('active');
+                mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+                
+                // Change icon
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.className = isExpanded ? 'fas fa-times' : 'fas fa-bars';
+                }
+            });
+            
+            // Close menu when clicking outside on mobile
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.classList.remove('active');
+                        mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+            
+            // Close menu after clicking a link (on mobile)
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.classList.remove('active');
+                        mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        }
 
         // Initialize theme from localStorage or default
         document.addEventListener('DOMContentLoaded', () => {
