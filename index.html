@@ -252,27 +252,23 @@
         
         /* Mobile menu button */
         .mobile-menu-btn {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            display: none;
             width: 100%;
-            padding: 16px 20px;
+            padding: 16px 0;
             background: none;
             border: none;
-            color: var(--text-color);
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
             font-size: 1.1rem;
             font-weight: 500;
             cursor: pointer;
-            border-bottom: 1px solid var(--border-color);
+            text-align: left;
         }
         
         .mobile-menu-btn i {
+            float: right;
             font-size: 1.3rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .mobile-menu-btn.active i {
-            transform: rotate(180deg);
+            color: #1a5f7a;
         }
         
         /* Social links in navigation - mobile specific */
