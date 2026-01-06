@@ -83,7 +83,7 @@
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 2rem 0;
+            padding: 1rem 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
@@ -94,35 +94,18 @@
             flex-wrap: wrap;
         }
 
-        .logo {
+        .logo-full {
+            width: 100%;
             display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-image {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            flex-shrink: 0;
+            align-items: center;
+            padding: 10px 0;
         }
         
-        .logo-image img {
-            max-width: 100%;
-            max-height: 100%;
+        .logo-full img {
+            max-height: 80px;  /* Adjust this value to control logo size */
+            width: auto;
             object-fit: contain;
-        }
-
-        .logo-text h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        .logo-text p {
-            opacity: 0.9;
-            font-size: 0.95rem;
         }
 
         /* ===== CONTROLS ===== */
@@ -530,14 +513,13 @@
 <body>
     <!-- HEADER -->
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <!-- NEW LOGO IMAGE -->
-                <div class="logo-image">
-                    <img src="sajjad-lab-logo.png" alt="SAJJAD Lab Logo" style="max-height: 60px; width: auto;">
-                </div>
+        <div class="container">
+            <!-- Logo takes full width -->
+            <div class="logo-full">
+                <img src="sajjad-lab-logo.png" alt="SAJJAD Lab">
             </div>
             
+            <!-- Controls below logo -->
             <div class="controls">
                 <div class="theme-selector">
                     <i class="fas fa-palette"></i>
