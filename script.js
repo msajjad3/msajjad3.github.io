@@ -118,69 +118,6 @@ function switchTab(tabId) {
     window.scrollTo(0, 0);
 }
 
-// Add CUHK Map Functionality
-function initCUHKMap() {
-    const mapContainer = document.getElementById('cuhk-map');
-    
-    if (!mapContainer) return;
-    
-    // Create map placeholder with CUHK coordinates
-    const cuhkCoords = { lat: 22.4195, lng: 114.2062 }; // CUHK coordinates
-    
-    // Create a simple SVG map (no external API needed)
-    mapContainer.innerHTML = `
-        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); position: relative;">
-            <!-- Map background -->
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: 
-                radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 2px, transparent 2px),
-                radial-gradient(circle at 70% 60%, rgba(255,255,255,0.1) 2px, transparent 2px),
-                radial-gradient(circle at 40% 70%, rgba(255,255,255,0.1) 2px, transparent 2px);
-                background-size: 50px 50px;">
-            </div>
-            
-            <!-- Hong Kong Island outline -->
-            <div style="position: absolute; top: 60%; left: 40%; width: 40%; height: 30%; 
-                background: rgba(42, 157, 143, 0.6); border-radius: 50% 50% 30% 30%; 
-                transform: rotate(-10deg);"></div>
-            
-            <!-- Kowloon outline -->
-            <div style="position: absolute; top: 50%; left: 50%; width: 30%; height: 25%; 
-                background: rgba(231, 111, 81, 0.6); border-radius: 40% 40% 30% 30%; 
-                transform: rotate(5deg);"></div>
-            
-            <!-- CUHK Marker -->
-            <div style="position: absolute; top: 45%; left: 55%; transform: translate(-50%, -50%);">
-                <div style="position: relative;">
-                    <div style="width: 20px; height: 20px; background: white; border-radius: 50%; 
-                        border: 3px solid var(--accent-color); box-shadow: 0 0 0 5px rgba(231, 111, 81, 0.3); 
-                        animation: pulse 2s infinite;"></div>
-                    <div style="position: absolute; top: 25px; left: -40px; width: 100px; 
-                        background: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; 
-                        color: var(--text-color); box-shadow: var(--shadow); text-align: center;">
-                        <strong>CUHK</strong>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Compass -->
-            <div style="position: absolute; bottom: 15px; right: 15px; background: rgba(255,255,255,0.9); 
-                padding: 5px; border-radius: 4px; font-size: 0.8rem;">
-                <i class="fas fa-compass"></i> N
-            </div>
-            
-            <!-- Scale -->
-            <div style="position: absolute; bottom: 15px; left: 15px; background: rgba(255,255,255,0.9); 
-                padding: 5px 10px; border-radius: 4px; font-size: 0.8rem;">
-                <i class="fas fa-ruler"></i> 5 km
-            </div>
-        </div>
-    `;
-    
-// Initialize map when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    initCUHKMap();
-});
-
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
