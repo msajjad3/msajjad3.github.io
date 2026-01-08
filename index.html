@@ -4,258 +4,478 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAJJAD Lab - Spatial Analytics for Resilience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header - Exactly as you had it -->
+    <!-- HEADER -->
     <header>
-        <img src="sajjad-lab-logo.png" alt="SAJJAD Lab Logo" class="lab-logo">
-        <div class="header-content">
-            <h1>SAJJAD Lab</h1>
-            <p class="tagline">Spatial Analytics for Just & Joint Adaptation to Disasters</p>
-            <p>The Chinese University of Hong Kong</p>
+        <div class="container">
+            <!-- Logo takes full width -->
+            <div class="logo-full">
+                <img src="sajjad-lab-logo.png" alt="SAJJAD Lab">
+            </div>
+            
+            <!-- Controls below logo -->
+            <div class="controls">
+                <div class="theme-selector">
+                    <i class="fas fa-palette"></i>
+                    <select id="themeSelect">
+                        <option value="default">Marine Theme</option>
+                        <option value="coffee">Coffee Theme</option>
+                        <option value="retro">Retro Theme</option>
+                    </select>
+                </div>
+                
+                <button class="mode-toggle" id="modeToggle">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- Tabs Navigation -->
-    <div class="tabs-container">
-        <ul class="tabs-nav">
-            <li><a class="tab-link active" data-tab="about">About</a></li>
-            <li><a class="tab-link" data-tab="pi">Principal Investigator</a></li>
-            <li><a class="tab-link" data-tab="team">Team</a></li>
-            <li><a class="tab-link" data-tab="projects">Research Projects</a></li>
-            <li><a class="tab-link" data-tab="publications">Publications</a></li>
-            <li><a class="tab-link" data-tab="news">Lab News</a></li>
-            <li><a class="tab-link" data-tab="contact">Contact</a></li>
-        </ul>
-
-        <!-- TAB 1: ABOUT (Your original about content) -->
-        <div id="about" class="tab-content active">
-            <h2>About the Lab</h2>
-            <p>The SAJJAD Lab (Spatial Analytics for Just & Joint Adaptation to Disasters) is a research group at the Department of Geography and Resource Management, The Chinese University of Hong Kong, HKSAR, dedicated to advancing geospatial intelligence for systemic resilience.</p>
-            
-            <h3>Lab Name Philosophy</h3>
-            <p>SAJJAD from the Arabic word سجّاد means "one who is devoutly persistent" – reflecting our lab's ethos of rigorous, devoted inquiry into spatial problems for societal benefits and global good.</p>
-            
-            <h3>Our Mission</h3>
-            <p>To develop integrative spatial analytics and forecasting frameworks that enhance community resilience to environmental hazards and climate change through evidence-based, actionable research.</p>
-            
-            <h3>Research Philosophy</h3>
-            <p>We believe in translational geospatial science – bridging advanced analytics with practical applications for disaster risk reduction, sustainable urban development, and climate adaptation through employing spatial-information models, GeoAI, and Machine Learning .</p>
-            
-            <h3>Core Values</h3>
-            <p class="lab-values">Interdisciplinary Integration Methodological Rigor Societal Impact Open Science Collaborative Innovation Co-Design and Co-Production of Knowlege GeoAI for Good</p>
-        </div>
-
-        <!-- TAB 2: PRINCIPAL INVESTIGATOR (Your original PI content) -->
-        <div id="pi" class="tab-content">
-            <h2>Lab Principal Investigator</h2>
-            
-            <h3>Dr. Muhammad Sajjad</h3>
-            <p><strong>Research Assistant Professor</strong></p>
-            <p>Department of Geography and Resource Management, The Chinese University of Hong Kong</p>
-            
-            <p>Dr. Sajjad's research focuses on geospatial data science for disaster risk reduction, vulnerability and resilience assessment, and science-informed planning. His work couples GeoAI, remote sensing, machine learning, and spatial modeling to address complex human-environment challenges.</p>
-            
-            <p>
-                <a href="sajjad-cv.pdf" class="btn" target="_blank">Download CV</a>
-                <a href="https://scholar.google.com" class="btn" target="_blank">Google Scholar</a>
-                <a href="mailto:muhammadsajjad@cuhk.edu.hk" class="btn">Contact</a>
-            </p>
-            
-            <!-- YOUR ORIGINAL SOCIAL MEDIA LINKS -->
-            <div class="social-links">
-                <strong>Connect on Social Media:</strong><br>
-                <a href="#" class="social-link">LinkedIn</a> | 
-                <a href="#" class="social-link">ResearchGate</a> | 
-                <a href="#" class="social-link">Twitter</a> | 
-                <a href="#" class="social-link">ORCID</a>
-            </div>
-            
-            <h3>Research Interests</h3>
-            <p>Disaster Vulnerability & Resilience GeoAI Applications Disaster Risk Reduction Remote Sensing Spatial Data Science Machine Learning Climate Adaptation Urban Sustainability</p>
-            
-            <h3>Education & Background</h3>
-            <ul>
-                <li>PhD, City University of Hong Kong</li>
-                <li>Visiting Scholar, Princeton University, USA</li>
-                <li>Research Assistant Professor, The Chinese University of Hong Kong</li>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container nav-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link active" data-tab="about">About the Lab</a></li>
+                <li><a href="#pi" class="nav-link" data-tab="pi">Lab PI</a></li>
+                <li><a href="#team" class="nav-link" data-tab="team">Team</a></li>
+                <li><a href="#projects" class="nav-link" data-tab="projects">Projects</a></li>
+                <li><a href="#publications" class="nav-link" data-tab="publications">Publications</a></li>
+                <li><a href="#news" class="nav-link" data-tab="news">News</a></li>
+                <li><a href="#contact" class="nav-link" data-tab="contact">Contact Us</a></li>
             </ul>
             
-            <img src="pi-photo.png" alt="Dr. Muhammad Sajjad" style="max-width: 200px; margin: 20px 0; border: 1px solid #ddd;">
-        </div>
-
-        <!-- TAB 3: TEAM (Your original team content) -->
-        <div id="team" class="tab-content">
-            <h2>Team Members</h2>
-            <p>Our interdisciplinary team brings together expertise in geography, data science, environmental science, and urban planning.</p>
-            
-            <div class="team-member">
-                <h3>Dr. Muhammad Sajjad</h3>
-                <p><strong>Principal Investigator</strong></p>
-                <p>Geospatial data science, disaster resilience, remote sensing</p>
-                <p>Primary focus: Disaster Resilience & vulnerability, GeoAI, Machine Learning, Spatial-temporal Modelling</p>
-            </div>
-            
-            <div class="team-member">
-                <h3>Open Position</h3>
-                <p><strong>PhD Student</strong></p>
-                <p>Opportunities for doctoral research in geospatial analytics for disaster risk reduction.</p>
-                <p>through CUHK/HKPFS PhD Program</p>
-            </div>
-            
-            <div class="team-member">
-                <h3>Collaborators</h3>
-                <p><strong>Research Partners</strong></p>
-                <p>Network of collaborators from Princeton University, international institutions, and industry partners.</p>
-                <p>Global collaborations</p>
-            </div>
-            
-            <h3>Join Our Team</h3>
-            <p>We welcome inquiries from motivated researchers interested in geospatial science, disaster resilience, and sustainable development. Please see the Contact Us section for opportunities.</p>
-        </div>
-
-        <!-- TAB 4: RESEARCH PROJECTS (Your original projects) -->
-        <div id="projects" class="tab-content">
-            <h2>Research Projects</h2>
-            <p>Our lab engages in interdisciplinary research projects at the intersection of Geospatial Science, GeoAI & Machine Learning, Disaster Resilience, and Sustainability.</p>
-            
-            <h3>Coastal Risk Forecasting</h3>
-            <p>Developing machine learning models for predicting coastal flood risks under climate change scenarios.</p>
-            <p><strong>Tags:</strong> Machine Learning Coastal Hazards Climate Change</p>
-            
-            <h3>Urban Resilience Metrics</h3>
-            <p>Creating spatial indicators for assessing and monitoring resilience in high-density urban environments.</p>
-            <p><strong>Tags:</strong> Urban Analytics Resilience Indicators Spatial Modeling</p>
-            
-            <h3>Geospatial AI for Biomass Estimation</h3>
-            <p>Integrating remote sensing and AI for above-ground biomass estimation in temperate forests.</p>
-            <p><strong>Tags:</strong> Remote Sensing AI/ML Forest Ecology</p>
-            
-            <h3>Multi-Hazard Risk Assessment</h3>
-            <p>Developing integrated frameworks for assessing compound and cascading disaster risks.</p>
-            <p><strong>Tags:</strong> Multi-Hazard Risk Assessment Spatial Statistics</p>
-            
-            <h3>Funding & Collaborations</h3>
-            <p>Our research is supported by competitive internal and external grants through collaborations with international partners and various governmental agencies.</p>
-        </div>
-
-        <!-- TAB 5: PUBLICATIONS (Your EXACT original publications with DOIs) -->
-        <div id="publications" class="tab-content">
-            <h2>Selected Publications</h2>
-            <p>High-impact publications showcasing our research contributions to geospatial science and disaster resilience.</p>
-            
-            <div class="publication-item">
-                <p><strong>Rethinking disaster resilience in high-density cities: Towards an urban resilience knowledge system</strong></p>
-                <p>Sajjad, M., Chan, J.C.L., Chopra, S.S. Sustainable Cities and Society, 69, 102850 (2021)</p>
-                <p><a href="https://doi.org/10.1016/j.scs.2021.102850" class="btn" target="_blank">DOI: 10.1016/j.scs.2021.102850</a></p>
-            </div>
-            
-            <div class="publication-item">
-                <p><strong>Assessing hazard vulnerability, habitat conservation, and restoration for the enhancement of mainland China's coastal resilience</strong></p>
-                <p>Sajjad, M., Li, Y., Tang, Z., Cao, L., Liu, X. Earth's Future, 6(3), 326-338 (2018)</p>
-                <p><a href="https://doi.org/10.1002/2017EF000676" class="btn" target="_blank">DOI: 10.1002/2017EF000676</a></p>
-            </div>
-            
-            <div class="publication-item">
-                <p><strong>Integration of machine learning and remote sensing for above ground biomass estimation</strong></p>
-                <p>Anees, S.A., Mehmood, K., Khan, W.R., Sajjad, M., et al. Ecological Informatics, 82, 102732 (2024)</p>
-                <p><a href="https://doi.org/10.1016/j.ecoinf.2024.102732" class="btn" target="_blank">DOI: 10.1016/j.ecoinf.2024.102732</a></p>
-            </div>
-            
-            <div class="publication-item">
-                <p><strong>Risk assessment for the sustainability of coastal communities: A preliminary study</strong></p>
-                <p>Sajjad, M., Chan, J.C.L. Science of the Total Environment, 671, 339-350 (2019)</p>
-                <p><a href="https://doi.org/10.1016/j.scitotenv.2019.03.290" class="btn" target="_blank">DOI: 10.1016/j.scitotenv.2019.03.290</a></p>
+            <div class="social-links">
+                <a href="https://github.com/msajjad3" class="social-link" title="GitHub" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="social-link" title="Google Scholar" target="_blank">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="https://x.com/Mah_Sajjad" class="social-link" title="X" target="_blank">
+                    <i class="fab fa-x"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-sajjad-ph-d-05590865/" class="social-link" title="LinkedIn" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.researchgate.net/profile/Muhammad-Sajjad-Phd?ev=hdr_xprf" class="social-link" title="ResearchGate" target="_blank">
+                    <i class="fab fa-researchgate"></i>
+                </a>
+                <a href="https://orcid.org/0000-0002-1576-1342" class="social-link" title="ORCID" target="_blank">
+                    <i class="fab fa-orcid"></i>
+                </a>
             </div>
         </div>
+    </nav>
 
-        <!-- TAB 6: LAB NEWS (Your original news) -->
-        <div id="news" class="tab-content">
-            <h2>Lab News & Updates</h2>
-            
-            <div class="news-item">
-                <span class="news-date">January 2026</span>
-                <h3>Dr. Sajjad selected as a Chapter Scientist for IPCC's</h3>
-                <p>We're excited to announce that Dr. Sajjad has been selected for IPCC's upcoming AR7, WG-II. He will be working with the CLAs and LAs of Chapter 2 (Vulnerabilities, Risks, and Impacts) to synthesize the state of global science for the upcoming AR7.</p>
-            </div>
-            
-            <div class="news-item">
-                <span class="news-date">November 2024</span>
-                <h3>Paper Accepted in Ecological Informatics</h3>
-                <p>Our research on "Integration of machine learning and remote sensing for above ground biomass estimation" has been accepted for publication.</p>
-            </div>
-            
-            <div class="news-item">
-                <span class="news-date">October 2024</span>
-                <h3>Conference Presentation at AGU Fall Meeting</h3>
-                <p>Lab members presented research on coastal resilience frameworks at the American Geophysical Union conference.</p>
-            </div>
-            
-            <div class="news-item">
-                <span class="news-date">September 2024</span>
-                <h3>New Research Grant Awarded</h3>
-                <p>Received funding for a project on "Multi-hazard risk assessment in coastal urban areas under climate change."</p>
-            </div>
-            
-            <div class="news-item">
-                <span class="news-date">August 2024</span>
-                <h3>Postdoctoral Position Opening</h3>
-                <p>We're seeking a postdoctoral researcher with expertise in geospatial AI and remote sensing. Applications now open.</p>
-            </div>
-        </div>
-
-        <!-- TAB 7: CONTACT (Your original contact info) -->
-        <div id="contact" class="tab-content">
-            <h2>Contact Us</h2>
-            <p>We welcome inquiries about research collaborations, student opportunities, and potential partnerships.</p>
-            
-            <div class="contact-info">
-                <h3>Location</h3>
-                <p>
-                    <strong>SAJJAD Lab</strong><br>
-                    Department of Geography and Resource Management<br>
-                    The Chinese University of Hong Kong<br>
-                    Shatin, New Territories, Hong Kong
-                </p>
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <!-- ABOUT TAB -->
+        <section id="about" class="tab-content active">
+            <div class="content-card">
+                <h2><i class="fas fa-flask"></i> About the Lab</h2>
+                <p>The <span class="highlight">SAJJAD Lab</span> (<strong>S</strong>patial <strong>A</strong>nalytics for <strong>J</strong>ust & <strong>J</strong>oint <strong>A</strong>daptation to <strong>D</strong>isasters) is a research group at the Department of Geography and Resource Management, The Chinese University of Hong Kong, HKSAR, dedicated to advancing geospatial intelligence for systemic resilience.</p>
                 
-                <h3>Email</h3>
-                <p>For general inquiries and collaboration proposals: <a href="mailto:muhammadsajjad@cuhk.edu.hk">muhammadsajjad@cuhk.edu.hk</a></p>
+                <h3>Lab Name Philosophy</h3>
+                <p><span class="highlight">SAJJAD</span> from the Arabic word <span class="highlight"> سجّاد </span> means <strong>"one who is devoutly persistent"</strong> – reflecting our lab's ethos of rigorous, devoted inquiry into spatial problems for societal benefits and global good. </p>
+                
+                <h3>Our Mission</h3>
+                <p>To develop integrative spatial analytics and forecasting frameworks that enhance community resilience to environmental hazards and climate change through evidence-based, actionable research.</p>
+                
+                <h3>Research Philosophy</h3>
+                <p>We believe in <span class="highlight">translational geospatial science</span> – bridging advanced analytics with practical applications for disaster risk reduction, sustainable urban development, and climate adaptation through employing spatial-information models, GeoAI, and Machine Learning .</p>
+                
+                <h3>Core Values</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                    <span class="tag">Interdisciplinary Integration</span>
+                    <span class="tag">Methodological Rigor</span>
+                    <span class="tag">Societal Impact</span>
+                    <span class="tag">Open Science</span>
+                    <span class="tag">Collaborative Innovation</span>
+                    <span class="tag">Co-Design and Co-Production of Knowlege</span>
+                    <span class="tag">GeoAI for Good</span>
+                </div>
             </div>
-            
-            <div class="contact-info">
-                <h3>Opportunities</h3>
-                <p>We're always interested in talented researchers. Current openings:</p>
-                <ul>
-                    <li>Postdoctoral Researchers</li>
-                    <li>PhD Students</li>
-                    <li>Visiting Scholars</li>
-                    <li>Research Assistants</li>
-                </ul>
+        </section>
+
+        <!-- LAB PI TAB -->
+        <section id="pi" class="tab-content">
+            <div class="content-card">
+                <h2><i class="fas fa-user-tie"></i> Lab Principal Investigator</h2>
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;">
+                        <div style="flex-shrink: 0;">
+                            <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; border: 4px solid var(--primary-color); box-shadow: var(--shadow);">
+                                <img src="pi-photo.png" alt="Dr. Muhammad Sajjad" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3>Dr. Muhammad Sajjad</h3>
+                            <p class="member-role">Research Assistant Professor</p>
+                            <p>Department of Geography and Resource Management, The Chinese University of Hong Kong</p>
+                            <p style="margin-top: 15px;">Dr. Sajjad's research focuses on geospatial data science for disaster risk reduction, vulnerability and resilience assessment, and science-informed planning. His work couples GeoAI, remote sensing, machine learning, and spatial modeling to address complex human-environment challenges.</p>
+                            
+                            <div style="margin-top: 20px;">
+                                <!-- NEW CV BUTTON -->
+                                <a href="sajjad-cv.pdf" class="btn" download style="background-color: var(--accent-color);">
+                                    <i class="fas fa-download"></i> Download CV
+                                </a>
+                            <div style="margin-top: 20px;">
+                                <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="btn" target="_blank">
+                                    <i class="fas fa-graduation-cap"></i> Google Scholar
+                                </a>
+                                <a href="mailto:muhammadsajjad@cuhk.edu.hk" class="btn" style="background-color: var(--secondary-color);">
+                                    <i class="fas fa-envelope"></i> Contact
+                                </a>
+                            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                                <h4 style="margin-bottom: 15px; color: var(--text-light); font-size: 1rem;">
+                                    <i class="fas fa-share-alt"></i> Connect on Social Media
+                                </h4>
+                                <div class="social-links" style="justify-content: flex-start;">
+                                    <a href="https://github.com/msajjad3" class="social-link" title="GitHub" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="social-link" title="Google Scholar" target="_blank">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </a>
+                                    <a href="https://x.com/Mah_Sajjad" class="social-link" title="X" target="_blank">
+                                        <i class="fab fa-x"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/muhammad-sajjad-ph-d-05590865/" class="social-link" title="LinkedIn" target="_blank">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="https://www.researchgate.net/profile/Muhammad-Sajjad-Phd?ev=hdr_xprf" class="social-link" title="ResearchGate" target="_blank">
+                                        <i class="fab fa-researchgate"></i>
+                                    </a>
+                                    <a href="https://orcid.org/0000-0002-1576-1342" class="social-link" title="ORCID" target="_blank">
+                                        <i class="fab fa-orcid"></i>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3>Research Interests</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
+                            <span class="tag">Disaster Vulnerability & Resilience</span>
+                            <span class="tag">GeoAI Applications</span>
+                            <span class="tag">Disaster Risk Reduction</span>
+                            <span class="tag">Remote Sensing</span>
+                            <span class="tag">Spatial Data Science</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Climate Adaptation</span>
+                            <span class="tag">Urban Sustainability</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3>Education & Background</h3>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>PhD, City University of Hong Kong</li>
+                            <li>Visiting Scholar, Princeton University, USA</li>
+                            <li>Research Assistant Professor, The Chinese University of Hong Kong</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            
-            <div class="contact-info">
-                <h3>Collaboration Interests</h3>
-                <p>We actively seek collaborations with:</p>
-                <ul>
-                    <li>Government agencies</li>
-                    <li>International research institutions</li>
-                    <li>Industry partners in geospatial tech</li>
-                    <li>NGOs focused on disaster risk reduction</li>
-                    <li>Universities worldwide</li>
-                    <li>Community organizations</li>
+        </section>
+
+        <!-- TEAM TAB -->
+        <section id="team" class="tab-content">
+            <div class="content-card">
+                <h2><i class="fas fa-users"></i> Team Members</h2>
+                <p>Our interdisciplinary team brings together expertise in geography, data science, environmental science, and urban planning.</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h3>Dr. Muhammad Sajjad</h3>
+                        <p class="member-role">Principal Investigator</p>
+                        <p>Geospatial data science, disaster resilience, remote sensing</p>
+                        <p class="member-focus">
+                            <i class="fas fa-map-marker-alt"></i> Primary focus: Disaster Resilience & vulnerability, GeoAI, Machine Learning, Spatial-temporal Modelling
+                        </p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h3>Open Position</h3>
+                        <p class="member-role">PhD Student</p>
+                        <p>Opportunities for doctoral research in geospatial analytics for disaster risk reduction.</p>
+                        <p class="member-focus">
+                            <i class="fas fa-university"></i> through CUHK/HKPFS PhD Program
+                        </p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <h3>Collaborators</h3>
+                        <p class="member-role">Research Partners</p>
+                        <p>Network of collaborators from Princeton University, international institutions, and industry partners.</p>
+                        <p class="member-focus">
+                            <i class="fas fa-handshake"></i> Global collaborations
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background-color: rgba(0, 0, 0, 0.03); border-radius: 8px;">
+                    <h3><i class="fas fa-user-plus"></i> Join Our Team</h3>
+                    <p>We welcome inquiries from motivated researchers interested in geospatial science, disaster resilience, and sustainable development. Please see the <a href="#contact" class="nav-link" style="display: inline; color: var(--primary-color);">Contact Us</a> section for opportunities.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS TAB -->
+        <section id="projects" class="tab-content">
+            <div class="content-card">
+                <h2><i class="fas fa-project-diagram"></i> Research Projects</h2>
+                <p>Our lab engages in interdisciplinary research projects at the intersection of Geospatial Science, GeoAI & Machine Learning, Disaster Resilience, and Sustainability.</p>
+                
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Coastal Risk Forecasting</h3>
+                        <p>Developing machine learning models for predicting coastal flood risks under climate change scenarios.</p>
+                        <div style="margin-top: 15px;">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Coastal Hazards</span>
+                            <span class="tag">Climate Change</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Urban Resilience Metrics</h3>
+                        <p>Creating spatial indicators for assessing and monitoring resilience in high-density urban environments.</p>
+                        <div style="margin-top: 15px;">
+                            <span class="tag">Urban Analytics</span>
+                            <span class="tag">Resilience Indicators</span>
+                            <span class="tag">Spatial Modeling</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Geospatial AI for Biomass Estimation</h3>
+                        <p>Integrating remote sensing and AI for above-ground biomass estimation in temperate forests.</p>
+                        <div style="margin-top: 15px;">
+                            <span class="tag">Remote Sensing</span>
+                            <span class="tag">AI/ML</span>
+                            <span class="tag">Forest Ecology</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Multi-Hazard Risk Assessment</h3>
+                        <p>Developing integrated frameworks for assessing compound and cascading disaster risks.</p>
+                        <div style="margin-top: 15px;">
+                            <span class="tag">Multi-Hazard</span>
+                            <span class="tag">Risk Assessment</span>
+                            <span class="tag">Spatial Statistics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h3>Funding & Collaborations</h3>
+                    <p>Our research is supported by competitive internal and external grants through collaborations with international partners and various governmental agencies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLICATIONS TAB -->
+        <section id="publications" class="tab-content">
+            <div class="content-card">
+                <h2><i class="fas fa-file-alt"></i> Selected Publications</h2>
+                <p>High-impact publications showcasing our research contributions to geospatial science and disaster resilience.</p>
+                
+                <ul class="publication-list">
+                    <li class="publication-item">
+                        <div class="pub-title">Rethinking disaster resilience in high-density cities: Towards an urban resilience knowledge system</div>
+                        <div class="pub-authors">Sajjad, M., Chan, J.C.L., Chopra, S.S.</div>
+                        <div class="pub-venue">Sustainable Cities and Society, 69, 102850 (2021)</div>
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1016/j.scs.2021.102850" class="pub-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                            <a href="#" class="pub-link">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                        </div>
+                    </li>
+                    
+                    <li class="publication-item">
+                        <div class="pub-title">Assessing hazard vulnerability, habitat conservation, and restoration for the enhancement of mainland China's coastal resilience</div>
+                        <div class="pub-authors">Sajjad, M., Li, Y., Tang, Z., Cao, L., Liu, X.</div>
+                        <div class="pub-venue">Earth's Future, 6(3), 326-338 (2018)</div>
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1002/2017EF000676" class="pub-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </li>
+                    
+                    <li class="publication-item">
+                        <div class="pub-title">Integration of machine learning and remote sensing for above ground biomass estimation</div>
+                        <div class="pub-authors">Anees, S.A., Mehmood, K., Khan, W.R., Sajjad, M., et al.</div>
+                        <div class="pub-venue">Ecological Informatics, 82, 102732 (2024)</div>
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1016/j.ecoinf.2024.102732" class="pub-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </li>
+                    
+                    <li class="publication-item">
+                        <div class="pub-title">Risk assessment for the sustainability of coastal communities: A preliminary study</div>
+                        <div class="pub-authors">Sajjad, M., Chan, J.C.L.</div>
+                        <div class="pub-venue">Science of the Total Environment, 671, 339-350 (2019)</div>
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1016/j.scitotenv.2019.03.350" class="pub-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> DOI
+                            </a>
+                        </div>
+                    </li>
                 </ul>
+                
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="btn" target="_blank">
+                        <i class="fas fa-graduation-cap"></i> View Complete Publication List on Google Scholar
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWS TAB -->
+        <section id="news" class="tab-content">
+            <div class="content-card">
+                <h2><i class="fas fa-newspaper"></i> Lab News & Updates</h2>
+                
+                <div class="news-item">
+                    <div class="news-date">January 2026</div>
+                    <h3>Dr. Sajjad selected as a Chapter Scientist for IPCC's</h3>
+                    <p>We're excited to announce that Dr. Sajjad has been selected for IPCC's upcoming AR7, WG-II. He will be working with the CLAs and LAs of Chapter 2 (Vulnerabilities, Risks, and Impacts) to synthesize the state of global science for the upcoming AR7.</p>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">November 2024</div>
+                    <h3>Paper Accepted in Ecological Informatics</h3>
+                    <p>Our research on "Integration of machine learning and remote sensing for above ground biomass estimation" has been accepted for publication.</p>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">October 2024</div>
+                    <h3>Conference Presentation at AGU Fall Meeting</h3>
+                    <p>Lab members presented research on coastal resilience frameworks at the American Geophysical Union conference.</p>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">September 2024</div>
+                    <h3>New Research Grant Awarded</h3>
+                    <p>Received funding for a project on "Multi-hazard risk assessment in coastal urban areas under climate change."</p>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">August 2024</div>
+                    <h3>Postdoctoral Position Opening</h3>
+                    <p>We're seeking a postdoctoral researcher with expertise in geospatial AI and remote sensing. Applications now open.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT TAB -->
+        <section id="contact" class="tab-content">
+            <div class="content-card">
+                <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+                <p>We welcome inquiries about research collaborations, student opportunities, and potential partnerships.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>SAJJAD Lab<br>
+                            Department of Geography and Resource Management<br>
+                            The Chinese University of Hong Kong<br>
+                            Shatin, New Territories, Hong Kong</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>For general inquiries and collaboration proposals:<br>
+                            <strong>muhammadsajjad@cuhk.edu.hk</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div>
+                            <h3>Opportunities</h3>
+                            <p>We're always interested in talented researchers. Current openings:</p>
+                            <ul style="padding-left: 20px; margin-top: 10px;">
+                                <li>Postdoctoral Researchers</li>
+                                <li>PhD Students</li>
+                                <li>Visiting Scholars</li>
+                                <li>Research Assistants</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background-color: rgba(0, 0, 0, 0.03); border-radius: 8px;">
+                    <h3><i class="fas fa-handshake"></i> Collaboration Interests</h3>
+                    <p>We actively seek collaborations with:</p>
+                    <ul style="columns: 2; margin-top: 10px;">
+                        <li>Government agencies</li>
+                        <li>International research institutions</li>
+                        <li>Industry partners in geospatial tech</li>
+                        <li>NGOs focused on disaster risk reduction</li>
+                        <li>Universities worldwide</li>
+                        <li>Community organizations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>SAJJAD Lab • Spatial Analytics for Just & Joint Adaptation to Disasters</p>
+            <p>Department of Geography, The Chinese University of Hong Kong, Hong Kong SAR • © 2025</p>
+            <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+                <a href="https://github.com/msajjad3" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="social-link" title="Google Scholar">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="https://x.com/Mah_Sajjad" class="social-link" title="X">
+                    <i class="fab fa-x"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-sajjad-ph-d-05590865/" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.researchgate.net/profile/Muhammad-Sajjad-Phd?ev=hdr_xprf" class="social-link" title="ResearchGate">
+                    <i class="fab fa-researchgate"></i>
+                </a>
+                <a href="https://orcid.org/0000-0002-1576-1342" class="social-link" title="ORCID">
+                    <i class="fab fa-orcid"></i>
+                </a>
             </div>
         </div>
-    </div>
-
-    <!-- Footer - Your original style -->
-    <footer>
-        <p>SAJJAD Lab &copy; 2026 | Department of Geography and Resource Management, The Chinese University of Hong Kong</p>
-        <p>Shatin, New Territories, Hong Kong</p>
     </footer>
 
-    <!-- JavaScript for Tabs -->
-    <script src="tabs.js"></script>
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
 </body>
 </html>
