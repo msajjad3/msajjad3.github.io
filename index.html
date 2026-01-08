@@ -180,14 +180,14 @@
                     <div>
                         <h3>Research Interests</h3>
                         <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
-                            <span class="tag">Disaster Vulnerability & Resilience</span>
+                            <span class="tag">Urban & Environmental Sustainability</span>
+                            <span class="tag">Vulnerability & Resilience</span>
                             <span class="tag">GeoAI Applications</span>
                             <span class="tag">Disaster Risk Reduction</span>
-                            <span class="tag">Remote Sensing</span>
+                            <span class="tag">Remote Sensing & GIS</span>
                             <span class="tag">Spatial Data Science</span>
                             <span class="tag">Machine Learning</span>
                             <span class="tag">Climate Adaptation</span>
-                            <span class="tag">Urban & Environmental Sustainability</span>
                         </div>
                     </div>
                     
@@ -456,17 +456,128 @@
                     </div>
                 </div>
                 
-                <div style="margin-top: 2rem; padding: 1.5rem; background-color: rgba(0, 0, 0, 0.03); border-radius: 8px;">
-                    <h3><i class="fas fa-handshake"></i> Collaboration Interests</h3>
-                    <p>We actively seek collaborations with:</p>
-                    <ul style="columns: 2; margin-top: 10px;">
-                        <li>Government agencies</li>
-                        <li>International research institutions</li>
-                        <li>Industry partners in geospatial tech</li>
-                        <li>NGOs focused on disaster risk reduction</li>
-                        <li>Universities worldwide</li>
-                        <li>Community organizations</li>
+                <!-- LOCATION MAP SECTION -->
+                <div style="margin-top: 2.5rem; padding: 1.8rem; background-color: rgba(0, 0, 0, 0.03); border-radius: 10px; border-left: 4px solid var(--primary-color);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                        <i class="fas fa-map-marked-alt"></i> Location Map
+                    </h3>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: center; margin-top: 1rem;">
+                        <!-- Map Container -->
+                        <div style="flex: 1; min-width: 300px;">
+                            <div class="map-container">
+                                <div class="map-bg">
+                                    <div class="map-grid"></div>
+                                    <div class="map-island"></div>
+                                    <div class="map-kowloon"></div>
+                                    
+                                    <!-- CUHK Marker -->
+                                    <div style="position: absolute; top: 45%; left: 55%; transform: translate(-50%, -50%); z-index: 5;">
+                                        <div style="position: relative;">
+                                            <div class="map-marker-static map-marker"></div>
+                                            <div class="map-label">
+                                                <strong>CUHK</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="map-compass">
+                                        <i class="fas fa-compass"></i> N
+                                    </div>
+                                    
+                                    <div class="map-scale">
+                                        <i class="fas fa-ruler"></i> 5 km
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="text-align: center; margin-top: 15px; font-size: 0.95rem; color: var(--text-light); line-height: 1.5;">
+                                <i class="fas fa-university"></i> The Chinese University of Hong Kong<br>
+                                <small style="font-size: 0.85rem; opacity: 0.8;">22.4195° N, 114.2062° E</small>
+                            </p>
+                        </div>
+                        
+                        <!-- Location Details -->
+                        <div style="flex: 1; min-width: 300px;">
+                            <h4 style="color: var(--secondary-color); margin-bottom: 1rem;">
+                                <i class="fas fa-location-dot"></i> How to Reach Us
+                            </h4>
+                            <ul style="padding-left: 20px; margin-top: 10px; list-style-type: none;">
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-train" style="position: absolute; left: 0; color: var(--primary-color);"></i>
+                                    <strong>By MTR:</strong> University Station (East Rail Line)
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-bus" style="position: absolute; left: 0; color: var(--primary-color);"></i>
+                                    <strong>By Bus:</strong> Numerous bus routes from Shatin and other districts
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-car" style="position: absolute; left: 0; color: var(--primary-color);"></i>
+                                    <strong>By Car:</strong> Campus accessible via Tai Po Road
+                                </li>
+                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                    <i class="fas fa-map" style="position: absolute; left: 0; color: var(--primary-color);"></i>
+                                    <strong>Campus Map:</strong> 
+                                    <a href="https://www.cuhk.edu.hk/english/campus/cuhk-campus-map.html" target="_blank" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px dotted var(--accent-color);">
+                                        View CUHK Campus Map
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <div style="margin-top: 25px; padding: 15px; background-color: var(--primary-color); color: white; border-radius: 8px; font-size: 0.95rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                <i class="fas fa-info-circle"></i> 
+                                <strong>Our lab is located in the Geography Building (KK Leung Building)</strong>
+                            </div>
+                            
+                            <div style="margin-top: 20px; padding: 15px; background-color: rgba(42, 157, 143, 0.1); border-radius: 8px; border-left: 4px solid var(--secondary-color);">
+                                <h5 style="color: var(--secondary-color); margin-bottom: 8px; font-size: 1rem;">
+                                    <i class="fas fa-clock"></i> Visiting Hours
+                                </h5>
+                                <p style="font-size: 0.95rem; margin: 0; color: var(--text-color);">
+                                    By appointment only. Please email to schedule a visit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- COLLABORATION INTERESTS -->
+                <div style="margin-top: 2.5rem; padding: 1.8rem; background-color: rgba(0, 0, 0, 0.03); border-radius: 10px; border-left: 4px solid var(--accent-color);">
+                    <h3 style="color: var(--accent-color); margin-bottom: 1.2rem;">
+                        <i class="fas fa-handshake"></i> Collaboration Interests
+                    </h3>
+                    <p style="margin-bottom: 1rem;">We actively seek collaborations with:</p>
+                    <ul style="columns: 2; margin-top: 10px; padding-left: 20px;">
+                        <li style="margin-bottom: 8px; break-inside: avoid;">
+                            <i class="fas fa-building" style="color: var(--primary-color); margin-right: 8px;"></i>
+                            Government agencies
+                        </li>
+                        <li style="margin-bottom: 8px; break-inside: avoid;">
+                            <i class="fas fa-globe" style="color: var(--primary-color); margin-right: 8px;"></i>
+                            International research institutions
+                        </li>
+                        <li style="margin-bottom: 8px; break-inside: avoid;">
+                            <i class="fas fa-industry" style="color: var(--primary-color); margin-right: 8px;"></i>
+                            Industry partners in geospatial tech
+                        </li>
+                        <li style="margin-bottom: 8px; break-inside: avoid;">
+                            <i class="fas fa-hands-helping" style="color: var(--primary-color); margin-right: 8px;"></i>
+                            NGOs focused on disaster risk reduction
+                        </li>
+                        <li style="margin-bottom: 8px; break-inside: avoid;">
+                            <i class="fas fa-graduation-cap" style="color: var(--primary-color); margin-right: 8px;"></i>
+                            Universities worldwide
+                        </li>
+                        <li style="margin-bottom: 8px; break-inside: avoid;">
+                            <i class="fas fa-users" style="color: var(--primary-color); margin-right: 8px;"></i>
+                            Community organizations
+                        </li>
                     </ul>
+                    
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
+                        <a href="mailto:muhammadsajjad@cuhk.edu.hk" class="btn" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); padding: 12px 30px; font-size: 1.1rem;">
+                            <i class="fas fa-paper-plane"></i> Contact Us for Collaboration
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
