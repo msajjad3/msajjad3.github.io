@@ -516,9 +516,13 @@ body {
     background-color: #fdfdfd;
 }
 
-/* Limit line length for optimal reading */
-.content-card p, .content-card li, .content-card td {
-    max-width: 65ch;
+.content-card p, .content-card li {
+    max-width: 100%; /* Use full width of container */
+    line-height: 1.7;
+}
+
+.content-card {
+    max-width: 100%;
 }
 
 /* Publication Items */
