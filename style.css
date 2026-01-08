@@ -1,4 +1,4 @@
-/* style.css - SAJJAD Lab Website Styles */
+/* style.css - SAJJAD Lab Website with Tabs */
 
 /* 1. Basic Reset and Global Styles */
 * {
@@ -11,73 +11,123 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f8f9fa;
+    background-color: #f5f7fa;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* 2. Header and Navigation */
+/* 2. Header - Keep your original header look */
 header {
-    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-    color: white;
-    padding: 2rem;
-    border-radius: 10px;
+    text-align: center;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 1.5rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .lab-logo {
     height: 80px;
-    width: auto;
+    margin-bottom: 1rem;
 }
 
 .header-content h1 {
-    font-size: 2.2rem;
+    color: #1a237e;
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
 }
 
 .header-content .tagline {
+    color: #666;
     font-size: 1.2rem;
-    opacity: 0.9;
-    font-weight: 300;
+    font-weight: 500;
 }
 
-/* 3. Section Styling */
-section {
+.header-content p {
+    color: #777;
+    margin-top: 0.5rem;
+}
+
+/* 3. Tabs Navigation */
+.tabs-container {
     background: white;
-    padding: 2rem;
-    margin-bottom: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    overflow: hidden;
 }
 
-h2 {
+.tabs-nav {
+    display: flex;
+    flex-wrap: wrap;
+    background: #1a237e;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.tab-link {
+    padding: 1rem 1.5rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    display: block;
+}
+
+.tab-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.tab-link.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-bottom-color: #5c6bc0;
+}
+
+/* 4. Tab Content */
+.tab-content {
+    display: none;
+    padding: 2rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 5. Common Tab Content Styles */
+.tab-content h2 {
     color: #1a237e;
-    border-bottom: 3px solid #5c6bc0;
-    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #5c6bc0;
+    padding-bottom: 0.8rem;
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
 }
 
-h3 {
+.tab-content h3 {
     color: #283593;
-    margin: 1.5rem 0 0.8rem 0;
+    margin: 1.5rem 0 1rem 0;
+    font-size: 1.3rem;
 }
 
-/* 4. Mission and Values */
+/* 6. About Tab Specific */
 .mission-box {
     background: #e8eaf6;
     padding: 1.5rem;
-    border-left: 4px solid #3949ab;
+    border-radius: 6px;
     margin: 1.5rem 0;
+    border-left: 4px solid #3949ab;
 }
 
 .core-values {
@@ -96,20 +146,24 @@ h3 {
     font-weight: 500;
 }
 
-/* 5. Principal Investigator Section */
+/* 7. PI Tab Specific */
 .pi-profile {
     display: flex;
     gap: 2rem;
-    align-items: flex-start;
+    align-items: center;
     margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
 }
 
 .pi-photo {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #e8eaf6;
+    border: 5px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .pi-info {
@@ -124,7 +178,9 @@ h3 {
 }
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     padding: 10px 20px;
     background: #3949ab;
     color: white;
@@ -132,6 +188,8 @@ h3 {
     border-radius: 5px;
     font-weight: 500;
     transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -140,40 +198,41 @@ h3 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* 6. Team Members */
+/* 8. Team Tab Specific */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 1.5rem;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
 }
 
 .team-member {
-    background: #f5f5f5;
+    background: white;
     padding: 1.5rem;
     border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     border-top: 4px solid #5c6bc0;
 }
 
-/* 7. Research Projects */
+/* 9. Projects Tab Specific */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 1.5rem;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
 }
 
 .project-card {
     background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
     padding: 1.5rem;
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 .project-tags {
@@ -191,7 +250,7 @@ h3 {
     font-size: 0.8rem;
 }
 
-/* 8. Publications */
+/* 10. Publications Tab Specific */
 .publication-list {
     list-style: none;
 }
@@ -204,7 +263,7 @@ h3 {
     border-radius: 4px;
 }
 
-/* 9. News Section */
+/* 11. News Tab Specific */
 .news-timeline {
     position: relative;
     padding-left: 30px;
@@ -227,24 +286,46 @@ h3 {
     display: inline-block;
 }
 
-/* 10. Footer */
+/* 12. Contact Tab Specific */
+.contact-info {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+/* 13. Footer */
 footer {
     text-align: center;
     padding: 2rem;
     color: #666;
-    margin-top: 3rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
     border-top: 1px solid #eee;
 }
 
-/* 11. Responsive Design */
+/* 14. Responsive Design */
 @media (max-width: 768px) {
     body {
         padding: 15px;
     }
     
+    .tabs-nav {
+        flex-direction: column;
+    }
+    
+    .tab-link {
+        padding: 0.8rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .tab-link.active {
+        border-bottom: 3px solid #5c6bc0;
+    }
+    
     .pi-profile {
         flex-direction: column;
-        align-items: center;
         text-align: center;
     }
     
@@ -258,20 +339,25 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    header {
+    .tab-content {
         padding: 1.5rem;
-    }
-    
-    .header-content h1 {
-        font-size: 1.8rem;
     }
 }
 
-/* 12. Color Variables for Easy Customization */
-:root {
-    --primary-color: #1a237e;
-    --secondary-color: #3949ab;
-    --accent-color: #5c6bc0;
-    --light-bg: #e8eaf6;
-    --text-color: #333;
+/* 15. Print Styles */
+@media print {
+    .tabs-nav {
+        display: none;
+    }
+    
+    .tab-content {
+        display: block !important;
+        page-break-inside: avoid;
+    }
+    
+    .btn {
+        background: none;
+        color: black;
+        text-decoration: underline;
+    }
 }
