@@ -27,6 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set active tab from URL hash or default
     const hash = window.location.hash.substring(1) || 'pi';
     switchTab(hash);
+    // Remove #pi from URL on initial load if it's the default
+    if (window.location.hash === '#pi' || window.location.hash === '') {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
 });
 
 // Theme Selector
