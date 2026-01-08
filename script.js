@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Set active tab from URL hash or default
-    const hash = window.location.hash.substring(1) || 'about';
+    const hash = window.location.hash.substring(1) || 'pi';
     switchTab(hash);
 });
 
