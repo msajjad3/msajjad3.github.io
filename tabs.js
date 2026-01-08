@@ -1,4 +1,4 @@
-// tabs.js - Simple tab functionality
+// tabs.js - simple tab functionality
 document.addEventListener('DOMContentLoaded', function() {
     const tabLinks = document.querySelectorAll('.tab-link');
     const tabContents = document.querySelectorAll('.tab-content');
