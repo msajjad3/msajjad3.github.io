@@ -1,5 +1,6 @@
 // tabs.js - Tab functionality for SAJJAD Lab website
 
+// Wait for the page to fully load
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize tabs
     initTabs();
@@ -12,8 +13,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initTabs() {
+    // Get all tab links and tab contents
     const tabLinks = document.querySelectorAll('.tab-link');
     const tabContents = document.querySelectorAll('.tab-content');
+    
+    // Check if we have tabs
+    if (tabLinks.length === 0) {
+        console.log('No tabs found on this page');
+        return;
+    }
     
     // Add click event to each tab link
     tabLinks.forEach(tab => {
@@ -22,6 +30,7 @@ function initTabs() {
             
             // Get the target tab ID from data attribute
             const targetId = this.getAttribute('data-tab');
+            console.log('Switching to tab:', targetId);
             
             // Remove active class from all tabs and contents
             tabLinks.forEach(t => t.classList.remove('active'));
@@ -34,10 +43,16 @@ function initTabs() {
             const targetContent = document.getElementById(targetId);
             if (targetContent) {
                 targetContent.classList.add('active');
+            } else {
+                console.error('Tab content not found:', targetId);
             }
             
             // Update URL hash for bookmarking
-            window.location.hash = targetId;
+            if (history.pushState) {
+                history.pushState(null, null, '#' + targetId);
+            } else {
+                window.location.hash = targetId;
+            }
         });
     });
     
@@ -46,15 +61,10 @@ function initTabs() {
     if (hash) {
         const targetTab = document.querySelector(`.tab-link[data-tab="${hash}"]`);
         if (targetTab) {
-            targetTab.click();
+            // Wait a bit for the page to fully render
+            setTimeout(() => {
+                targetTab.click();
+            }, 100);
         }
     }
 }
-
-// Make function available globally
-window.switchTab = function(tabId) {
-    const tab = document.querySelector(`.tab-link[data-tab="${tabId}"]`);
-    if (tab) {
-        tab.click();
-    }
-};
