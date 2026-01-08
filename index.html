@@ -456,16 +456,16 @@
                     </div>
                 </div>
                 
-                <!-- LOCATION MAP SECTION -->
+                <!-- LOCATION MAP SECTION - SIDE BY SIDE LAYOUT -->
                 <div style="margin-top: 2.5rem; padding: 1.8rem; background-color: rgba(0, 0, 0, 0.03); border-radius: 10px; border-left: 4px solid var(--primary-color);">
                     <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;">
-                        <i class="fas fa-map-marked-alt"></i> Location Map
+                        <i class="fas fa-map-marked-alt"></i> Location & Directions
                     </h3>
                     
-                    <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: center; margin-top: 1rem;">
-                        <!-- Map Container -->
-                        <div style="flex: 1; min-width: 300px; text-align: center;">
-                            <div style="width: 100%; max-width: 400px; margin: 0 auto;">
+                    <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: flex-start; margin-top: 1rem;">
+                        <!-- LEFT COLUMN: Map Container -->
+                        <div style="flex: 1; min-width: 300px;">
+                            <div style="width: 100%; text-align: center;">
                                 <div style="width: 100%; padding-bottom: 100%; position: relative; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow); border: 6px solid var(--primary-color);">
                                     <iframe 
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.9708888702793!2d114.20441247597073!3d22.419242779615818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34040601c7e6e2f1%3A0xf97fbb1c0cbea1e8!2sThe%20Chinese%20University%20of%20Hong%20Kong!5e0!3m2!1sen!2shk!4v1744389539206!5m2!1sen!2shk"
@@ -481,47 +481,100 @@
                                     <i class="fas fa-university"></i> The Chinese University of Hong Kong<br>
                                     <small style="font-size: 0.85rem; opacity: 0.8;">22.4195° N, 114.2062° E</small>
                                 </p>
-                            </div>
-                        
-                        <!-- Location Details -->
-                        <div style="flex: 1; min-width: 300px;">
-                            <h4 style="color: var(--secondary-color); margin-bottom: 1rem;">
-                                <i class="fas fa-location-dot"></i> How to Reach Us
-                            </h4>
-                            <ul style="padding-left: 20px; margin-top: 10px; list-style-type: none;">
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <i class="fas fa-train" style="position: absolute; left: 0; color: var(--primary-color);"></i>
-                                    <strong>By MTR:</strong> University Station (East Rail Line)
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <i class="fas fa-bus" style="position: absolute; left: 0; color: var(--primary-color);"></i>
-                                    <strong>By Bus:</strong> Numerous bus routes from Shatin and other districts
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <i class="fas fa-car" style="position: absolute; left: 0; color: var(--primary-color);"></i>
-                                    <strong>By Car:</strong> Campus accessible via Tai Po Road
-                                </li>
-                                <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
-                                    <i class="fas fa-map" style="position: absolute; left: 0; color: var(--primary-color);"></i>
-                                    <strong>Campus Map:</strong> 
-                                    <a href="https://www.cuhk.edu.hk/english/campus/cuhk-campus-map.html" target="_blank" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px dotted var(--accent-color);">
-                                        View CUHK Campus Map
+                                
+                                <div style="margin-top: 20px; text-align: center;">
+                                    <a href="https://goo.gl/maps/9v1Jwq7sPwvT9x5u8" 
+                                       target="_blank" 
+                                       class="btn" 
+                                       style="background: var(--primary-color); padding: 8px 20px; font-size: 0.9rem;">
+                                        <i class="fab fa-google"></i> Open in Google Maps
                                     </a>
-                                </li>
-                            </ul>
-                            
-                            <div style="margin-top: 25px; padding: 15px; background-color: var(--primary-color); color: white; border-radius: 8px; font-size: 0.95rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                                <i class="fas fa-info-circle"></i> 
-                                <strong>Our lab is located in the Geography Building (KK Leung Building)</strong>
+                                </div>
                             </div>
-                            
-                            <div style="margin-top: 20px; padding: 15px; background-color: rgba(42, 157, 143, 0.1); border-radius: 8px; border-left: 4px solid var(--secondary-color);">
-                                <h5 style="color: var(--secondary-color); margin-bottom: 8px; font-size: 1rem;">
-                                    <i class="fas fa-clock"></i> Visiting Hours
-                                </h5>
-                                <p style="font-size: 0.95rem; margin: 0; color: var(--text-color);">
-                                    By appointment only. Please email to schedule a visit.
-                                </p>
+                        </div>
+                        
+                        <!-- RIGHT COLUMN: Location Details -->
+                        <div style="flex: 1; min-width: 300px;">
+                            <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); height: 100%;">
+                                <h4 style="color: var(--secondary-color); margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+                                    <i class="fas fa-directions"></i> How to Reach Us
+                                </h4>
+                                
+                                <div style="margin-bottom: 1.5rem;">
+                                    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+                                        <div style="flex-shrink: 0; width: 40px; height: 40px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-train"></i>
+                                        </div>
+                                        <div>
+                                            <h5 style="color: var(--primary-color); margin-bottom: 5px; font-size: 1rem;">By MTR</h5>
+                                            <p style="margin: 0; font-size: 0.95rem; color: var(--text-color);">
+                                                <strong>University Station</strong> (East Rail Line)<br>
+                                                Exit A leads directly to campus shuttle service
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+                                        <div style="flex-shrink: 0; width: 40px; height: 40px; background: var(--secondary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-bus"></i>
+                                        </div>
+                                        <div>
+                                            <h5 style="color: var(--secondary-color); margin-bottom: 5px; font-size: 1rem;">By Bus</h5>
+                                            <p style="margin: 0; font-size: 0.95rem; color: var(--text-color);">
+                                                Multiple routes from Shatin, Kowloon, and Tai Po<br>
+                                                <small style="color: var(--text-light);">72, 72A, 73A, 74A, 87K, 87S, 88K</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+                                        <div style="flex-shrink: 0; width: 40px; height: 40px; background: var(--accent-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-car"></i>
+                                        </div>
+                                        <div>
+                                            <h5 style="color: var(--accent-color); margin-bottom: 5px; font-size: 1rem;">By Car</h5>
+                                            <p style="margin: 0; font-size: 0.95rem; color: var(--text-color);">
+                                                Access via Tai Po Road (Route 9)<br>
+                                                Visitor parking available on campus
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="display: flex; align-items: flex-start; gap: 15px;">
+                                        <div style="flex-shrink: 0; width: 40px; height: 40px; background: #6c757d; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-map"></i>
+                                        </div>
+                                        <div>
+                                            <h5 style="color: #6c757d; margin-bottom: 5px; font-size: 1rem;">Campus Map</h5>
+                                            <p style="margin: 0; font-size: 0.95rem; color: var(--text-color);">
+                                                <a href="https://www.cuhk.edu.hk/english/campus/cuhk-campus-map.html" 
+                                                   target="_blank" 
+                                                   style="color: var(--accent-color); text-decoration: none; border-bottom: 1px dotted var(--accent-color);">
+                                                    View interactive CUHK campus map
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 25px; padding: 15px; background-color: var(--primary-color); color: white; border-radius: 8px; font-size: 0.95rem;">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-building" style="font-size: 1.2rem;"></i>
+                                        <div>
+                                            <strong>Geography Building (KK Leung Building)</strong><br>
+                                            <small>6th Floor, Department of Geography and Resource Management</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 20px; padding: 15px; background-color: rgba(42, 157, 143, 0.1); border-radius: 8px; border-left: 4px solid var(--secondary-color);">
+                                    <h5 style="color: var(--secondary-color); margin-bottom: 8px; font-size: 1rem;">
+                                        <i class="fas fa-clock"></i> Visiting Hours
+                                    </h5>
+                                    <p style="font-size: 0.95rem; margin: 0; color: var(--text-color);">
+                                        By appointment only. Please email to schedule a visit.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
