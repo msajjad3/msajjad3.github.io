@@ -112,7 +112,7 @@ function switchTab(tabId) {
     
     // If tab doesn't exist, default to about
     if (!activeTab) {
-        switchTab('about');
+        switchTab('pi');
     }
     // Scroll to top of page
     window.scrollTo(0, 0);
