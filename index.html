@@ -42,8 +42,8 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#pi" class="nav-link" data-tab="pi">About PI</a></li>
-                <li><a href="#about" class="nav-link active" data-tab="about">SAJJAD Lab</a></li>
+                <li><a href="#pi" class="nav-link active" data-tab="pi">About PI</a></li>
+                <li><a href="#about" class="nav-link" data-tab="about">SAJJAD Lab</a></li>
                 <li><a href="#team" class="nav-link" data-tab="team">Team</a></li>
                 <li><a href="#projects" class="nav-link" data-tab="projects">Projects</a></li>
                 <li><a href="#publications" class="nav-link" data-tab="publications">Publications</a></li>
@@ -77,7 +77,7 @@
     <!-- MAIN CONTENT -->
     <main class="container">
         <!-- ABOUT TAB -->
-        <section id="about" class="tab-content active">
+        <section id="about" class="tab-content">
             <div class="content-card">
                 <h2><i class="fas fa-house-flood-water-circle-arrow-right"></i> About the Lab</h2>
                 <p>The <span class="highlight">SAJJAD Lab</span> (<strong>S</strong>patial <strong>A</strong>nalytics for <strong>J</strong>ust & <strong>J</strong>oint <strong>A</strong>daptation to <strong>D</strong>isasters) is a research group at the Department of Geography and Resource Management, The Chinese University of Hong Kong, HKSAR, dedicated to advancing geospatial intelligence for systemic resilience.</p>
@@ -122,7 +122,7 @@
         </section>
 
         <!-- LAB PI TAB -->
-        <section id="pi" class="tab-content">
+        <section id="pi" class="tab-content active">
             <div class="content-card">
                 <h2><i class="fas fa-user-tie"></i>Principal Investigator</h2>
                 <div style="display: flex; flex-direction: column; gap: 1.5rem;">
@@ -456,7 +456,7 @@
                     </div>
                 </div>
                 
-                <!-- COLLABORATION INTERESTS -->
+                <!-- COLLABORATION INTERESTS - MOVED ABOVE MAP -->
                 <div style="margin-top: 2.5rem; padding: 1.8rem; background-color: rgba(0, 0, 0, 0.03); border-radius: 10px; border-left: 4px solid var(--accent-color);">
                     <h3 style="color: var(--accent-color); margin-bottom: 1.2rem;">
                         <i class="fas fa-handshake"></i> Collaboration Interests
@@ -487,8 +487,16 @@
                             <i class="fas fa-users" style="color: var(--primary-color); margin-right: 8px;"></i>
                             Community organizations
                         </li>
-                    </ul>                
-                <!-- LOCATION MAP SECTION - SIDE BY SIDE LAYOUT -->
+                    </ul>
+                    
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
+                        <a href="mailto:muhammadsajjad@cuhk.edu.hk" class="btn" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); padding: 12px 30px; font-size: 1.1rem;">
+                            <i class="fas fa-paper-plane"></i> Contact Us for Collaboration
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- LOCATION MAP SECTION - NOW BELOW COLLABORATION -->
                 <div style="margin-top: 2.5rem; padding: 1.8rem; background-color: rgba(0, 0, 0, 0.03); border-radius: 10px; border-left: 4px solid var(--primary-color);">
                     <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;">
                         <i class="fas fa-map-marked-alt"></i> Location & Directions
@@ -496,7 +504,7 @@
                     
                     <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: flex-start; margin-top: 1rem;">
                         <!-- LEFT COLUMN: Map Container -->
-                        <div style="flex: 1; min-width: 150px;">
+                        <div style="flex: 1; min-width: 300px;">
                             <div style="width: 100%; text-align: center;">
                                 <div style="width: 100%; padding-bottom: 100%; position: relative; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow); border: 6px solid var(--primary-color);">
                                     <iframe 
@@ -594,7 +602,7 @@
                                         <i class="fas fa-building" style="font-size: 1.2rem;"></i>
                                         <div>
                                             <strong>Geography Building (KK Leung Building)</strong><br>
-                                            <small>2nd Floor, Department of Geography and Resource Management</small>
+                                            <small>6th Floor, Department of Geography and Resource Management</small>
                                         </div>
                                     </div>
                                 </div>
@@ -609,13 +617,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                    
-                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
-                        <a href="mailto:muhammadsajjad@cuhk.edu.hk" class="btn" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); padding: 12px 30px; font-size: 1.1rem;">
-                            <i class="fas fa-paper-plane"></i> Contact Us for Collaboration
-                        </a>
                     </div>
                 </div>
             </div>
