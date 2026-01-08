@@ -516,15 +516,6 @@ body {
     background-color: #fdfdfd;
 }
 
-.content-card p, .content-card li {
-    max-width: 100%; /* Use full width of container */
-    line-height: 1.7;
-}
-
-.content-card {
-    max-width: 100%;
-}
-
 /* Publication Items */
 .publication-item {
     padding: 1.5rem 0;
