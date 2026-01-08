@@ -566,13 +566,13 @@ body {
 .btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background-color: var(--accent-color, #e76f51);
+    gap: 12px;
+    background-color: var(--primary-color);
     color: white;
-    padding: 0.8rem 1.5rem;
+    padding: 0.4rem 0.75rem;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -580,7 +580,7 @@ body {
 }
 
 .btn:hover {
-    background-color: #d65c40;
+    background-color: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(231, 111, 81, 0.3);
 }
