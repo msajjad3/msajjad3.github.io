@@ -124,106 +124,248 @@
         <!-- LAB PI TAB -->
         <section id="pi" class="tab-content active">
             <div class="content-card">
-                <h2><i class="fas fa-user-tie"></i>Principal Investigator</h2>
-                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div style="display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;">
-                        <div style="flex-shrink: 0;">
-                            <div style="width: 250px; height: 250px; border-radius: 50%; overflow: hidden; border: 4px solid var(--primary-color); box-shadow: var(--shadow);">
-                                <img src="pi-photo.png" alt="Dr. Muhammad Sajjad" style="width: 100%; height: 100%; object-fit: cover;">
+                <h2><i class="fas fa-user-tie"></i> Principal Investigator</h2>
+                
+                <!-- Main PI Information Row -->
+                <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; margin-top: 1.5rem;">
+                    <!-- Left Column: Photo and Basic Info -->
+                    <div style="flex: 1; min-width: 300px;">
+                        <div style="width: 100%; max-width: 300px; margin: 0 auto;">
+                            <!-- Photo -->
+                            <div style="width: 100%; padding-bottom: 100%; position: relative; border-radius: 50%; overflow: hidden; border: 6px solid var(--primary-color); box-shadow: var(--shadow);">
+                                <img src="pi-photo.png" alt="Dr. Muhammad Sajjad" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                             </div>
-                        </div>
-                        <div style="flex: 1;">
-                            <h3>Dr. Muhammad Sajjad</h3>
-                            <p class="member-role">Research Assistant Professor</p>
-                            <p>Department of Geography and Resource Management, The Chinese University of Hong Kong</p>
-                            <p style="margin-top: 15px;">Dr. Sajjad's research focuses on geospatial data science for disaster risk reduction, vulnerability and resilience assessment, 
-                                and science-informed planning. His work couples GeoAI, remote sensing, machine learning, and spatial modeling to address complex human-environment challenges.</p>
                             
-                            <div style="margin-top: 10px;">
-                                <!-- NEW CV BUTTON -->
-                                <a href="sajjad-cv.pdf" class="btn" download style="background-color: var(--accent-color);">
-                                    <i class="fas fa-download"></i> Download CV
-                                </a>
-                                <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="btn" target="_blank">
-                                    <i class="fas fa-graduation-cap"></i> Google Scholar
-                                </a>
-                                <a href="mailto:muhammadsajjad@cuhk.edu.hk" class="btn" style="background-color: var(--secondary-color);">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
-                            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border-color);">
-                                <h4 style="margin-bottom: 15px; color: var(--text-light); font-size: 1rem;">
-                                    <i class="fas fa-share-alt"></i> Stay in touch through Social Media
-                                </h4>
-                                <div class="social-links" style="justify-content: flex-start;">
-                                    <a href="https://github.com/msajjad3" class="social-link" title="GitHub" target="_blank">
-                                        <i class="fab fa-github"></i>
+                            <!-- Quick Info Card -->
+                            <div style="margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(26, 95, 122, 0.05) 0%, rgba(42, 157, 143, 0.05) 100%); border-radius: 10px; text-align: center;">
+                                <h3 style="color: var(--primary-color); margin-bottom: 10px;">Dr. Muhammad Sajjad</h3>
+                                <p class="member-role" style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 10px;">
+                                    Research Assistant Professor
+                                </p>
+                                <p style="color: var(--text-color); font-size: 0.95rem; line-height: 1.5;">
+                                    Department of Geography and Resource Management<br>
+                                    The Chinese University of Hong Kong
+                                </p>
+                                
+                                <!-- Contact Buttons -->
+                                <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 10px;">
+                                    <a href="mailto:muhammadsajjad@cuhk.edu.hk" class="btn" style="background-color: var(--primary-color);">
+                                        <i class="fas fa-envelope"></i> Email
                                     </a>
-                                    <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="social-link" title="Google Scholar" target="_blank">
-                                        <i class="fas fa-graduation-cap"></i>
+                                    <a href="sajjad-cv.pdf" class="btn" download style="background-color: var(--accent-color);">
+                                        <i class="fas fa-download"></i> Download CV
                                     </a>
-                                    <a href="https://x.com/Mah_Sajjad" class="social-link" title="X" target="_blank">
-                                        <i class="fab fa-x"></i>
+                                    <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="btn" target="_blank" style="background-color: #4285F4;">
+                                        <i class="fas fa-graduation-cap"></i> Google Scholar
                                     </a>
-                                    <a href="https://www.linkedin.com/in/muhammad-sajjad-ph-d-05590865/" class="social-link" title="LinkedIn" target="_blank">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                    <a href="https://www.researchgate.net/profile/Muhammad-Sajjad-Phd?ev=hdr_xprf" class="social-link" title="ResearchGate" target="_blank">
-                                        <i class="fab fa-researchgate"></i>
-                                    </a>
-                                    <a href="https://orcid.org/0000-0002-1576-1342" class="social-link" title="ORCID" target="_blank">
-                                        <i class="fab fa-orcid"></i>
-                                    </a>
+                                </div>
+                                
+                                <!-- Social Media -->
+                                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                                    <h4 style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 10px;">
+                                        <i class="fas fa-share-alt"></i> Connect
+                                    </h4>
+                                    <div class="social-links" style="justify-content: center; gap: 8px;">
+                                        <a href="https://github.com/msajjad3" class="social-link" title="GitHub" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                        <a href="https://x.com/Mah_Sajjad" class="social-link" title="X" target="_blank">
+                                            <i class="fab fa-x"></i>
+                                        </a>
+                                        <a href="https://www.linkedin.com/in/muhammad-sajjad-ph-d-05590865/" class="social-link" title="LinkedIn" target="_blank">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a href="https://www.researchgate.net/profile/Muhammad-Sajjad-Phd?ev=hdr_xprf" class="social-link" title="ResearchGate" target="_blank">
+                                            <i class="fab fa-researchgate"></i>
+                                        </a>
+                                        <a href="https://orcid.org/0000-0002-1576-1342" class="social-link" title="ORCID" target="_blank">
+                                            <i class="fab fa-orcid"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div>
-                        <h3>Research Interests</h3>
-                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
-                            <span class="tag">Urban & Environmental Sustainability</span>
-                            <span class="tag">Vulnerability & Resilience</span>
-                            <span class="tag">GeoAI Applications</span>
-                            <span class="tag">Disaster Risk Reduction</span>
-                            <span class="tag">Remote Sensing & GIS</span>
-                            <span class="tag">Spatial Data Science</span>
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">Climate Adaptation</span>
+                    <!-- Right Column: Detailed Information -->
+                    <div style="flex: 2; min-width: 300px;">
+                        <!-- Research Bio -->
+                        <div style="margin-bottom: 2rem;">
+                            <h3 style="color: var(--primary-color); margin-bottom: 15px;">
+                                <i class="fas fa-flask"></i> Research Focus
+                            </h3>
+                            <p style="line-height: 1.7; font-size: 1.05rem;">
+                                Dr. Sajjad's research focuses on geospatial data science for disaster risk reduction, vulnerability and resilience assessment, 
+                                and science-informed planning. His work couples GeoAI, remote sensing, machine learning, and spatial modeling to address complex human-environment challenges.
+                            </p>
                         </div>
-                    </div>
-                    
-                    <div>
-                        <h3>Experiences</h3>
-                        <ul style="padding-left: 20px; margin-top: 10px;">
-                            <li>Chapter Scientist, IPCC's AR7, WG-II Chapter 2 (Jan. 2026-Present), IPCC | ICTP | IAP</li>
-                            <li>Research Assistant Professor (Aug. 2025-Present), The Chinese University of Hong Kong</li>
-                            <li>Research Assistant Professor (Sep. 2024-July 2025), The University of Hong Kong</li>
-                            <li>Research Assistant Professor (July 2021-July 2024), Hong Kong Baptist University</li>
-                            <li>Senior Scientist for Climate Risks and Resilience R&D (March 2021-July 2021), Intensel Limited</li>
-                        </ul>
-                        <h3>Compatetive Funding</h3>
-                        <ul style="padding-left: 20px; margin-top: 10px;">
-                            <li>Equipment Matching Fund for drone and virtual reality by The HKBU Research Committee (2022) – <strong>268,960 HK$ (Ref: RC-EMF/21-22/07/SOSC) Co-PI</strong></li>
-                            <li>Startup Grant (Tier 1) by The HKBU Research Committee (2021-2022) — <strong>100,000 HK$ (Ref: RC-STARTUP/21-22/12) PI</strong></li>
-                            <li>One-off Special Allowance 2021-2022 (4,500 HK$) – Department of Geography, Hong Kong Baptist University</li>
-                            <li>Research Talent Hub Fund Awardee (459,667 HK$) of the Innovation and Technology Commission, HKSAR (2021)</li>
-                            <li>Partial Research Activities Fund 2018/19 (30,000 HK$) – City University of Hong Kong, HKSAR</li>
-                            <li>Fully funded Hong Kong PhD Scholarship 2017/20 (~576,000 HK$) – City University of Hong Kong, HKSAR</li>
-                            <li>Fully funded China Scholarship Council’s Master Scholarship 2015/17 (~86,500 HK$) – CSC China</li>
-                        </ul>
-                        <h3>Education</h3>
-                        <ul style="padding-left: 20px; margin-top: 10px;">
-                            <li>PhD (2017-2020): City University of Hong Kong, Hong Kong Special Administrative Region of China</li>
-                            <li>Visiting Scholar (2018-2019): Princeton University, USA</li>
-                            <li>MSc (2015-2017): Xiamen University, Fujian, China <span class="highlight">(Award of Excellence)</span></li>
-                            <li>BS Hons (2009-2013): GC University Faisalabad, Pakistan <span class="highlight">(Gold Medalist)</span></li>
-                        </ul>
-                        <h3>Awards</h3>
-                        <ul style="padding-left: 20px; margin-top: 10px;">                            
-                            <li>Xiamen University Excellence Award for International Students 2016</li>
-                            <li>Best paper presentation award at the research forum organized by the College of Environment and Ecology, Xiamen University, China, 2016</li>
-                            <li>First Class with Distinction in BS(Hons) Geography 2013 – Gold Medalist</li>
-                            <li>Student of the Year at the Department of Geography, GC University Faisalabad, Pakistan</li>
-                        </ul>
+                        
+                        <!-- Two-Column Layout for Education/Experience -->
+                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1rem;">
+                            <!-- Left Column: Education & Awards -->
+                            <div style="flex: 1; min-width: 300px;">
+                                <!-- Education -->
+                                <div style="margin-bottom: 2rem;">
+                                    <h3 style="color: var(--secondary-color); margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
+                                        <i class="fas fa-graduation-cap"></i> Education
+                                    </h3>
+                                    <ul style="list-style: none; padding: 0; margin: 0;">
+                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-university" style="position: absolute; left: 0; top: 3px; color: var(--primary-color);"></i>
+                                            <strong>PhD (2017-2020)</strong><br>
+                                            City University of Hong Kong, Hong Kong SAR
+                                        </li>
+                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-globe-americas" style="position: absolute; left: 0; top: 3px; color: var(--primary-color);"></i>
+                                            <strong>Visiting Scholar (2018-2019)</strong><br>
+                                            Princeton University, USA
+                                        </li>
+                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-award" style="position: absolute; left: 0; top: 3px; color: var(--primary-color);"></i>
+                                            <strong>MSc (2015-2017)</strong><br>
+                                            Xiamen University, China<br>
+                                            <span style="color: var(--accent-color); font-weight: 500;">Award of Excellence</span>
+                                        </li>
+                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-medal" style="position: absolute; left: 0; top: 3px; color: var(--primary-color);"></i>
+                                            <strong>BS Hons (2009-2013)</strong><br>
+                                            GC University Faisalabad, Pakistan<br>
+                                            <span style="color: var(--accent-color); font-weight: 500;">Gold Medalist</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Awards -->
+                                <div style="margin-bottom: 2rem;">
+                                    <h3 style="color: var(--accent-color); margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
+                                        <i class="fas fa-award"></i> Awards & Honors
+                                    </h3>
+                                    <ul style="list-style: none; padding: 0; margin: 0;">
+                                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-star" style="position: absolute; left: 0; top: 3px; color: var(--accent-color); font-size: 0.9rem;"></i>
+                                            Xiamen University Excellence Award for International Students 2016
+                                        </li>
+                                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-star" style="position: absolute; left: 0; top: 3px; color: var(--accent-color); font-size: 0.9rem;"></i>
+                                            Best paper presentation award at research forum, Xiamen University, 2016
+                                        </li>
+                                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-star" style="position: absolute; left: 0; top: 3px; color: var(--accent-color); font-size: 0.9rem;"></i>
+                                            First Class with Distinction in BS(Hons) Geography 2013 – Gold Medalist
+                                        </li>
+                                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-star" style="position: absolute; left: 0; top: 3px; color: var(--accent-color); font-size: 0.9rem;"></i>
+                                            Student of the Year, Department of Geography, GC University Faisalabad
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Column: Experience & Funding -->
+                            <div style="flex: 1; min-width: 300px;">
+                                <!-- Experience -->
+                                <div style="margin-bottom: 2rem;">
+                                    <h3 style="color: var(--primary-color); margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
+                                        <i class="fas fa-briefcase"></i> Professional Experience
+                                    </h3>
+                                    <ul style="list-style: none; padding: 0; margin: 0;">
+                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-leaf" style="position: absolute; left: 0; top: 3px; color: var(--secondary-color);"></i>
+                                            <strong>Chapter Scientist (Jan. 2026-Present)</strong><br>
+                                            IPCC AR7, WG-II Chapter 2<br>
+                                            IPCC | ICTP | IAP
+                                        </li>
+                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-university" style="position: absolute; left: 0; top: 3px; color: var(--secondary-color);"></i>
+                                            <strong>Research Assistant Professor (Aug. 2025-Present)</strong><br>
+                                            The Chinese University of Hong Kong
+                                        </li>
+                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-university" style="position: absolute; left: 0; top: 3px; color: var(--secondary-color);"></i>
+                                            <strong>Research Assistant Professor (Sep. 2024-July 2025)</strong><br>
+                                            The University of Hong Kong
+                                        </li>
+                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-university" style="position: absolute; left: 0; top: 3px; color: var(--secondary-color);"></i>
+                                            <strong>Research Assistant Professor (July 2021-July 2024)</strong><br>
+                                            Hong Kong Baptist University
+                                        </li>
+                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-chart-line" style="position: absolute; left: 0; top: 3px; color: var(--secondary-color);"></i>
+                                            <strong>Senior Scientist (March 2021-July 2021)</strong><br>
+                                            Intensel Limited - Climate Risks and Resilience R&D
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Competitive Funding -->
+                                <div style="margin-bottom: 2rem;">
+                                    <h3 style="color: var(--secondary-color); margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
+                                        <i class="fas fa-money-bill-wave"></i> Competitive Funding
+                                    </h3>
+                                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem;">
+                                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-sitemap" style="position: absolute; left: 0; top: 3px; color: var(--primary-color); font-size: 0.9rem;"></i>
+                                            Equipment Matching Fund for drone and virtual reality (2022)<br>
+                                            <strong>268,960 HK$</strong> (Co-PI, HKBU)
+                                        </li>
+                                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-rocket" style="position: absolute; left: 0; top: 3px; color: var(--primary-color); font-size: 0.9rem;"></i>
+                                            Startup Grant (Tier 1) (2021-2022)<br>
+                                            <strong>100,000 HK$</strong> (PI, HKBU)
+                                        </li>
+                                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-users" style="position: absolute; left: 0; top: 3px; color: var(--primary-color); font-size: 0.9rem;"></i>
+                                            Research Talent Hub Fund Awardee (2021)<br>
+                                            <strong>459,667 HK$</strong> (Innovation and Technology Commission)
+                                        </li>
+                                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-graduation-cap" style="position: absolute; left: 0; top: 3px; color: var(--primary-color); font-size: 0.9rem;"></i>
+                                            Hong Kong PhD Scholarship (2017-2020)<br>
+                                            <strong>576,000 HK$</strong> (City University of Hong Kong)
+                                        </li>
+                                        <li style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                            <i class="fas fa-globe-asia" style="position: absolute; left: 0; top: 3px; color: var(--primary-color); font-size: 0.9rem;"></i>
+                                            China Scholarship Council's Master Scholarship (2015-2017)<br>
+                                            <strong>86,500 HK$</strong> (CSC China)
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Research Interests -->
+                        <div style="margin-top: 2rem;">
+                            <h3 style="color: var(--accent-color); margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
+                                <i class="fas fa-search"></i> Research Interests
+                            </h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                                <span class="tag" style="background: rgba(26, 95, 122, 0.1); color: var(--primary-color); border: 1px solid rgba(26, 95, 122, 0.2);">
+                                    <i class="fas fa-city"></i> Urban & Environmental Sustainability
+                                </span>
+                                <span class="tag" style="background: rgba(42, 157, 143, 0.1); color: var(--secondary-color); border: 1px solid rgba(42, 157, 143, 0.2);">
+                                    <i class="fas fa-shield-alt"></i> Vulnerability & Resilience
+                                </span>
+                                <span class="tag" style="background: rgba(231, 111, 81, 0.1); color: var(--accent-color); border: 1px solid rgba(231, 111, 81, 0.2);">
+                                    <i class="fas fa-robot"></i> GeoAI Applications
+                                </span>
+                                <span class="tag" style="background: rgba(26, 95, 122, 0.1); color: var(--primary-color); border: 1px solid rgba(26, 95, 122, 0.2);">
+                                    <i class="fas fa-exclamation-triangle"></i> Disaster Risk Reduction
+                                </span>
+                                <span class="tag" style="background: rgba(42, 157, 143, 0.1); color: var(--secondary-color); border: 1px solid rgba(42, 157, 143, 0.2);">
+                                    <i class="fas fa-satellite"></i> Remote Sensing & GIS
+                                </span>
+                                <span class="tag" style="background: rgba(231, 111, 81, 0.1); color: var(--accent-color); border: 1px solid rgba(231, 111, 81, 0.2);">
+                                    <i class="fas fa-database"></i> Spatial Data Science
+                                </span>
+                                <span class="tag" style="background: rgba(26, 95, 122, 0.1); color: var(--primary-color); border: 1px solid rgba(26, 95, 122, 0.2);">
+                                    <i class="fas fa-brain"></i> Machine Learning
+                                </span>
+                                <span class="tag" style="background: rgba(42, 157, 143, 0.1); color: var(--secondary-color); border: 1px solid rgba(42, 157, 143, 0.2);">
+                                    <i class="fas fa-cloud-sun"></i> Climate Adaptation
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
