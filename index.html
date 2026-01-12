@@ -211,44 +211,278 @@
             </div>
         </section>
 
-        <!-- TEAM TAB -->
+        <!-- TEAM Members TAB -->
         <section id="team" class="tab-content">
             <div class="content-card">
-                <h2><i class="fas fa-users"></i> Team Members</h2>
+                <h2><i class="fas fa-users"></i> Research Team</h2>
                 <p>Our interdisciplinary team brings together expertise in geography, data science, environmental science, and urban planning.</p>
                 
-                <div class="team-grid">
-                    <div class="team-member">
-                        <h3>Dr. Muhammad Sajjad</h3>
-                        <p class="member-role">Principal Investigator</p>
-                        <p>Geospatial data science, disaster resilience, remote sensing</p>
-                        <p class="member-focus">
-                            <i class="fas fa-map-marker-alt"></i> Primary focus: Disaster Resilience & vulnerability, GeoAI, Machine Learning, Spatial-temporal Modelling
-                        </p>
-                    </div>
+                <!-- Tabs for Current/Previous Members -->
+                <div class="team-tabs" style="margin: 2rem 0 1.5rem 0;">
+                    <button class="team-tab-btn active" onclick="showTeamSection('current')">
+                        <i class="fas fa-user-check"></i> Current Members
+                    </button>
+                    <button class="team-tab-btn" onclick="showTeamSection('previous')">
+                        <i class="fas fa-user-clock"></i> Previous Members
+                    </button>
+                    <button class="team-tab-btn" onclick="showTeamSection('join')">
+                        <i class="fas fa-user-plus"></i> Join Our Team
+                    </button>
+                </div>
+                
+                <!-- Current Team Members -->
+                <div id="current-team" class="team-section active">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;">
+                        <i class="fas fa-user-check"></i> Current Team Members
+                    </h3>
                     
-                    <div class="team-member">
-                        <h3>Open Position</h3>
-                        <p class="member-role">PhD Student</p>
-                        <p>Opportunities for doctoral research in geospatial analytics for disaster risk reduction.</p>
-                        <p class="member-focus">
-                            <i class="fas fa-university"></i> through CUHK/HKPFS PhD Program
-                        </p>
-                    </div>
-                    
-                    <div class="team-member">
-                        <h3>Collaborators</h3>
-                        <p class="member-role">Research Partners</p>
-                        <p>Network of collaborators from Princeton University, international institutions, and industry partners.</p>
-                        <p class="member-focus">
-                            <i class="fas fa-handshake"></i> Global collaborations
-                        </p>
+                    <div class="team-grid">
+                        <!-- Principal Investigator -->
+                        <div class="team-member highlight">
+                            <div class="team-photo">
+                                <img src="pi-photo.png" alt="Dr. Muhammad Sajjad">
+                            </div>
+                            <div class="team-info">
+                                <h4>Dr. Muhammad Sajjad</h4>
+                                <p class="member-role">Principal Investigator</p>
+                                <p class="member-expertise">Geospatial Data Science, Disaster Resilience, Remote Sensing</p>
+                                <p class="member-focus">
+                                    <i class="fas fa-bullseye"></i> Primary focus: Disaster Resilience & vulnerability, GeoAI, Machine Learning, Spatial-temporal Modelling
+                                </p>
+                                <div class="member-social">
+                                    <a href="mailto:muhammadsajjad@cuhk.edu.hk" title="Email">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" target="_blank" title="Google Scholar">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Postdoctoral Researchers -->
+                        <div class="team-member">
+                            <div class="team-photo placeholder">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="team-info">
+                                <h4>Open Position</h4>
+                                <p class="member-role">Postdoctoral Researcher</p>
+                                <p class="member-expertise">Geospatial AI, Remote Sensing, Climate Adaptation</p>
+                                <p class="member-focus">
+                                    <i class="fas fa-bullseye"></i> Seeking candidates with expertise in GeoAI applications for disaster risk reduction
+                                </p>
+                                <div class="member-status">
+                                    <span class="status-badge hiring">Hiring</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- PhD Students -->
+                        <div class="team-member">
+                            <div class="team-photo placeholder">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="team-info">
+                                <h4>Open Position</h4>
+                                <p class="member-role">PhD Student</p>
+                                <p class="member-expertise">Spatial Analytics, Machine Learning, Urban Resilience</p>
+                                <p class="member-focus">
+                                    <i class="fas fa-bullseye"></i> Doctoral research in geospatial analytics for disaster risk reduction
+                                </p>
+                                <div class="member-details">
+                                    <p><i class="fas fa-university"></i> CUHK/HKPFS PhD Program</p>
+                                </div>
+                                <div class="member-status">
+                                    <span class="status-badge hiring">Hiring</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Research Assistants -->
+                        <div class="team-member">
+                            <div class="team-photo placeholder">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="team-info">
+                                <h4>Open Position</h4>
+                                <p class="member-role">Research Assistant</p>
+                                <p class="member-expertise">Geospatial Analysis, Data Processing, GIS</p>
+                                <p class="member-focus">
+                                    <i class="fas fa-bullseye"></i> Supporting ongoing research projects in spatial data science
+                                </p>
+                                <div class="member-status">
+                                    <span class="status-badge hiring">Hiring</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div style="margin-top: 2rem; padding: 1.5rem; background-color: rgba(0, 0, 0, 0.03); border-radius: 8px;">
-                    <h3><i class="fas fa-user-plus"></i> Join Our Team</h3>
-                    <p>We welcome inquiries from motivated researchers interested in geospatial science, disaster resilience, and sustainable development. Please see the <a href="#contact" class="nav-link" style="display: inline; color: var(--primary-color);">Contact Us</a> section for opportunities.</p>
+                <!-- Previous Team Members -->
+                <div id="previous-team" class="team-section">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 1.5rem;">
+                        <i class="fas fa-user-clock"></i> Previous Members & Alumni
+                    </h3>
+                    <p style="margin-bottom: 1.5rem; color: var(--text-light);">
+                        Former members who have contributed to our lab's research and moved on to new opportunities.
+                    </p>
+                    
+                    <div class="alumni-grid">
+                        <div class="alumni-member">
+                            <h4>Dr. John Doe</h4>
+                            <p class="member-role">Former Postdoctoral Researcher</p>
+                            <p class="member-period"><i class="fas fa-calendar"></i> 2022-2024</p>
+                            <p class="member-expertise">Remote Sensing, Climate Modeling</p>
+                            <p class="member-current">
+                                <i class="fas fa-briefcase"></i> Now: Assistant Professor at XYZ University
+                            </p>
+                        </div>
+                        
+                        <div class="alumni-member">
+                            <h4>Jane Smith</h4>
+                            <p class="member-role">Former PhD Student</p>
+                            <p class="member-period"><i class="fas fa-calendar"></i> 2020-2023</p>
+                            <p class="member-expertise">Urban Analytics, Spatial Statistics</p>
+                            <p class="member-current">
+                                <i class="fas fa-briefcase"></i> Now: Data Scientist at ABC Research Institute
+                            </p>
+                        </div>
+                        
+                        <div class="alumni-member">
+                            <h4>Robert Johnson</h4>
+                            <p class="member-role">Former Research Assistant</p>
+                            <p class="member-period"><i class="fas fa-calendar"></i> 2021-2022</p>
+                            <p class="member-expertise">GIS, Data Visualization</p>
+                            <p class="member-current">
+                                <i class="fas fa-briefcase"></i> Now: GIS Specialist at DEF Corporation
+                            </p>
+                        </div>
+                        
+                        <div class="alumni-member">
+                            <h4>Sarah Williams</h4>
+                            <p class="member-role">Former Visiting Scholar</p>
+                            <p class="member-period"><i class="fas fa-calendar"></i> 2023</p>
+                            <p class="member-expertise">Disaster Risk Reduction, Policy Analysis</p>
+                            <p class="member-current">
+                                <i class="fas fa-briefcase"></i> Now: Policy Advisor at GHI Organization
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Join Our Team -->
+                <div id="join-team" class="team-section">
+                    <h3 style="color: var(--accent-color); margin-bottom: 1.5rem;">
+                        <i class="fas fa-user-plus"></i> Join Our Team
+                    </h3>
+                    
+                    <div style="background: linear-gradient(135deg, rgba(26, 95, 122, 0.05) 0%, rgba(42, 157, 143, 0.05) 100%); padding: 2rem; border-radius: 10px; border-left: 4px solid var(--accent-color);">
+                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+                            <div style="flex: 1; min-width: 300px;">
+                                <h4 style="color: var(--primary-color); margin-bottom: 1rem;">
+                                    <i class="fas fa-bullhorn"></i> Open Positions
+                                </h4>
+                                
+                                <div style="margin-bottom: 1.5rem;">
+                                    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+                                        <div style="flex-shrink: 0; width: 50px; height: 50px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                                            <i class="fas fa-user-graduate"></i>
+                                        </div>
+                                        <div>
+                                            <h5 style="color: var(--primary-color); margin-bottom: 5px;">Postdoctoral Researchers</h5>
+                                            <p style="margin: 0; font-size: 0.95rem;">
+                                                Seeking candidates with expertise in GeoAI, remote sensing, and spatial modeling for disaster resilience applications.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
+                                        <div style="flex-shrink: 0; width: 50px; height: 50px; background: var(--secondary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </div>
+                                        <div>
+                                            <h5 style="color: var(--secondary-color); margin-bottom: 5px;">PhD Students</h5>
+                                            <p style="margin: 0; font-size: 0.95rem;">
+                                                Fully-funded PhD positions through CUHK/HKPFS program. Research topics in spatial analytics for climate adaptation.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="display: flex; align-items: flex-start; gap: 15px;">
+                                        <div style="flex-shrink: 0; width: 50px; height: 50px; background: var(--accent-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                                            <i class="fas fa-hands-helping"></i>
+                                        </div>
+                                        <div>
+                                            <h5 style="color: var(--accent-color); margin-bottom: 5px;">Research Assistants</h5>
+                                            <p style="margin: 0; font-size: 0.95rem;">
+                                                Part-time/full-time positions for current students interested in geospatial research projects.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="flex: 1; min-width: 300px;">
+                                <h4 style="color: var(--secondary-color); margin-bottom: 1rem;">
+                                    <i class="fas fa-info-circle"></i> How to Apply
+                                </h4>
+                                
+                                <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);">
+                                    <ol style="padding-left: 20px; margin: 0;">
+                                        <li style="margin-bottom: 12px;">
+                                            <strong>Review our research areas</strong><br>
+                                            Ensure your interests align with our lab's focus
+                                        </li>
+                                        <li style="margin-bottom: 12px;">
+                                            <strong>Prepare application materials</strong><br>
+                                            CV, research statement, transcripts, and references
+                                        </li>
+                                        <li style="margin-bottom: 12px;">
+                                            <strong>Contact Dr. Sajjad</strong><br>
+                                            Email with subject: "Prospective [Position] - [Your Name]"
+                                        </li>
+                                        <li>
+                                            <strong>Formal application</strong><br>
+                                            Submit through CUHK's official channels
+                                        </li>
+                                    </ol>
+                                    
+                                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                                        <a href="mailto:muhammadsajjad@cuhk.edu.hk?subject=Team%20Membership%20Inquiry" 
+                                           class="btn" 
+                                           style="background: var(--accent-color); display: inline-flex; align-items: center; gap: 10px;">
+                                            <i class="fas fa-envelope"></i> Express Interest via Email
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collaborators Section -->
+                <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                    <h3 style="color: var(--text-color); margin-bottom: 1rem;">
+                        <i class="fas fa-handshake"></i> Research Collaborators
+                    </h3>
+                    <p style="margin-bottom: 1rem;">
+                        Network of collaborators from Princeton University, international institutions, and industry partners.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 1rem;">
+                        <span class="collab-tag">
+                            <i class="fas fa-university"></i> Princeton University
+                        </span>
+                        <span class="collab-tag">
+                            <i class="fas fa-globe-asia"></i> International Research Partners
+                        </span>
+                        <span class="collab-tag">
+                            <i class="fas fa-industry"></i> Industry Partners
+                        </span>
+                        <span class="collab-tag">
+                            <i class="fas fa-building"></i> Government Agencies
+                        </span>
+                    </div>
                 </div>
             </div>
         </section>
