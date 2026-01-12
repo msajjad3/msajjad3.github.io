@@ -415,6 +415,116 @@ footer {
     color: var(--text-light);
 }
 
+/* ===== DYNAMIC PUBLICATIONS STYLES ===== */
+#publications-container {
+    min-height: 300px;
+    position: relative;
+}
+
+.loading-spinner {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.loading-spinner i {
+    margin-right: 10px;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.update-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(66, 133, 244, 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #4285F4;
+    white-space: nowrap;
+}
+
+.citation-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background-color: rgba(66, 133, 244, 0.1);
+    border-radius: 15px;
+    color: #4285F4;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.citation-count i {
+    font-size: 0.8rem;
+}
+
+.pub-abstract {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    border-left: 3px solid var(--border-color);
+    padding-left: 12px;
+}
+
+/* Sort/filter controls */
+.pub-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pub-sort {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pub-sort button {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.pub-sort button:hover,
+.pub-sort button.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.pub-stats {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .pub-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .pub-sort {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
     .header-content {
