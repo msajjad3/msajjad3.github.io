@@ -672,6 +672,81 @@ body {
     font-weight: 500;
 }
 
+/* Latest Updates Section */
+.latest-updates {
+    padding: 2rem 0;
+    border-top: 1px solid #eaeaea;
+    margin-top: 1rem;
+}
+
+.latest-updates h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.updates-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.update-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.2s ease;
+}
+
+.update-item:hover {
+    background-color: #f9f9f9;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    border-radius: 4px;
+}
+
+.update-item:last-child {
+    border-bottom: none;
+}
+
+.update-date {
+    min-width: 85px;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.update-title {
+    font-size: 1rem;
+    color: #1a73e8;
+    text-decoration: none;
+    flex: 1;
+    transition: color 0.2s ease;
+    line-height: 1.4;
+}
+
+.update-title:hover {
+    color: #0d62d9;
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .update-item {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    
+    .update-date {
+        min-width: auto;
+        font-size: 0.85rem;
+    }
+}
+
 /* ===== TEAM TAB STYLES ===== */
 
 /* Team Tabs Navigation */
