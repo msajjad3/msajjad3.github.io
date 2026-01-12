@@ -307,65 +307,31 @@
                 </div>
             </div>
         </section>
-
-        <!-- PUBLICATIONS TAB -->
+        <!-- Publications TAB -->
         <section id="publications" class="tab-content">
             <div class="content-card">
                 <h2><i class="fas fa-file-alt"></i> Selected Publications</h2>
-                <p>High-impact publications showcasing our research contributions to geospatial science and disaster resilience.</p>
+                <p style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>High-impact publications showcasing our research contributions to geospatial science and disaster resilience.</span>
+                    <span id="last-updated" class="update-indicator" style="display: none;">
+                        <i class="fas fa-sync-alt"></i> Updated: <span id="update-date"></span>
+                    </span>
+                </p>
                 
-                <ul class="publication-list">
-                    <li class="publication-item">
-                        <div class="pub-title">Rethinking disaster resilience in high-density cities: Towards an urban resilience knowledge system</div>
-                        <div class="pub-authors">Sajjad, M., Chan, J.C.L., Chopra, S.S.</div>
-                        <div class="pub-venue">Sustainable Cities and Society, 69, 102850 (2021)</div>
-                        <div class="pub-links">
-                            <a href="https://doi.org/10.1016/j.scs.2021.102850" class="pub-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> DOI
-                            </a>
-                            <a href="#" class="pub-link">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </li>
-                    
-                    <li class="publication-item">
-                        <div class="pub-title">Assessing hazard vulnerability, habitat conservation, and restoration for the enhancement of mainland China's coastal resilience</div>
-                        <div class="pub-authors">Sajjad, M., Li, Y., Tang, Z., Cao, L., Liu, X.</div>
-                        <div class="pub-venue">Earth's Future, 6(3), 326-338 (2018)</div>
-                        <div class="pub-links">
-                            <a href="https://doi.org/10.1002/2017EF000676" class="pub-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> DOI
-                            </a>
-                        </div>
-                    </li>
-                    
-                    <li class="publication-item">
-                        <div class="pub-title">Integration of machine learning and remote sensing for above ground biomass estimation</div>
-                        <div class="pub-authors">Anees, S.A., Mehmood, K., Khan, W.R., Sajjad, M., et al.</div>
-                        <div class="pub-venue">Ecological Informatics, 82, 102732 (2024)</div>
-                        <div class="pub-links">
-                            <a href="https://doi.org/10.1016/j.ecoinf.2024.102732" class="pub-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> DOI
-                            </a>
-                        </div>
-                    </li>
-                    
-                    <li class="publication-item">
-                        <div class="pub-title">Risk assessment for the sustainability of coastal communities: A preliminary study</div>
-                        <div class="pub-authors">Sajjad, M., Chan, J.C.L.</div>
-                        <div class="pub-venue">Science of the Total Environment, 671, 339-350 (2019)</div>
-                        <div class="pub-links">
-                            <a href="https://doi.org/10.1016/j.scitotenv.2019.03.350" class="pub-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> DOI
-                            </a>
-                        </div>
-                    </li>
-                </ul>
+                <!-- Publications will be loaded here dynamically -->
+                <div id="publications-container">
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i> Loading publications...
+                    </div>
+                </div>
                 
-                <div style="margin-top: 2rem; text-align: center;">
-                    <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="btn" target="_blank">
-                        <i class="fas fa-graduation-cap"></i> View Complete Publication List on Google Scholar
+                <!-- Google Scholar Link -->
+                <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
+                    <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" 
+                       class="btn" 
+                       target="_blank"
+                       style="background: linear-gradient(135deg, #4285F4 0%, #34A853 100%); padding: 12px 30px; font-size: 1.1rem;">
+                        <i class="fab fa-google"></i> View Complete Publication List on Google Scholar
                     </a>
                 </div>
             </div>
