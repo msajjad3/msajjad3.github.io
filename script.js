@@ -156,6 +156,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// ===== TEAM TAB FUNCTIONS =====
+
+function showTeamSection(sectionId) {
+    // Hide all team sections
+    document.querySelectorAll('.team-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Remove active class from all buttons
+    document.querySelectorAll('.team-tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Show selected section
+    const section = document.getElementById(sectionId + '-team');
+    if (section) {
+        section.classList.add('active');
+    }
+    
+    // Activate clicked button
+    event.target.classList.add('active');
+}
+
+// Initialize team tab when opened
+function initTeamTab() {
+    // Set default active section
+    showTeamSection('current');
+}
+
+// Update your tab switching function
+function switchTab(tabId) {
+    // ... existing code ...
+    
+    if (tabId === 'team') {
+        initTeamTab();
+    }
+}
+
 // ===== DYNAMIC PUBLICATIONS FUNCTIONS =====
 
 // Load publications when publications tab is opened
