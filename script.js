@@ -369,57 +369,29 @@ function loadLatestUpdates() {
     const updatesContainer = document.querySelector('.updates-container');
     if (!updatesContainer) return;
     
-    // Try different selectors to find your news items
-    let newsItems = document.querySelectorAll('#news .timeline-item');
+    // Find news items in your News tab
+    const newsItems = document.querySelectorAll('#news .news-item');
     
-    // If that doesn't work, try other common selectors
-    if (newsItems.length === 0) {
-        newsItems = document.querySelectorAll('#news li');
-    }
-    if (newsItems.length === 0) {
-        newsItems = document.querySelectorAll('#news .timeline > div');
-    }
-    if (newsItems.length === 0) {
-        newsItems = document.querySelectorAll('#news .news-item');
-    }
-    
-    if (newsItems.length === 0) {
-        updatesContainer.innerHTML = '<p>No recent updates found.</p>';
+    if (!newsItems.length) {
+        updatesContainer.innerHTML = '<p>No recent updates available.</p>';
         return;
     }
     
     // Clear container
     updatesContainer.innerHTML = '';
     
-    // Get 3 most recent items
+    // Get the 3 most recent news items (they appear in chronological order in your HTML)
     const recentItems = Array.from(newsItems).slice(0, 3);
     
     recentItems.forEach(item => {
-        // Extract date - adjust based on your HTML structure
-        let date = 'Recent';
-        const dateSelectors = ['.timeline-date', '.date', 'time', '.news-date'];
-        
-        for (const selector of dateSelectors) {
-            const dateEl = item.querySelector(selector);
-            if (dateEl && dateEl.textContent.trim()) {
-                date = dateEl.textContent.trim();
-                break;
-            }
-        }
+        // Extract date
+        const dateElement = item.querySelector('.news-date');
+        const date = dateElement ? dateElement.textContent.trim() : 'Recent';
         
         // Extract title
-        let title = '';
-        const titleSelectors = ['.timeline-title', '.title', 'h3', 'h4', 'strong'];
+        const titleElement = item.querySelector('h3');
+        const title = titleElement ? titleElement.textContent.trim() : '';
         
-        for (const selector of titleSelectors) {
-            const titleEl = item.querySelector(selector);
-            if (titleEl && titleEl.textContent.trim()) {
-                title = titleEl.textContent.trim();
-                break;
-            }
-        }
-        
-        // If we found a title, create the update item
         if (title) {
             const updateItem = document.createElement('div');
             updateItem.className = 'update-item';
@@ -431,28 +403,45 @@ function loadLatestUpdates() {
         }
     });
     
-    // Add click handlers for smooth scrolling
-    document.querySelectorAll('.update-title').forEach(link => {
+    // Add click handlers for smooth scrolling to news section
+    updatesContainer.querySelectorAll('.update-title').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const newsSection = document.getElementById('news');
             if (newsSection) {
-                newsSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                // First, switch to the News tab
+                const newsTabLink = document.querySelector('a[data-tab="news"]');
+                if (newsTabLink) {
+                    newsTabLink.click(); // This activates the News tab
+                }
+                
+                // Then scroll to the news section
+                setTimeout(() => {
+                    newsSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 100);
             }
         });
     });
 }
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    loadLatestUpdates();
-    
-    // Also load updates when navigating back to home (if using SPA-like navigation)
-    setTimeout(loadLatestUpdates, 100);
-});
+// Call the function when page loads
+document.addEventListener('DOMContentLoaded', loadLatestUpdates);
+
+// Also call it when switching tabs (in case News tab loads dynamically)
+function checkAndLoadUpdates() {
+    // Small delay to ensure DOM is ready
+    setTimeout(loadLatestUpdates, 300);
+}
+
+// Add event listener for tab changes
+document.addEventListener('tabChanged', checkAndLoadUpdates);
+
+// ====================
+// Latest Updates Section
+// ====================
 
 // Sort publications function
 function sortPublications(sortBy, button) {
