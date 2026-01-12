@@ -122,348 +122,422 @@
         </section>
 
         <!-- LAB PI TAB -->
+        <!-- LAB PI TAB -->
         <section id="pi" class="tab-content active">
             <div class="content-card">
                 <h2><i class="fas fa-user-tie"></i> Principal Investigator</h2>
                 
                 <!-- Main PI Information Row -->
                 <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; margin-top: 1.5rem;">
-                    <!-- Left Column: Photo and Basic Info -->
+                    <!-- Left Column: Photo, Contact, Education -->
                     <div style="flex: 1; min-width: 300px;">
-                        <div style="width: 100%; max-width: 300px; margin: 0 auto;">
+                        <!-- Photo Card -->
+                        <div style="background: linear-gradient(135deg, rgba(26, 95, 122, 0.05) 0%, rgba(42, 157, 143, 0.05) 100%); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);">
                             <!-- Photo -->
-                            <div style="width: 100%; padding-bottom: 100%; position: relative; border-radius: 50%; overflow: hidden; border: 6px solid var(--primary-color); box-shadow: var(--shadow);">
-                                <img src="pi-photo.png" alt="Dr. Muhammad Sajjad" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                            <div style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 5px solid white; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); margin: 0 auto;">
+                                <img src="pi-photo.png" alt="Dr. Muhammad Sajjad" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             
-                            <!-- Quick Info Card -->
-                            <div style="margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(26, 95, 122, 0.05) 0%, rgba(42, 157, 143, 0.05) 100%); border-radius: 10px; text-align: center;">
-                                <h3 style="color: var(--primary-color); margin-bottom: 10px;">Dr. Muhammad Sajjad</h3>
-                                <p class="member-role" style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 10px;">
+                            <!-- Name & Title -->
+                            <div style="text-align: center; margin-top: 1.5rem;">
+                                <h3 style="color: var(--primary-color); margin-bottom: 5px;">Dr. Muhammad Sajjad</h3>
+                                <p class="member-role" style="color: var(--accent-color); font-size: 1.1rem; font-weight: 600; margin-bottom: 10px;">
                                     Research Assistant Professor
                                 </p>
                                 <p style="color: var(--text-color); font-size: 0.95rem; line-height: 1.5;">
                                     Department of Geography and Resource Management<br>
                                     The Chinese University of Hong Kong
                                 </p>
-                                
-                                <!-- Contact Buttons -->
-                                <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 10px;">
-                                    <a href="mailto:muhammadsajjad@cuhk.edu.hk" class="btn" style="background-color: var(--primary-color);">
-                                        <i class="fas fa-envelope"></i> Email
+                            </div>
+                            
+                            <!-- Contact Buttons -->
+                            <div style="margin-top: 1.5rem; display: grid; grid-template-columns: 1fr; gap: 10px;">
+                                <a href="mailto:muhammadsajjad@cuhk.edu.hk" class="btn" style="background-color: var(--primary-color); justify-content: center;">
+                                    <i class="fas fa-envelope"></i> Email
+                                </a>
+                                <a href="sajjad-cv.pdf" class="btn" download style="background-color: var(--accent-color); justify-content: center;">
+                                    <i class="fas fa-download"></i> Download CV
+                                </a>
+                                <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="btn" target="_blank" style="background-color: #4285F4; justify-content: center;">
+                                    <i class="fas fa-graduation-cap"></i> Google Scholar
+                                </a>
+                            </div>
+                            
+                            <!-- Social Media -->
+                            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                                <h4 style="color: var(--text-color); font-size: 1rem; margin-bottom: 15px; text-align: center;">
+                                    <i class="fas fa-share-alt"></i> Connect
+                                </h4>
+                                <div class="social-links" style="justify-content: center; gap: 12px; flex-wrap: wrap;">
+                                    <a href="https://github.com/msajjad3" class="social-link" title="GitHub" target="_blank" style="width: 44px; height: 44px;">
+                                        <i class="fab fa-github"></i>
                                     </a>
-                                    <a href="sajjad-cv.pdf" class="btn" download style="background-color: var(--accent-color);">
-                                        <i class="fas fa-download"></i> Download CV
+                                    <a href="https://x.com/Mah_Sajjad" class="social-link" title="X" target="_blank" style="width: 44px; height: 44px;">
+                                        <i class="fab fa-x"></i>
                                     </a>
-                                    <a href="https://scholar.google.com/citations?user=iuXamUEAAAAJ" class="btn" target="_blank" style="background-color: #4285F4;">
-                                        <i class="fas fa-graduation-cap"></i> Google Scholar
+                                    <a href="https://www.linkedin.com/in/muhammad-sajjad-ph-d-05590865/" class="social-link" title="LinkedIn" target="_blank" style="width: 44px; height: 44px;">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="https://www.researchgate.net/profile/Muhammad-Sajjad-Phd?ev=hdr_xprf" class="social-link" title="ResearchGate" target="_blank" style="width: 44px; height: 44px;">
+                                        <i class="fab fa-researchgate"></i>
+                                    </a>
+                                    <a href="https://orcid.org/0000-0002-1576-1342" class="social-link" title="ORCID" target="_blank" style="width: 44px; height: 44px;">
+                                        <i class="fab fa-orcid"></i>
                                     </a>
                                 </div>
+                            </div>
+                        </div>
+                        
+                        <!-- EDUCATION SECTION (Below Social Contacts) -->
+                        <div style="margin-top: 2rem;">
+                            <div style="background: white; border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); border: 1px solid var(--border-color);">
+                                <h3 style="color: var(--primary-color); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px;">
+                                    <i class="fas fa-graduation-cap" style="background: var(--primary-color); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;"></i>
+                                    Education
+                                </h3>
                                 
-                                <!-- Social Media -->
-                                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-                                    <h4 style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 10px;">
-                                        <i class="fas fa-share-alt"></i> Connect
-                                    </h4>
-                                    <div class="social-links" style="justify-content: center; gap: 8px;">
-                                        <a href="https://github.com/msajjad3" class="social-link" title="GitHub" target="_blank">
-                                            <i class="fab fa-github"></i>
-                                        </a>
-                                        <a href="https://x.com/Mah_Sajjad" class="social-link" title="X" target="_blank">
-                                            <i class="fab fa-x"></i>
-                                        </a>
-                                        <a href="https://www.linkedin.com/in/muhammad-sajjad-ph-d-05590865/" class="social-link" title="LinkedIn" target="_blank">
-                                            <i class="fab fa-linkedin-in"></i>
-                                        </a>
-                                        <a href="https://www.researchgate.net/profile/Muhammad-Sajjad-Phd?ev=hdr_xprf" class="social-link" title="ResearchGate" target="_blank">
-                                            <i class="fab fa-researchgate"></i>
-                                        </a>
-                                        <a href="https://orcid.org/0000-0002-1576-1342" class="social-link" title="ORCID" target="_blank">
-                                            <i class="fab fa-orcid"></i>
-                                        </a>
+                                <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                                    <!-- PhD -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(26, 95, 122, 0.05); border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                        <div style="flex-shrink: 0; width: 50px; height: 50px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-university"></i>
+                                        </div>
+                                        <div>
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">PhD (2017-2020)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                City University of Hong Kong<br>
+                                                Hong Kong Special Administrative Region of China
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Visiting Scholar -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(42, 157, 143, 0.05); border-radius: 8px; border-left: 4px solid var(--secondary-color);">
+                                        <div style="flex-shrink: 0; width: 50px; height: 50px; background: var(--secondary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-globe-americas"></i>
+                                        </div>
+                                        <div>
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Visiting Scholar (2018-2019)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                Princeton University, USA
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- MSc -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(231, 111, 81, 0.05); border-radius: 8px; border-left: 4px solid var(--accent-color);">
+                                        <div style="flex-shrink: 0; width: 50px; height: 50px; background: var(--accent-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-award"></i>
+                                        </div>
+                                        <div>
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">MSc (2015-2017)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                Xiamen University, Fujian, China
+                                            </p>
+                                            <div style="color: var(--accent-color); font-weight: 600; font-size: 0.85rem; margin-top: 5px;">
+                                                <i class="fas fa-star"></i> Award of Excellence
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- BS Hons -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(26, 95, 122, 0.05); border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                        <div style="flex-shrink: 0; width: 50px; height: 50px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-medal"></i>
+                                        </div>
+                                        <div>
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">BS Hons (2009-2013)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                GC University Faisalabad, Pakistan
+                                            </p>
+                                            <div style="color: var(--accent-color); font-weight: 600; font-size: 0.85rem; margin-top: 5px;">
+                                                <i class="fas fa-trophy"></i> Gold Medalist
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Right Column: Detailed Information -->
+                    <!-- Right Column: Experiences, Funding, Awards -->
                     <div style="flex: 2; min-width: 300px;">
                         <!-- Research Bio -->
-                        <div style="margin-bottom: 2rem;">
-                            <h3 style="color: var(--primary-color); margin-bottom: 15px;">
-                                <i class="fas fa-flask"></i> Research Focus
+                        <div style="background: linear-gradient(135deg, rgba(26, 95, 122, 0.03) 0%, rgba(42, 157, 143, 0.03) 100%); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--primary-color);">
+                            <h3 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-flask" style="background: var(--primary-color); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;"></i>
+                                Research Focus
                             </h3>
-                            <p style="line-height: 1.7; font-size: 1.05rem;">
+                            <p style="line-height: 1.7; font-size: 1.05rem; color: var(--text-color); margin: 0;">
                                 Dr. Sajjad's research focuses on geospatial data science for disaster risk reduction, vulnerability and resilience assessment, 
                                 and science-informed planning. His work couples GeoAI, remote sensing, machine learning, and spatial modeling to address complex human-environment challenges.
                             </p>
                         </div>
                         
-                        <!-- Two-Column Layout -->
-                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1rem;">
-                            <!-- LEFT COLUMN: Experience & Education -->
-                            <div style="flex: 1; min-width: 300px;">
-                                <!-- EXPERIENCE (Top of Left Column) -->
-                                <div style="margin-bottom: 2rem;">
-                                    <h3 style="color: var(--primary-color); margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
-                                        <i class="fas fa-briefcase"></i> Professional Experience
-                                    </h3>
-                                    <ul style="list-style: none; padding: 0; margin: 0;">
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-leaf" style="position: absolute; left: 0; top: 3px; color: var(--secondary-color);"></i>
-                                            <div>
-                                                <strong>Chapter Scientist (Jan. 2026-Present)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    IPCC AR7, WG-II Chapter 2<br>
-                                                    IPCC | ICTP | IAP
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-university" style="position: absolute; left: 0; top: 3px; color: var(--secondary-color);"></i>
-                                            <div>
-                                                <strong>Research Assistant Professor (Aug. 2025-Present)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    The Chinese University of Hong Kong
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-university" style="position: absolute; left: 0; top: 3px; color: var(--secondary-color);"></i>
-                                            <div>
-                                                <strong>Research Assistant Professor (Sep. 2024-July 2025)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    The University of Hong Kong
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-university" style="position: absolute; left: 0; top: 3px; color: var(--secondary-color);"></i>
-                                            <div>
-                                                <strong>Research Assistant Professor (July 2021-July 2024)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    Hong Kong Baptist University
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-chart-line" style="position: absolute; left: 0; top: 3px; color: var(--secondary-color);"></i>
-                                            <div>
-                                                <strong>Senior Scientist (March 2021-July 2021)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    Intensel Limited - Climate Risks and Resilience R&D
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                        <!-- Single Column Layout for Experiences, Funding, Awards -->
+                        <div style="display: flex; flex-direction: column; gap: 2rem;">
+                            <!-- EXPERIENCES -->
+                            <div style="background: white; border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); border: 1px solid var(--border-color);">
+                                <h3 style="color: var(--primary-color); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px;">
+                                    <i class="fas fa-briefcase" style="background: var(--primary-color); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;"></i>
+                                    Professional Experience
+                                </h3>
                                 
-                                <!-- EDUCATION (Below Experience) -->
-                                <div style="margin-bottom: 2rem;">
-                                    <h3 style="color: var(--secondary-color); margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
-                                        <i class="fas fa-graduation-cap"></i> Education
-                                    </h3>
-                                    <ul style="list-style: none; padding: 0; margin: 0;">
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-university" style="position: absolute; left: 0; top: 3px; color: var(--primary-color);"></i>
-                                            <div>
-                                                <strong>PhD (2017-2020)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    City University of Hong Kong<br>
-                                                    Hong Kong Special Administrative Region of China
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-globe-americas" style="position: absolute; left: 0; top: 3px; color: var(--primary-color);"></i>
-                                            <div>
-                                                <strong>Visiting Scholar (2018-2019)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    Princeton University, USA
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-university" style="position: absolute; left: 0; top: 3px; color: var(--primary-color);"></i>
-                                            <div>
-                                                <strong>MSc (2015-2017)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    Xiamen University, Fujian, China
-                                                </div>
-                                                <div style="color: var(--accent-color); font-weight: 500; font-size: 0.9rem; margin-top: 2px;">
-                                                    <i class="fas fa-award"></i> Award of Excellence
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-university" style="position: absolute; left: 0; top: 3px; color: var(--primary-color);"></i>
-                                            <div>
-                                                <strong>BS Hons (2009-2013)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    GC University Faisalabad, Pakistan
-                                                </div>
-                                                <div style="color: var(--accent-color); font-weight: 500; font-size: 0.9rem; margin-top: 2px;">
-                                                    <i class="fas fa-medal"></i> Gold Medalist
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                                    <!-- Chapter Scientist -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(26, 95, 122, 0.05); border-radius: 8px; position: relative;">
+                                        <div style="flex-shrink: 0; width: 24px; height: 24px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; margin-top: 3px;">
+                                            1
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Chapter Scientist (Jan. 2026-Present)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                IPCC AR7, WG-II Chapter 2 (Vulnerabilities, Risks, and Impacts)<br>
+                                                IPCC | ICTP | IAP
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- CUHK -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(42, 157, 143, 0.05); border-radius: 8px; position: relative;">
+                                        <div style="flex-shrink: 0; width: 24px; height: 24px; background: var(--secondary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; margin-top: 3px;">
+                                            2
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Research Assistant Professor (Aug. 2025-Present)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                Department of Geography and Resource Management<br>
+                                                The Chinese University of Hong Kong
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- HKU -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(231, 111, 81, 0.05); border-radius: 8px; position: relative;">
+                                        <div style="flex-shrink: 0; width: 24px; height: 24px; background: var(--accent-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; margin-top: 3px;">
+                                            3
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Research Assistant Professor (Sep. 2024-July 2025)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                The University of Hong Kong
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- HKBU -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(26, 95, 122, 0.05); border-radius: 8px; position: relative;">
+                                        <div style="flex-shrink: 0; width: 24px; height: 24px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; margin-top: 3px;">
+                                            4
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Research Assistant Professor (July 2021-July 2024)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                Hong Kong Baptist University
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Intensel -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(42, 157, 143, 0.05); border-radius: 8px; position: relative;">
+                                        <div style="flex-shrink: 0; width: 24px; height: 24px; background: var(--secondary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; margin-top: 3px;">
+                                            5
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Senior Scientist (March 2021-July 2021)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                Climate Risks and Resilience R&D<br>
+                                                Intensel Limited
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <!-- RIGHT COLUMN: Funding & Awards -->
-                            <div style="flex: 1; min-width: 300px;">
-                                <!-- COMPETITIVE FUNDING (Top of Right Column) -->
-                                <div style="margin-bottom: 2rem;">
-                                    <h3 style="color: var(--primary-color); margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
-                                        <i class="fas fa-money-bill-wave"></i> Competitive Funding
-                                    </h3>
-                                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem;">
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-sitemap" style="position: absolute; left: 0; top: 3px; color: var(--primary-color); font-size: 0.9rem;"></i>
-                                            <div>
-                                                <strong>Equipment Matching Fund (2022)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    Drone and virtual reality equipment<br>
-                                                    <strong style="color: var(--accent-color);">268,960 HK$</strong> (Ref: RC-EMF/21-22/07/SOSC)<br>
-                                                    <em>Co-PI, HKBU Research Committee</em>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-rocket" style="position: absolute; left: 0; top: 3px; color: var(--primary-color); font-size: 0.9rem;"></i>
-                                            <div>
-                                                <strong>Startup Grant (Tier 1) (2021-2022)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    Research initiation support<br>
-                                                    <strong style="color: var(--accent-color);">100,000 HK$</strong> (Ref: RC-STARTUP/21-22/12)<br>
-                                                    <em>PI, HKBU Research Committee</em>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-users" style="position: absolute; left: 0; top: 3px; color: var(--primary-color); font-size: 0.9rem;"></i>
-                                            <div>
-                                                <strong>Research Talent Hub Fund (2021)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    Innovation and Technology Commission, HKSAR<br>
-                                                    <strong style="color: var(--accent-color);">459,667 HK$</strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-graduation-cap" style="position: absolute; left: 0; top: 3px; color: var(--primary-color); font-size: 0.9rem;"></i>
-                                            <div>
-                                                <strong>Hong Kong PhD Scholarship (2017-2020)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    Fully-funded doctoral program<br>
-                                                    <strong style="color: var(--accent-color);">~576,000 HK$</strong><br>
-                                                    <em>City University of Hong Kong, HKSAR</em>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-globe-asia" style="position: absolute; left: 0; top: 3px; color: var(--primary-color); font-size: 0.9rem;"></i>
-                                            <div>
-                                                <strong>China Scholarship Council (2015-2017)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    Fully-funded master's scholarship<br>
-                                                    <strong style="color: var(--accent-color);">~86,500 HK$</strong><br>
-                                                    <em>CSC China</em>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style="padding-left: 25px; position: relative;">
-                                            <i class="fas fa-hands-helping" style="position: absolute; left: 0; top: 3px; color: var(--primary-color); font-size: 0.9rem;"></i>
-                                            <div>
-                                                <strong>Other Research Support</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    • One-off Special Allowance (2021-2022): 4,500 HK$<br>
-                                                    • Partial Research Activities Fund (2018/19): 30,000 HK$
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <!-- FUNDING -->
+                            <div style="background: white; border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); border: 1px solid var(--border-color);">
+                                <h3 style="color: var(--secondary-color); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px;">
+                                    <i class="fas fa-money-bill-wave" style="background: var(--secondary-color); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;"></i>
+                                    Competitive Funding
+                                </h3>
                                 
-                                <!-- AWARDS & HONORS (Below Funding) -->
-                                <div style="margin-bottom: 2rem;">
-                                    <h3 style="color: var(--accent-color); margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
-                                        <i class="fas fa-award"></i> Awards & Honors
-                                    </h3>
-                                    <ul style="list-style: none; padding: 0; margin: 0;">
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-trophy" style="position: absolute; left: 0; top: 3px; color: var(--accent-color); font-size: 0.9rem;"></i>
+                                <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                                    <!-- Equipment Matching Fund -->
+                                    <div style="padding: 15px; background: rgba(26, 95, 122, 0.05); border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
                                             <div>
-                                                <strong>Xiamen University Excellence Award (2016)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    Award for outstanding international students
-                                                </div>
+                                                <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Equipment Matching Fund (2022)</h4>
+                                                <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                    Drone and virtual reality equipment<br>
+                                                    <em>Co-PI, HKBU Research Committee</em>
+                                                </p>
                                             </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-file-alt" style="position: absolute; left: 0; top: 3px; color: var(--accent-color); font-size: 0.9rem;"></i>
+                                            <div style="background: var(--primary-color); color: white; padding: 8px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                                                268,960 HK$
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Startup Grant -->
+                                    <div style="padding: 15px; background: rgba(42, 157, 143, 0.05); border-radius: 8px; border-left: 4px solid var(--secondary-color);">
+                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
                                             <div>
-                                                <strong>Best Paper Presentation Award (2016)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    Research forum organized by College of Environment and Ecology, Xiamen University, China
-                                                </div>
+                                                <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Startup Grant (Tier 1) (2021-2022)</h4>
+                                                <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                    Research initiation support<br>
+                                                    <em>PI, HKBU Research Committee</em>
+                                                </p>
                                             </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-medal" style="position: absolute; left: 0; top: 3px; color: var(--accent-color); font-size: 0.9rem;"></i>
+                                            <div style="background: var(--secondary-color); color: white; padding: 8px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                                                100,000 HK$
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Research Talent Hub -->
+                                    <div style="padding: 15px; background: rgba(231, 111, 81, 0.05); border-radius: 8px; border-left: 4px solid var(--accent-color);">
+                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
                                             <div>
-                                                <strong>First Class with Distinction (2013)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    BS(Hons) Geography - Gold Medalist<br>
-                                                    <em>GC University Faisalabad, Pakistan</em>
-                                                </div>
+                                                <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Research Talent Hub Fund (2021)</h4>
+                                                <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                    Innovation and Technology Commission, HKSAR
+                                                </p>
                                             </div>
-                                        </li>
-                                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                                            <i class="fas fa-user-graduate" style="position: absolute; left: 0; top: 3px; color: var(--accent-color); font-size: 0.9rem;"></i>
+                                            <div style="background: var(--accent-color); color: white; padding: 8px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                                                459,667 HK$
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- PhD Scholarship -->
+                                    <div style="padding: 15px; background: rgba(26, 95, 122, 0.05); border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
                                             <div>
-                                                <strong>Student of the Year (2013)</strong>
-                                                <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 2px;">
-                                                    Department of Geography<br>
-                                                    <em>GC University Faisalabad, Pakistan</em>
-                                                </div>
+                                                <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Hong Kong PhD Scholarship (2017-2020)</h4>
+                                                <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                    Fully-funded doctoral program<br>
+                                                    <em>City University of Hong Kong, HKSAR</em>
+                                                </p>
                                             </div>
-                                        </li>
-                                    </ul>
+                                            <div style="background: var(--primary-color); color: white; padding: 8px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                                                ~576,000 HK$
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- CSC Scholarship -->
+                                    <div style="padding: 15px; background: rgba(42, 157, 143, 0.05); border-radius: 8px; border-left: 4px solid var(--secondary-color);">
+                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
+                                            <div>
+                                                <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">China Scholarship Council (2015-2017)</h4>
+                                                <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                    Fully-funded master's scholarship<br>
+                                                    <em>CSC China</em>
+                                                </p>
+                                            </div>
+                                            <div style="background: var(--secondary-color); color: white; padding: 8px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                                                ~86,500 HK$
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- AWARDS -->
+                            <div style="background: white; border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); border: 1px solid var(--border-color);">
+                                <h3 style="color: var(--accent-color); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px;">
+                                    <i class="fas fa-award" style="background: var(--accent-color); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;"></i>
+                                    Awards & Honors
+                                </h3>
+                                
+                                <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                                    <!-- Xiamen Award -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(231, 111, 81, 0.05); border-radius: 8px; border-left: 4px solid var(--accent-color);">
+                                        <div style="flex-shrink: 0; width: 50px; height: 50px; background: var(--accent-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-trophy"></i>
+                                        </div>
+                                        <div>
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Xiamen University Excellence Award (2016)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                Award for outstanding international students
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Best Paper Award -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(26, 95, 122, 0.05); border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                        <div style="flex-shrink: 0; width: 50px; height: 50px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-file-alt"></i>
+                                        </div>
+                                        <div>
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Best Paper Presentation Award (2016)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                Research forum organized by College of Environment and Ecology<br>
+                                                Xiamen University, China
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Gold Medal -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(42, 157, 143, 0.05); border-radius: 8px; border-left: 4px solid var(--secondary-color);">
+                                        <div style="flex-shrink: 0; width: 50px; height: 50px; background: var(--secondary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-medal"></i>
+                                        </div>
+                                        <div>
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">First Class with Distinction (2013)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                BS(Hons) Geography - Gold Medalist<br>
+                                                <em>GC University Faisalabad, Pakistan</em>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Student of the Year -->
+                                    <div style="display: flex; gap: 15px; padding: 15px; background: rgba(231, 111, 81, 0.05); border-radius: 8px; border-left: 4px solid var(--accent-color);">
+                                        <div style="flex-shrink: 0; width: 50px; height: 50px; background: var(--accent-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-user-graduate"></i>
+                                        </div>
+                                        <div>
+                                            <h4 style="color: var(--text-color); margin-bottom: 5px; font-size: 1rem;">Student of the Year (2013)</h4>
+                                            <p style="color: var(--text-light); font-size: 0.9rem; margin: 0; line-height: 1.5;">
+                                                Department of Geography<br>
+                                                <em>GC University Faisalabad, Pakistan</em>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Research Interests -->
-                        <div style="margin-top: 2rem;">
-                            <h3 style="color: var(--accent-color); margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
-                                <i class="fas fa-search"></i> Research Interests
+                        <div style="margin-top: 2rem; background: white; border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); border: 1px solid var(--border-color);">
+                            <h3 style="color: var(--secondary-color); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-search" style="background: var(--secondary-color); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;"></i>
+                                Research Interests
                             </h3>
                             <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
-                                <span class="tag" style="background: rgba(26, 95, 122, 0.1); color: var(--primary-color); border: 1px solid rgba(26, 95, 122, 0.2);">
+                                <span class="tag" style="background: rgba(26, 95, 122, 0.1); color: var(--primary-color); border: 1px solid rgba(26, 95, 122, 0.2); padding: 10px 15px; font-size: 0.95rem;">
                                     <i class="fas fa-city"></i> Urban & Environmental Sustainability
                                 </span>
-                                <span class="tag" style="background: rgba(42, 157, 143, 0.1); color: var(--secondary-color); border: 1px solid rgba(42, 157, 143, 0.2);">
+                                <span class="tag" style="background: rgba(42, 157, 143, 0.1); color: var(--secondary-color); border: 1px solid rgba(42, 157, 143, 0.2); padding: 10px 15px; font-size: 0.95rem;">
                                     <i class="fas fa-shield-alt"></i> Vulnerability & Resilience
                                 </span>
-                                <span class="tag" style="background: rgba(231, 111, 81, 0.1); color: var(--accent-color); border: 1px solid rgba(231, 111, 81, 0.2);">
+                                <span class="tag" style="background: rgba(231, 111, 81, 0.1); color: var(--accent-color); border: 1px solid rgba(231, 111, 81, 0.2); padding: 10px 15px; font-size: 0.95rem;">
                                     <i class="fas fa-robot"></i> GeoAI Applications
                                 </span>
-                                <span class="tag" style="background: rgba(26, 95, 122, 0.1); color: var(--primary-color); border: 1px solid rgba(26, 95, 122, 0.2);">
+                                <span class="tag" style="background: rgba(26, 95, 122, 0.1); color: var(--primary-color); border: 1px solid rgba(26, 95, 122, 0.2); padding: 10px 15px; font-size: 0.95rem;">
                                     <i class="fas fa-exclamation-triangle"></i> Disaster Risk Reduction
                                 </span>
-                                <span class="tag" style="background: rgba(42, 157, 143, 0.1); color: var(--secondary-color); border: 1px solid rgba(42, 157, 143, 0.2);">
+                                <span class="tag" style="background: rgba(42, 157, 143, 0.1); color: var(--secondary-color); border: 1px solid rgba(42, 157, 143, 0.2); padding: 10px 15px; font-size: 0.95rem;">
                                     <i class="fas fa-satellite"></i> Remote Sensing & GIS
                                 </span>
-                                <span class="tag" style="background: rgba(231, 111, 81, 0.1); color: var(--accent-color); border: 1px solid rgba(231, 111, 81, 0.2);">
+                                <span class="tag" style="background: rgba(231, 111, 81, 0.1); color: var(--accent-color); border: 1px solid rgba(231, 111, 81, 0.2); padding: 10px 15px; font-size: 0.95rem;">
                                     <i class="fas fa-database"></i> Spatial Data Science
                                 </span>
-                                <span class="tag" style="background: rgba(26, 95, 122, 0.1); color: var(--primary-color); border: 1px solid rgba(26, 95, 122, 0.2);">
+                                <span class="tag" style="background: rgba(26, 95, 122, 0.1); color: var(--primary-color); border: 1px solid rgba(26, 95, 122, 0.2); padding: 10px 15px; font-size: 0.95rem;">
                                     <i class="fas fa-brain"></i> Machine Learning
                                 </span>
-                                <span class="tag" style="background: rgba(42, 157, 143, 0.1); color: var(--secondary-color); border: 1px solid rgba(42, 157, 143, 0.2);">
+                                <span class="tag" style="background: rgba(42, 157, 143, 0.1); color: var(--secondary-color); border: 1px solid rgba(42, 157, 143, 0.2); padding: 10px 15px; font-size: 0.95rem;">
                                     <i class="fas fa-cloud-sun"></i> Climate Adaptation
                                 </span>
                             </div>
