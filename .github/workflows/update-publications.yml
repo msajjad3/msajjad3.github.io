@@ -8,12 +8,13 @@ on:
 jobs:
   update-publications:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Add this line
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      # Remove the 'with: token' line - the default token works better
     
     - name: Set up Python
       uses: actions/setup-python@v4
