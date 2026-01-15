@@ -9,12 +9,13 @@ jobs:
   update-publications:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Add this line
+      contents: write
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
-      # Remove the 'with: token' line - the default token works better
+      uses: actions/checkout@v4  # Updated to v4
+      with:
+        fetch-depth: 0  # Fetch all history
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -22,21 +23,28 @@ jobs:
         python-version: '3.9'
     
     - name: Install dependencies
-      run: pip install scholarly
+      run: |
+        pip install scholarly
+        pip install requests
     
     - name: Run update script
       run: python scripts/update_publications.py
+      continue-on-error: true  # Continue even if script fails
     
     - name: Check for changes
       id: git-check
       run: |
-        git diff --quiet data/publications.json || echo "changed=true" >> $GITHUB_OUTPUT
+        if [[ -n $(git status --porcelain data/publications.json) ]]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
     
     - name: Commit and push if changed
       if: steps.git-check.outputs.changed == 'true'
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         git add data/publications.json
-        git commit -m "📚 Update publications from Google Scholar [skip ci]"
+        git commit -m "📚 Auto-update publications $(date '+%Y-%m-%d %H:%M') [skip ci]"
         git push
