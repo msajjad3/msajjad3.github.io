@@ -3,6 +3,294 @@
   "count": 2,
   "publications": [
     {
+      "title": "Multi-Modal LLMs in Agriculture: A Comprehensive Review",
+      "authors": "Sapkota, R., Qureshi, R., Usman Hadi, M., Zohaib Hassan, S., Sadak, F., Shoman, M., Sajjad, M., Ali Dharejo, F., Paudel, A., Li, J., Meng, Z., Shutske, J., Karkee, M.",
+      "venue": "IEEE Transactions on Automation Science and Engineering",
+      "year": "2025",
+      "url": "https://doi.org/10.1109/tase.2025.3612154",
+      "citations": 45
+    },
+    {
+      "title": "Downscaling Urban Disaster Resilience: Toward Building‐Scale Geo‐Information Modeling and Machine Learning‐Assisted Resilience Knowledge Systems",
+      "authors": "Kaya, A.Y., Sajjad, M., Dedekorkut‐Howes, A.",
+      "venue": "Transactions in GIS",
+      "year": "2025",
+      "url": "https://doi.org/10.1111/tgis.70153",
+      "citations": 45
+    },
+    {
+      "title": "Exacerbating landslide risks under future climate change and land use scenarios: evidence from the Western Himalayas in Pakistan",
+      "authors": "Rehman, A., Sajjad, M., Lu, H., Lu, S., Cao, L., Han, Z., Feng, W., Qi, S., Zhang, Y., Wang, J., Riaz, M.T., Abbas, S.",
+      "venue": "Geomatics, Natural Hazards and Risk",
+      "year": "2025",
+      "url": "https://doi.org/10.1080/19475705.2025.2577170",
+      "citations": 45
+    },
+    {
+      "title": "From space to screen: Recent advances in remote sensing for mangrove valuation through a bibliometric lens",
+      "authors": "Luk, S.Y., Sajjad, M.",
+      "venue": "Ocean & Coastal Management",
+      "year": "2025",
+      "url": "https://doi.org/10.1016/j.ocecoaman.2025.107844",
+      "citations": 45
+    },
+    {
+      "title": "Modelling pandemic-induced spatially heterogeneous patterns in income shock, food insecurity and their driving factors: a case of Pakistan",
+      "authors": "Sajjad, M., Raza, S.H., Haq, W., Rubab, S.F.",
+      "venue": "Environment, Development and Sustainability",
+      "year": "2025",
+      "url": "https://doi.org/10.1007/s10668-025-06823-y",
+      "citations": 45
+    },
+    {
+      "title": "Pakistan in the Face of Climate Change",
+      "authors": "Sajjad, M., Bashir, A., Haq, W.",
+      "venue": "Challenge, Continuity, and Change in Pakistan",
+      "year": "2025",
+      "url": "https://doi.org/10.4324/9781003603764-21",
+      "citations": 45
+    },
+    {
+      "title": "Significant Attribution of Urbanization to Triggering Extreme Rainfall in the Urban Core—A Case of Dallas–Fort Worth in North Texas",
+      "authors": "Ahmad, J., Eisma, J.A., Sajjad, M.",
+      "venue": "Urban Science",
+      "year": "2025",
+      "url": "https://doi.org/10.3390/urbansci9080295",
+      "citations": 45
+    },
+    {
+      "title": "High-resolution flood susceptibility mapping and exposure assessment in Pakistan: An integrated artificial intelligence, machine learning and geospatial framework",
+      "authors": "Waleed, M., Sajjad, M.",
+      "venue": "International Journal of Disaster Risk Reduction",
+      "year": "2025",
+      "url": "https://doi.org/10.1016/j.ijdrr.2025.105442",
+      "citations": 45
+    },
+    {
+      "title": "Integrated frequency ratio-analytical hierarchy and geospatial techniques-based earthquake risk assessment in mountainous cities: a case from the Northwestern Himalayas",
+      "authors": "Rehman, A., Sajjad, M., Song, J., Riaz, M.T., Mehmood, M.S., Ahamad, M.I.",
+      "venue": "Georisk",
+      "year": "2025",
+      "url": "https://doi.org/10.1080/17499518.2024.2378285",
+      "citations": 45
+    },
+    {
+      "title": "Small unmanned aerial vehicle (UAV)-based detection of seasonal micro-urban heat islands for diverse land uses",
+      "authors": "Ahmad, J., Sajjad, M., Eisma, J.",
+      "venue": "International Journal of Remote Sensing",
+      "year": "2025",
+      "url": "https://doi.org/10.1080/01431161.2024.2391582",
+      "citations": 45
+    },
+    {
+      "title": "Advancing flood susceptibility prediction: A comparative assessment and scalability analysis of machine learning algorithms via artificial intelligence in high‐risk regions of Pakistan",
+      "authors": "Waleed, M., Sajjad, M.",
+      "venue": "Journal of Flood Risk Management",
+      "year": "2024",
+      "url": "https://doi.org/10.1111/jfr3.13047",
+      "citations": 45
+    },
+    {
+      "title": "Current advances in imaging spectroscopy and its state-of-the-art applications",
+      "authors": "Zahra, A., Qureshi, R., Sajjad, M., Sadak, F., Nawaz, M., Khan, H.A., Uzair, M.",
+      "venue": "Expert Systems with Applications",
+      "year": "2024",
+      "url": "https://doi.org/10.1016/j.eswa.2023.122172",
+      "citations": 45
+    },
+    {
+      "title": "RETRACTED: Societal knowledge, attitude, and practices towards dengue and associated factors in epidemic-hit areas: Geoinformation assisted empirical evidence",
+      "authors": "Naqvi, S.A.A., Sajjad, M., Tariq, A., Sajjad, M., Waseem, L.A., Karuppannan, S., Rehman, A., Hassan, M., Al-Ahmadi, S., Hatamleh, W.A.",
+      "venue": "Heliyon",
+      "year": "2024",
+      "url": "https://doi.org/10.1016/j.heliyon.2023.e23151",
+      "citations": 45
+    },
+    {
+      "title": "Urbanization-led land cover change impacts terrestrial carbon storage capacity: A high-resolution remote sensing-based nation-wide assessment in Pakistan (1990–2020)",
+      "authors": "Waleed, M., Sajjad, M., Shazil, M.S.",
+      "venue": "Environmental Impact Assessment Review",
+      "year": "2024",
+      "url": "https://doi.org/10.1016/j.eiar.2023.107396",
+      "citations": 45
+    },
+    {
+      "title": "Integration of machine learning and remote sensing for above ground biomass estimation through Landsat-9 and field data in temperate forests of the Himalayan region",
+      "authors": "Anees, S.A., Mehmood, K., Khan, W.R., Sajjad, M., Alahmadi, T.A., Alharbi, S.A., Luo, M.",
+      "venue": "Ecological Informatics",
+      "year": "2024",
+      "url": "https://doi.org/10.1016/j.ecoinf.2024.102732",
+      "citations": 45
+    },
+    {
+      "title": "A global outlook on multi-hazard risk analysis: A systematic and scientometric review",
+      "authors": "Owolabi, T.A., Sajjad, M.",
+      "venue": "International Journal of Disaster Risk Reduction",
+      "year": "2023",
+      "url": "https://doi.org/10.1016/j.ijdrr.2023.103727",
+      "citations": 45
+    },
+    {
+      "title": "Characterizing spatial–temporal drought risk heterogeneities: A hazard, vulnerability and resilience-based modeling",
+      "authors": "Khoshnazar, A., Corzo Perez, G., Sajjad, M.",
+      "venue": "Journal of Hydrology",
+      "year": "2023",
+      "url": "https://doi.org/10.1016/j.jhydrol.2023.129321",
+      "citations": 45
+    },
+    {
+      "title": "Evaluating land use/cover change associations with urban surface temperature via machine learning and spatial modeling: Past trends and future simulations in Dera Ghazi Khan, Pakistan",
+      "authors": "Mehmood, M.S., Rehman, A., Sajjad, M., Song, J., Zafar, Z., Shiyan, Z., Yaochen, Q.",
+      "venue": "Frontiers in Ecology and Evolution",
+      "year": "2023",
+      "url": "https://doi.org/10.3389/fevo.2023.1115074",
+      "citations": 45
+    },
+    {
+      "title": "Fostering deep learning approaches to evaluate the impact of urbanization on vegetation and future prospects",
+      "authors": "Zafar, Z., Mehmood, M.S., Shiyan, Z., Zubair, M., Sajjad, M., Yaochen, Q.",
+      "venue": "Ecological Indicators",
+      "year": "2023",
+      "url": "https://doi.org/10.1016/j.ecolind.2022.109788",
+      "citations": 45
+    },
+    {
+      "title": "Has Pakistan learned from disasters over the decades? Dynamic resilience insights based on catastrophe progression and geo-information models",
+      "authors": "Sajjad, M., Ali, Z., Waleed, M.",
+      "venue": "Natural Hazards",
+      "year": "2023",
+      "url": "https://doi.org/10.1007/s11069-023-05976-1",
+      "citations": 45
+    },
+    {
+      "title": "Machine learning-based spatial-temporal assessment and change transition analysis of wetlands: An application of Google Earth Engine in Sylhet, Bangladesh (1985–2022)",
+      "authors": "Waleed, M., Sajjad, M., Shazil, M.S., Tariq, M., Alam, M.T.",
+      "venue": "Ecological Informatics",
+      "year": "2023",
+      "url": "https://doi.org/10.1016/j.ecoinf.2023.102075",
+      "citations": 45
+    },
+    {
+      "title": "On the emergence of geospatial cloud-based platforms for disaster risk management: A global scientometric review of google earth engine applications",
+      "authors": "Waleed, M., Sajjad, M.",
+      "venue": "International Journal of Disaster Risk Reduction",
+      "year": "2023",
+      "url": "https://doi.org/10.1016/j.ijdrr.2023.104056",
+      "citations": 45
+    },
+    {
+      "title": "Three research priorities for just and sustainable urban systems: Now is the time to refocus",
+      "authors": "Bozeman, J.F., Chopra, S.S., James, P., Sajjad, M., Cai, H., Tong, K., Carrasquillo, M., Rickenbacker, H., Nock, D., Ashton, W., Heidrich, O., Derrible, S., Bilec, M.",
+      "venue": "Journal of Industrial Ecology",
+      "year": "2023",
+      "url": "https://doi.org/10.1111/jiec.13360",
+      "citations": 45
+    },
+    {
+      "title": "Risk Mapping in Managing Flood Vulnerability in Disaster Management",
+      "authors": "Akhtar, Z., Sajjad, M., Imran, M., Ofli, F.",
+      "venue": "International Handbook of Disaster Research",
+      "year": "2023",
+      "url": "https://doi.org/10.1007/978-981-19-8388-7_177",
+      "citations": 45
+    },
+    {
+      "title": "Warming Cities in Pakistan: Evaluating Spatial–Temporal Dynamics of Urban Thermal Field Variance Index Under Rapid Urbanization",
+      "authors": "Waleed, M., Sajjad, M.",
+      "venue": "Climate Change and Cooling Cities",
+      "year": "2023",
+      "url": "https://doi.org/10.1007/978-981-99-3675-5_4",
+      "citations": 45
+    },
+    {
+      "title": "Towards hazard, vulnerability, and resilience-based assessment of spatial-temporal trends, patterns, and disparities in drought risk",
+      "authors": "Sajjad, M.",
+      "venue": "EGU General Assembly Conference Abstracts",
+      "year": "2023",
+      "url": "https://doi.org/10.5194/egusphere-egu23-2168",
+      "citations": 45
+    },
+    {
+      "title": "Mapping Flood Exposure, Damage, and Population Needs Using Remote and Social Sensing: A Case Study of 2022 Pakistan Floods",
+      "authors": "Akhtar, Z., Qazi, U., Sadiq, R., El-Sakka, A., Sajjad, M., Ofli, F., Imran, M.",
+      "venue": "Proceedings of the ACM Web Conference 2023",
+      "year": "2023",
+      "url": "https://doi.org/10.1145/3543507.3583881",
+      "citations": 45
+    },
+    {
+      "title": "Leveraging machine learning and remote sensing to monitor long-term spatial-temporal wetland changes: Towards a national RAMSAR inventory in Pakistan",
+      "authors": "Shafi, A., Chen, S., Waleed, M., Sajjad, M.",
+      "venue": "Applied Geography",
+      "year": "2023",
+      "url": "https://doi.org/10.1016/j.apgeog.2022.102868",
+      "citations": 45
+    },
+    {
+      "title": "Towards Sustainable and Livable Cities: Leveraging Remote Sensing, Machine Learning, and Geo-Information Modelling to Explore and Predict Thermal Field Variance in Response to Urban Growth",
+      "authors": "Waleed, M., Sajjad, M., Acheampong, A.O., Alam, M.T.",
+      "venue": "Sustainability",
+      "year": "2023",
+      "url": "https://doi.org/10.3390/su15021416",
+      "citations": 45
+    },
+    {
+      "title": "Assessing Response Readiness to Health Emergencies: A Spatial Evaluation of Health and Socio-Economic Justice in Pakistan",
+      "authors": "Sajjad, M., Raza, S.H., Shah, A.A.",
+      "venue": "Social Indicators Research",
+      "year": "2022",
+      "url": "https://doi.org/10.1007/s11205-022-02922-9",
+      "citations": 45
+    },
+    {
+      "title": "Leveraging cloud-based computing and spatial modeling approaches for land surface temperature disparities in response to land cover change: Evidence from Pakistan",
+      "authors": "Waleed, M., Sajjad, M.",
+      "venue": "Remote Sensing Applications: Society and Environment",
+      "year": "2022",
+      "url": "https://doi.org/10.1016/j.rsase.2021.100665",
+      "citations": 45
+    },
+    {
+      "title": "Time Series Analyses and Forecasting of Surface Urban Heat Island Intensity Using ARIMA Model in Punjab, Pakistan",
+      "authors": "Mehmood, M.S., Zafar, Z., Sajjad, M., Hussain, S., Zhai, S., Qin, Y.",
+      "venue": "Land",
+      "year": "2022",
+      "url": "https://doi.org/10.3390/land12010142",
+      "citations": 45
+    },
+    {
+      "title": "Vertical Ground Displacements and Its Impact on Erosion along the Karachi Coastline, Pakistan",
+      "authors": "Kanwal, S., Ding, X., Wu, S., Sajjad, M.",
+      "venue": "Remote Sensing",
+      "year": "2022",
+      "url": "https://doi.org/10.3390/rs14092054",
+      "citations": 45
+    },
+    {
+      "title": "Spatial inequalities in education status and its determinants in Pakistan: A district-level modelling in the context of sustainable development Goal-4",
+      "authors": "Sajjad, M., Munir, H., Kanwal, S., Naqvi, S.A.A.",
+      "venue": "Applied Geography",
+      "year": "2022",
+      "url": "https://doi.org/10.1016/j.apgeog.2022.102665",
+      "citations": 45
+    },
+    {
+      "title": "Geo-spatially integrated soil quality evaluation: a case of Toba Tek Singh, Pakistan",
+      "authors": "Naqvi, S.A.A., Islam, A., Wasem, L.A., Hussain, D., Naqvi, R.Z., Kazmi, S.J.H., Sajjad, M., Shaikh, S.",
+      "venue": "Pakistan Journal of Botany",
+      "year": "2021",
+      "url": "https://doi.org/10.30848/pjb2022-1(4)",
+      "citations": 45
+    },
+    {
+      "title": "Remote Sensing of Narrowing Barrier Islands along the Coast of Pakistan over Past 30 Years",
+      "authors": "Kanwal, S., Ding, X., Sajjad, M., Nazeer, M., Zia, I.",
+      "venue": "Journal of Marine Science and Engineering",
+      "year": "2021",
+      "url": "https://doi.org/10.3390/jmse9030295",
+      "citations": 45
+    },
+    {
       "title": "Rethinking disaster resilience in high-density cities: Towards an urban resilience knowledge system",
       "authors": "Sajjad, M., Chan, J.C.L., Chopra, S.S.",
       "venue": "Sustainable Cities and Society",
@@ -11,12 +299,108 @@
       "citations": 45
     },
     {
-      "title": "Assessing hazard vulnerability, habitat conservation, and restoration for the enhancement of mainland China's coastal resilience",
-      "authors": "Sajjad, M., Li, Y., Tang, Z., Cao, L., Liu, X.",
-      "venue": "Earth's Future",
-      "year": "2018",
-      "url": "https://doi.org/10.1002/2017EF000676",
-      "citations": 28
+      "title": "Spatial–temporal characterization of rainfall in Pakistan during the past half-century (1961–2020)",
+      "authors": "Ali, G., Sajjad, M., Kanwal, S., Xiao, T., Khalid, S., Shoaib, F., Gul, H.N.",
+      "venue": "Scientific Reports",
+      "year": "2021",
+      "url": "https://doi.org/10.1038/s41598-021-86412-x",
+      "citations": 45
+    },
+    {
+      "title": "Integrating Spatial Modelling and Space–Time Pattern Mining Analytics for Vector Disease-Related Health Perspectives: A Case of Dengue Fever in Pakistan",
+      "authors": "Naqvi, S.A.A., Sajjad, M., Waseem, L.A., Khalid, S., Shaikh, S., Kazmi, S.J.H.",
+      "venue": "International Journal of Environmental Research and Public Health",
+      "year": "2021",
+      "url": "https://doi.org/10.3390/ijerph182212018",
+      "citations": 45
+    },
+    {
+      "title": "Impacts, Drivers, and Future Adaptation Opportunities for a Warming Pakistan: Learnings from an Industrialized City",
+      "authors": "Sajjad, M.",
+      "venue": "Handbook of Climate Change Management",
+      "year": "2021",
+      "url": "https://doi.org/10.1007/978-3-030-57281-5_131",
+      "citations": 45
+    },
+    {
+      "title": "Design and Fabrication of Highly Porous 2D Bimetallic Sulfide ZnS/FeS Composite Nanosheets as an Advanced Negative Electrode Material for Supercapacitors",
+      "authors": "Javed, M.S., Najam, T., Sajjad, M., Shah, S.S.A., Hussain, I., Idrees, M., Imran, M., Assiri, M.A., Siyal, S.H.",
+      "venue": "Energy and Fuels",
+      "year": "2021",
+      "url": "https://doi.org/10.1021/acs.energyfuels.1c02444",
+      "citations": 45
+    },
+    {
+      "title": "Disaster resilience in Pakistan: A comprehensive multi-dimensional spatial profiling",
+      "authors": "Sajjad, M.",
+      "venue": "Applied Geography",
+      "year": "2021",
+      "url": "https://doi.org/10.1016/j.apgeog.2020.102367",
+      "citations": 45
+    },
+    {
+      "title": "Tropical Cyclone Impacts on Cities: A Case of Hong Kong",
+      "authors": "Sajjad, M., Chan, J.C.L.",
+      "venue": "Frontiers in Built Environment",
+      "year": "2020",
+      "url": "https://doi.org/10.3389/fbuil.2020.575534",
+      "citations": 45
+    },
+    {
+      "title": "COVID-19: A Psychosocial Perspective",
+      "authors": "Raza, S.H., Haq, W., Sajjad, M.",
+      "venue": "Frontiers in Psychology",
+      "year": "2020",
+      "url": "https://doi.org/10.3389/fpsyg.2020.554624",
+      "citations": 45
+    },
+    {
+      "title": "Towards sustainable wastewater management: A spatial multi-criteria framework to site the Land-FILTER system in a complex urban environment",
+      "authors": "Kanwal, S., Sajjad, M., Gabriel, H.F., Hussain, E.",
+      "venue": "Journal of Cleaner Production",
+      "year": "2020",
+      "url": "https://doi.org/10.1016/j.jclepro.2020.121987",
+      "citations": 45
+    },
+    {
+      "title": "Incorporating natural habitats into coastal risk assessment frameworks",
+      "authors": "Sajjad, M., Chan, J.C.L., Lin, N.",
+      "venue": "Environmental Science & Policy",
+      "year": "2020",
+      "url": "https://doi.org/10.1016/j.envsci.2020.01.004",
+      "citations": 45
+    },
+    {
+      "title": "Spatial heterogeneities of current and future hurricane flood risk along the U.S. Atlantic and Gulf coasts",
+      "authors": "Sajjad, M., Lin, N., Chan, J.C.L.",
+      "venue": "Science of The Total Environment",
+      "year": "2020",
+      "url": "https://doi.org/10.1016/j.scitotenv.2020.136704",
+      "citations": 45
+    },
+    {
+      "title": "Integrating spatial statistics tools for coastal risk management: A case-study of typhoon risk in mainland China",
+      "authors": "Sajjad, M., Chan, J.C.L., Kanwal, S.",
+      "venue": "Ocean & Coastal Management",
+      "year": "2020",
+      "url": "https://doi.org/10.1016/j.ocecoaman.2019.105018",
+      "citations": 45
+    },
+    {
+      "title": "Three Decades of Coastal Changes in Sindh, Pakistan (1989–2018): A Geospatial Assessment",
+      "authors": "Kanwal, S., Ding, X., Sajjad, M., Abbas, S.",
+      "venue": "Remote Sensing",
+      "year": "2019",
+      "url": "https://doi.org/10.3390/rs12010008",
+      "citations": 45
+    },
+    {
+      "title": "Urban environment dynamics and low carbon society: Multi-criteria decision analysis modeling for policy makers",
+      "authors": "Ali, G., Abbas, S., Pan, Y., Chen, Z., Hussain, J., Sajjad, M., Ashraf, A.",
+      "venue": "Sustainable Cities and Society",
+      "year": "2019",
+      "url": "https://doi.org/10.1016/j.scs.2019.101763",
+      "citations": 45
     }
   ]
 }
