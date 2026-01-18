@@ -1,166 +1,22 @@
 {
-  "last_updated": "2026-01-15T08:12:22.146108",
-  "count": 20,
+  "last_updated": "2026-01-18T02:26:56.269048",
+  "count": 2,
   "publications": [
-    {
-      "title": "Multi-Modal LLMs in Agriculture: A Comprehensive Review",
-      "authors": "Sapkota, R., Qureshi, R., Usman Hadi, M., Zohaib Hassan, S., Sadak, F., Shoman, M., Sajjad, M., Ali Dharejo, F., Paudel, A., Li, J., Meng, Z., Shutske, J., Karkee, M.",
-      "venue": "IEEE Transactions on Automation Science and Engineering",
-      "year": "2025",
-      "url": "https://doi.org/10.1109/tase.2025.3612154",
-      "citations": 33
-    },
-    {
-      "title": "Downscaling Urban Disaster Resilience: Toward Building‐Scale Geo‐Information Modeling and Machine Learning‐Assisted Resilience Knowledge Systems",
-      "authors": "Kaya, A.Y., Sajjad, M., Dedekorkut‐Howes, A.",
-      "venue": "Transactions in GIS",
-      "year": "2025",
-      "url": "https://doi.org/10.1111/tgis.70153",
-      "citations": 0
-    },
-    {
-      "title": "Exacerbating landslide risks under future climate change and land use scenarios: evidence from the Western Himalayas in Pakistan",
-      "authors": "Rehman, A., Sajjad, M., Lu, H., Lu, S., Cao, L., Han, Z., Feng, W., Qi, S., Zhang, Y., Wang, J., Riaz, M.T., Abbas, S.",
-      "venue": "Geomatics, Natural Hazards and Risk",
-      "year": "2025",
-      "url": "https://doi.org/10.1080/19475705.2025.2577170",
-      "citations": 0
-    },
-    {
-      "title": "From space to screen: Recent advances in remote sensing for mangrove valuation through a bibliometric lens",
-      "authors": "Luk, S.Y., Sajjad, M.",
-      "venue": "Ocean & Coastal Management",
-      "year": "2025",
-      "url": "https://doi.org/10.1016/j.ocecoaman.2025.107844",
-      "citations": 3
-    },
-    {
-      "title": "Modelling pandemic-induced spatially heterogeneous patterns in income shock, food insecurity and their driving factors: a case of Pakistan",
-      "authors": "Sajjad, M., Raza, S.H., Haq, W., Rubab, S.F.",
-      "venue": "Environment, Development and Sustainability",
-      "year": "2025",
-      "url": "https://doi.org/10.1007/s10668-025-06823-y",
-      "citations": 0
-    },
-    {
-      "title": "Pakistan in the Face of Climate Change",
-      "authors": "Sajjad, M., Bashir, A., Haq, W.",
-      "venue": "Challenge, Continuity, and Change in Pakistan",
-      "year": "2025",
-      "url": "https://doi.org/10.4324/9781003603764-21",
-      "citations": 0
-    },
-    {
-      "title": "Significant Attribution of Urbanization to Triggering Extreme Rainfall in the Urban Core—A Case of Dallas–Fort Worth in North Texas",
-      "authors": "Ahmad, J., Eisma, J.A., Sajjad, M.",
-      "venue": "Urban Science",
-      "year": "2025",
-      "url": "https://doi.org/10.3390/urbansci9080295",
-      "citations": 0
-    },
-    {
-      "title": "High-resolution flood susceptibility mapping and exposure assessment in Pakistan: An integrated artificial intelligence, machine learning and geospatial framework",
-      "authors": "Waleed, M., Sajjad, M.",
-      "venue": "International Journal of Disaster Risk Reduction",
-      "year": "2025",
-      "url": "https://doi.org/10.1016/j.ijdrr.2025.105442",
-      "citations": 13
-    },
-    {
-      "title": "Integrated frequency ratio-analytical hierarchy and geospatial techniques-based earthquake risk assessment in mountainous cities: a case from the Northwestern Himalayas",
-      "authors": "Rehman, A., Sajjad, M., Song, J., Riaz, M.T., Mehmood, M.S., Ahamad, M.I.",
-      "venue": "Georisk",
-      "year": "2025",
-      "url": "https://doi.org/10.1080/17499518.2024.2378285",
-      "citations": 5
-    },
-    {
-      "title": "Small unmanned aerial vehicle (UAV)-based detection of seasonal micro-urban heat islands for diverse land uses",
-      "authors": "Ahmad, J., Sajjad, M., Eisma, J.",
-      "venue": "International Journal of Remote Sensing",
-      "year": "2025",
-      "url": "https://doi.org/10.1080/01431161.2024.2391582",
-      "citations": 12
-    },
-    {
-      "title": "Advancing flood susceptibility prediction: A comparative assessment and scalability analysis of machine learning algorithms via artificial intelligence in high‐risk regions of Pakistan",
-      "authors": "Waleed, M., Sajjad, M.",
-      "venue": "Journal of Flood Risk Management",
-      "year": "2024",
-      "url": "https://doi.org/10.1111/jfr3.13047",
-      "citations": 18
-    },
-    {
-      "title": "Current advances in imaging spectroscopy and its state-of-the-art applications",
-      "authors": "Zahra, A., Qureshi, R., Sajjad, M., Sadak, F., Nawaz, M., Khan, H.A., Uzair, M.",
-      "venue": "Expert Systems with Applications",
-      "year": "2024",
-      "url": "https://doi.org/10.1016/j.eswa.2023.122172",
-      "citations": 73
-    },
-    {
-      "title": "Urbanization-led land cover change impacts terrestrial carbon storage capacity: A high-resolution remote sensing-based nation-wide assessment in Pakistan (1990–2020)",
-      "authors": "Waleed, M., Sajjad, M., Shazil, M.S.",
-      "venue": "Environmental Impact Assessment Review",
-      "year": "2024",
-      "url": "https://doi.org/10.1016/j.eiar.2023.107396",
-      "citations": 59
-    },
-    {
-      "title": "Integration of machine learning and remote sensing for above ground biomass estimation through Landsat-9 and field data in temperate forests of the Himalayan region",
-      "authors": "Anees, S.A., Mehmood, K., Khan, W.R., Sajjad, M., Alahmadi, T.A., Alharbi, S.A., Luo, M.",
-      "venue": "Ecological Informatics",
-      "year": "2024",
-      "url": "https://doi.org/10.1016/j.ecoinf.2024.102732",
-      "citations": 103
-    },
-    {
-      "title": "A global outlook on multi-hazard risk analysis: A systematic and scientometric review",
-      "authors": "Owolabi, T.A., Sajjad, M.",
-      "venue": "International Journal of Disaster Risk Reduction",
-      "year": "2023",
-      "url": "https://doi.org/10.1016/j.ijdrr.2023.103727",
-      "citations": 43
-    },
     {
       "title": "Rethinking disaster resilience in high-density cities: Towards an urban resilience knowledge system",
       "authors": "Sajjad, M., Chan, J.C.L., Chopra, S.S.",
       "venue": "Sustainable Cities and Society",
       "year": "2021",
       "url": "https://doi.org/10.1016/j.scs.2021.102850",
-      "citations": 129
-    },    
-    {
-      "title": "Disaster resilience in Pakistan: A comprehensive multi-dimensional spatial profiling",
-      "authors": "Sajjad, M.",
-      "venue": "Applied Geography",
-      "year": "2021",
-      "url": "https://doi.org/10.1016/j.apgeog.2020.102367",
-      "citations": 70
-    },
-    {    
-      "title": "Integrating spatial statistics tools for coastal risk management: A case-study of typhoon risk in mainland China",
-      "authors": "Sajjad, M., Chan, J.C.L., Kanwal, S.",
-      "venue": "Ocean & Coastal Management",
-      "year": "2020",
-      "url": "https://doi.org/10.1016/j.ocecoaman.2019.105018",
-      "citations": 50
+      "citations": 45
     },
     {
-      "title": "Three Decades of Coastal Changes in Sindh, Pakistan (1989–2018): A Geospatial Assessment",
-      "authors": "Kanwal, S., Ding, X., Sajjad, M., Abbas, S.",
-      "venue": "Remote Sensing",
-      "year": "2019",
-      "url": "https://doi.org/10.3390/rs12010008",
-      "citations": 59
-    },    
-    {
-      "title": "Urban environment dynamics and low carbon society: Multi-criteria decision analysis modeling for policy makers",
-      "authors": "Ali, G., Abbas, S., Pan, Y., Chen, Z., Hussain, J., Sajjad, M., Ashraf, A.",
-      "venue": "Sustainable Cities and Society",
-      "year": "2019",
-      "url": "https://doi.org/10.1016/j.scs.2019.101763",
-      "citations": 62
+      "title": "Assessing hazard vulnerability, habitat conservation, and restoration for the enhancement of mainland China's coastal resilience",
+      "authors": "Sajjad, M., Li, Y., Tang, Z., Cao, L., Liu, X.",
+      "venue": "Earth's Future",
+      "year": "2018",
+      "url": "https://doi.org/10.1002/2017EF000676",
+      "citations": 28
     }
   ]
 }
