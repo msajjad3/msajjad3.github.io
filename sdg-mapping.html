@@ -590,7 +590,7 @@
         function getSDGImage(sdgId, sdgColor) {
             return `
                 <div style="width: 100%; height: 100%; background-color: ${sdgColor}; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: bold;">
-                    <div style="font-size: 2rem;">${sdgId}</div>
+                    <div style="font-size: 2rem;"></div>
                     <div style="font-size: 0.7rem; text-align: center; padding: 0 5px;">${sdgs.find(s => s.id === sdgId).title.split(' ')[0]}</div>
                 </div>
             `;
@@ -884,7 +884,6 @@
                 sdgCard.innerHTML = `
                     <img src="${sdg.image}" alt="${sdg.title}" 
                          onerror="this.parentNode.innerHTML = '${getSDGImage(sdg.id, sdg.color).replace(/\n/g, '').replace(/"/g, '&quot;')}'">
-                    <div class="sdg-number">${sdg.id}</div>
                 `;
                 
                 sdgCard.addEventListener('click', () => filterBySDG(sdg.id, sdg.title));
