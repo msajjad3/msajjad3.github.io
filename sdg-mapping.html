@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research-SDG Mapping | Prof. Muhammad Sajjad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #1a3c34 0%, #2d5c4f 100%);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .left-panel {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .right-panel {
+            flex: 2;
+            min-width: 500px;
+        }
+        
+        .theme-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 5px solid #2d5c4f;
+        }
+        
+        .theme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .theme-card.active {
+            border-left-color: #fd6925;
+            background: #f8f9fa;
+        }
+        
+        .theme-title {
+            font-size: 1.4rem;
+            color: #1a3c34;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .theme-icon {
+            width: 40px;
+            height: 40px;
+            background: #2d5c4f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .theme-desc {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .pub-count {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #2d5c4f;
+            font-weight: 600;
+        }
+        
+        .sdg-map-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            min-height: 600px;
+        }
+        
+        #sdgMap {
+            width: 100%;
+            height: 500px;
+            margin: 20px 0;
+        }
+        
+        .publications-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+        
+        .pub-item {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.05);
+        }
+        
+        .pub-item:hover {
+            border-color: #4dabf7;
+            box-shadow: 0 5px 15px rgba(77, 171, 247, 0.15);
+        }
+        
+        .pub-title {
+            font-weight: 600;
+            color: #1a3c34;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+        
+        .pub-authors {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .pub-journal {
+            font-size: 0.9rem;
+            color: #2d5c4f;
+            font-style: italic;
+        }
+        
+        .sdg-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-top: 10px;
+            color: white;
+        }
+        
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 10px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+        
+        .empty-state h3 {
+            margin-bottom: 15px;
+            color: #1a3c34;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .left-panel, .right-panel {
+                min-width: 100%;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Research Alignment with Sustainable Development Goals</h1>
+            <p class="subtitle">Mapping Prof. Muhammad Sajjad's Publications to Global Sustainability Targets</p>
+            <a href="https://msajjad3.github.io/#projects" class="back-btn">← Back to Projects</a>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="left-panel">
+                <div class="theme-card active" data-theme="all">
+                    <div class="theme-title">
+                        <div class="theme-icon">All</div>
+                        <span>All Research Themes</span>
+                    </div>
+                    <p class="theme-desc">View all publications and their SDG connections</p>
+                    <span class="pub-count">45+ Publications</span>
+                </div>
+                
+                <div class="theme-card" data-theme="disaster">
+                    <div class="theme-title">
+                        <div class="theme-icon">1</div>
+                        <span>Disaster Risk & Resilience</span>
+                    </div>
+                    <p class="theme-desc">Multi-hazard risk assessment, climate adaptation, and community resilience</p>
+                    <span class="pub-count">18 Publications</span>
+                </div>
+                
+                <div class="theme-card" data-theme="urban">
+                    <div class="theme-title">
+                        <div class="theme-icon">2</div>
+                        <span>Urban Sustainability</span>
+                    </div>
+                    <p class="theme-desc">Urban climate risks, land use change, and sustainable cities</p>
+                    <span class="pub-count">15 Publications</span>
+                </div>
+                
+                <div class="theme-card" data-theme="coastal">
+                    <div class="theme-title">
+                        <div class="theme-icon">3</div>
+                        <span>Coastal & Environmental Systems</span>
+                    </div>
+                    <p class="theme-desc">Coastal vulnerability, habitat conservation, and environmental management</p>
+                    <span class="pub-count">12 Publications</span>
+                </div>
+                
+                <div class="theme-card" data-theme="geospatial">
+                    <div class="theme-title">
+                        <div class="theme-icon">4</div>
+                        <span>Geospatial AI & Remote Sensing</span>
+                    </div>
+                    <p class="theme-desc">Advanced geospatial analytics, machine learning, and remote sensing applications</p>
+                    <span class="pub-count">20+ Publications</span>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="sdg-map-container">
+                    <h2 style="color: #1a3c34; margin-bottom: 20px;">SDG-Research Impact Mapping</h2>
+                    <div id="sdgMap"></div>
+                    
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #e5243b;"></div>
+                            <span>Social Foundations (SDG 1-6)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #dda63a;"></div>
+                            <span>Economic Engines (SDG 7-12)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #4c9f38;"></div>
+                            <span>Environmental Sustainability (SDG 13-15)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #19486a;"></div>
+                            <span>Governance & Partnership (SDG 16-17)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="publications-panel">
+            <h2 style="color: #1a3c34; margin-bottom: 25px;">Relevant Publications</h2>
+            <div id="publicationsList">
+                <div class="empty-state">
+                    <h3>Select a Research Theme</h3>
+                    <p>Click on any research theme to view publications and their SDG connections</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        // Research themes with SDG mappings
+        const researchThemes = {
+            all: {
+                name: "All Research Themes",
+                sdgs: [11, 13, 6, 2, 14, 15, 9, 4, 17, 3, 1, 10],
+                publications: []
+            },
+            disaster: {
+                name: "Disaster Risk & Resilience",
+                sdgs: [11, 13, 1, 15, 17],
+                publications: [
+                    {
+                        title: "Disaster resilience in Pakistan: A comprehensive multi-dimensional spatial profiling",
+                        authors: "Sajjad, M. (2021)",
+                        journal: "Applied Geography, 126, 102367",
+                        sdgs: [11, 13, 1]
+                    },
+                    {
+                        title: "Characterizing spatial–temporal drought risk heterogeneities: a hazard, vulnerability and resilience-based modeling",
+                        authors: "Khoshnazar, A., Perez, G. C., & Sajjad, M. (2023)",
+                        journal: "Journal of Hydrology, 619, 129321",
+                        sdgs: [13, 6, 15]
+                    },
+                    {
+                        title: "Has Pakistan learned from disasters over the decades? Dynamic resilience insights based on catastrophe progression and geo-information models",
+                        authors: "Sajjad, M., Ali, Z., & Waleed, M. (2023)",
+                        journal: "Natural Hazards, 117(3), 3021-3042",
+                        sdgs: [11, 13, 17]
+                    },
+                    {
+                        title: "Risk assessment for the sustainability of coastal communities: A preliminary study",
+                        authors: "Sajjad, M., & Chan, J. C. L. (2019)",
+                        journal: "Science of the Total Environment, 671, 339-350",
+                        sdgs: [11, 13, 14]
+                    },
+                    {
+                        title: "Integrating spatial statistics tools for coastal risk management: A case-study of typhoon risk in mainland China",
+                        authors: "Sajjad, M., Chan, J. C. L., & Kanwal, S. (2020)",
+                        journal: "Ocean & Coastal Management, 184, 105018",
+                        sdgs: [13, 14, 11]
+                    }
+                ]
+            },
+            urban: {
+                name: "Urban Sustainability",
+                sdgs: [11, 9, 13, 6, 15],
+                publications: [
+                    {
+                        title: "Rethinking disaster resilience in high-density cities: Towards an urban resilience knowledge system",
+                        authors: "Sajjad, M., Chan, J. C. L., & Chopra, S. S. (2021)",
+                        journal: "Sustainable Cities and Society, 69, 102850",
+                        sdgs: [11, 9, 13]
+                    },
+                    {
+                        title: "Urban environment dynamics and low carbon society: multi-criteria decision analysis modeling for policy makers",
+                        authors: "Ali, G., Abbas, S., Pan, Y., Chen, Z., Hussain, J., Sajjad, M., & Ashraf, A. (2019)",
+                        journal: "Sustainable Cities and Society, 51, 101763",
+                        sdgs: [11, 13, 9]
+                    },
+                    {
+                        title: "Urbanization-led land cover change impacts terrestrial carbon storage capacity: a high-resolution remote sensing-based nation-wide assessment in Pakistan (1990–2020)",
+                        authors: "Waleed, M., Sajjad, M., & Shazil, M. S. (2024)",
+                        journal: "Environmental Impact Assessment Review, 105, 107396",
+                        sdgs: [11, 13, 15]
+                    },
+                    {
+                        title: "Towards sustainable and livable cities: leveraging remote sensing, machine learning, and geo-information modelling to explore and predict thermal field variance in response to urban growth",
+                        authors: "Waleed, M., Sajjad, M., Acheampong, A. O., & Alam, M. T. (2023)",
+                        journal: "Sustainability, 15(2), 1416",
+                        sdgs: [11, 13, 9]
+                    },
+                    {
+                        title: "Time series analyses and forecasting of surface urban Heat Island intensity using Arima model in Punjab, Pakistan",
+                        authors: "Mehmood, M. S., Zafar, Z., Sajjad, M., Hussain, S., Zhai, S., & Qin, Y. (2022)",
+                        journal: "Land, 12(1), 142",
+                        sdgs: [11, 13]
+                    }
+                ]
+            },
+            coastal: {
+                name: "Coastal & Environmental Systems",
+                sdgs: [14, 13, 15, 6, 11],
+                publications: [
+                    {
+                        title: "Assessing hazard vulnerability, habitat conservation, and restoration for the enhancement of mainland China's coastal resilience",
+                        authors: "Sajjad, M., Li, Y., Tang, Z., Cao, L., & Liu, X. (2018)",
+                        journal: "Earth's Future, 6(3), 326-338",
+                        sdgs: [14, 13, 15]
+                    },
+                    {
+                        title: "Three decades of coastal changes in Sindh, Pakistan (1989–2018): a geospatial assessment",
+                        authors: "Kanwal, S., Ding, X., Sajjad, M., & Abbas, S. (2019)",
+                        journal: "Remote Sensing, 12(1), 8",
+                        sdgs: [14, 13, 15]
+                    },
+                    {
+                        title: "Incorporating natural habitats into coastal risk assessment frameworks",
+                        authors: "Sajjad, M., Chan, J. C. L., & Lin, N. (2020)",
+                        journal: "Environmental Science & Policy, 106, 99-110",
+                        sdgs: [14, 13, 15]
+                    },
+                    {
+                        title: "Integrating Typhoon Destructive Potential and Social-ecological Systems toward Resilient Coastal Communities",
+                        authors: "Sajjad, M., Li, Y., Li, Y., Chan, J. C. L., & Khalid, S. (2019)",
+                        journal: "Earth's Future, 7, 805-818",
+                        sdgs: [13, 14, 11]
+                    },
+                    {
+                        title: "Vertical ground displacements and its impact on erosion along the Karachi coastline, Pakistan",
+                        authors: "Kanwal, S., Ding, X., Wu, S., & Sajjad, M. (2022)",
+                        journal: "Remote Sensing, 14(9), 2054",
+                        sdgs: [14, 15, 13]
+                    }
+                ]
+            },
+            geospatial: {
+                name: "Geospatial AI & Remote Sensing",
+                sdgs: [9, 11, 13, 6, 15, 4],
+                publications: [
+                    {
+                        title: "On the emergence of geospatial cloud-based platforms for disaster risk management: A global scientometric review of google earth engine applications",
+                        authors: "Waleed, M., & Sajjad, M. (2023)",
+                        journal: "International journal of disaster risk reduction, 97, 104056",
+                        sdgs: [9, 13, 11]
+                    },
+                    {
+                        title: "High-resolution flood susceptibility mapping and exposure assessment in Pakistan: An integrated artificial intelligence, machine learning and geospatial framework",
+                        authors: "Waleed, M., & Sajjad, M. (2025)",
+                        journal: "International Journal of Disaster Risk Reduction, 121, 105442",
+                        sdgs: [9, 6, 13]
+                    },
+                    {
+                        title: "Machine learning-based spatial-temporal assessment and change transition analysis of wetlands: An application of Google Earth Engine in Sylhet, Bangladesh (1985–2022)",
+                        authors: "Waleed, M., Sajjad, M., Shazil, M. S., Tariq, M., & Alam, M. T. (2023)",
+                        journal: "Ecological Informatics, 75, 102075",
+                        sdgs: [9, 15, 13]
+                    },
+                    {
+                        title: "Leveraging machine learning and remote sensing to monitor long-term spatial-temporal wetland changes: Towards a national RAMSAR inventory in Pakistan",
+                        authors: "Shafi, A., Chen, S., Waleed, M., & Sajjad, M. (2023)",
+                        journal: "Applied Geography, 151, 102868",
+                        sdgs: [9, 15, 14]
+                    },
+                    {
+                        title: "Current advances in imaging spectroscopy and its state-of-the-art applications",
+                        authors: "Zahra, A., Qureshi, R., Sajjad, M., Sadak, F., Nawaz, M., Khan, H. A., & Uzair, M. (2024)",
+                        journal: "Expert Systems with Applications, 238, 122172",
+                        sdgs: [9, 4]
+                    }
+                ]
+            }
+        };
+
+        // SDG color mapping
+        const sdgColors = {
+            1: "#e5243b", 2: "#dda63a", 3: "#4c9f38", 4: "#c5192d",
+            5: "#ff3a21", 6: "#26bde2", 7: "#fcc30b", 8: "#a21942",
+            9: "#fd6925", 10: "#dd1367", 11: "#fd9d24", 12: "#bf8b2e",
+            13: "#3f7e44", 14: "#0a97d9", 15: "#56c02b", 16: "#00689d",
+            17: "#19486a"
+        };
+
+        // SDG names
+        const sdgNames = {
+            1: "No Poverty", 2: "Zero Hunger", 3: "Good Health", 4: "Quality Education",
+            5: "Gender Equality", 6: "Clean Water", 7: "Affordable Energy", 8: "Decent Work",
+            9: "Innovation", 10: "Reduced Inequality", 11: "Sustainable Cities", 12: "Responsible Consumption",
+            13: "Climate Action", 14: "Life Below Water", 15: "Life on Land", 16: "Peace & Justice",
+            17: "Partnerships"
+        };
+
+        let currentTheme = 'all';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            renderSDGMap();
+            setupThemeCards();
+            showPublications('all');
+        });
+
+        function renderSDGMap() {
+            const svg = d3.select("#sdgMap");
+            svg.html("");
+            
+            const width = 800;
+            const height = 500;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            
+            // Draw center circle representing research
+            svg.append("circle")
+                .attr("cx", centerX)
+                .attr("cy", centerY)
+                .attr("r", 80)
+                .attr("fill", "#1a3c34")
+                .attr("stroke", "white")
+                .attr("stroke-width", 4);
+            
+            svg.append("text")
+                .attr("x", centerX)
+                .attr("y", centerY - 10)
+                .attr("text-anchor", "middle")
+                .attr("fill", "white")
+                .attr("font-size", "24px")
+                .attr("font-weight", "bold")
+                .text("Research");
+            
+            svg.append("text")
+                .attr("x", centerX)
+                .attr("y", centerY + 25)
+                .attr("text-anchor", "middle")
+                .attr("fill", "white")
+                .attr("font-size", "14px")
+                .text("Prof. Sajjad");
+            
+            // Get current theme's SDGs
+            const theme = researchThemes[currentTheme];
+            const sdgs = theme.sdgs;
+            
+            // Calculate positions for SDGs
+            const angleStep = (2 * Math.PI) / sdgs.length;
+            
+            sdgs.forEach((sdgId, i) => {
+                const angle = i * angleStep;
+                const distance = 180;
+                const sdgX = centerX + Math.cos(angle) * distance;
+                const sdgY = centerY + Math.sin(angle) * distance;
+                
+                // Draw connection line
+                svg.append("line")
+                    .attr("x1", centerX + Math.cos(angle) * 80)
+                    .attr("y1", centerY + Math.sin(angle) * 80)
+                    .attr("x2", sdgX)
+                    .attr("y2", sdgY)
+                    .attr("stroke", sdgColors[sdgId])
+                    .attr("stroke-width", 3)
+                    .attr("opacity", 0.7)
+                    .attr("class", "connection-line")
+                    .attr("data-sdg", sdgId);
+                
+                // Draw SDG circle
+                const sdgCircle = svg.append("circle")
+                    .attr("cx", sdgX)
+                    .attr("cy", sdgY)
+                    .attr("r", 45)
+                    .attr("fill", sdgColors[sdgId])
+                    .attr("stroke", "white")
+                    .attr("stroke-width", 3)
+                    .attr("class", "sdg-circle")
+                    .attr("data-sdg", sdgId)
+                    .style("cursor", "pointer");
+                
+                // SDG number
+                svg.append("text")
+                    .attr("x", sdgX)
+                    .attr("y", sdgY + 5)
+                    .attr("text-anchor", "middle")
+                    .attr("fill", "white")
+                    .attr("font-size", "20px")
+                    .attr("font-weight", "bold")
+                    .attr("class", "sdg-number")
+                    .attr("data-sdg", sdgId)
+                    .style("cursor", "pointer")
+                    .text(sdgId);
+                
+                // SDG name (truncated)
+                const sdgName = sdgNames[sdgId];
+                const displayName = sdgName.length > 10 ? sdgName.substring(0, 10) + "..." : sdgName;
+                
+                svg.append("text")
+                    .attr("x", sdgX)
+                    .attr("y", sdgY + 30)
+                    .attr("text-anchor", "middle")
+                    .attr("fill", "white")
+                    .attr("font-size", "10px")
+                    .attr("class", "sdg-name")
+                    .attr("data-sdg", sdgId)
+                    .text(displayName);
+                
+                // Add hover interactions
+                sdgCircle.on("mouseover", function() {
+                    d3.select(this).attr("r", 50);
+                    d3.select(`.sdg-number[data-sdg="${sdgId}"]`)
+                        .attr("font-size", "22px");
+                    d3.select(`.connection-line[data-sdg="${sdgId}"]`)
+                        .attr("stroke-width", 5)
+                        .attr("opacity", 1);
+                })
+                .on("mouseout", function() {
+                    d3.select(this).attr("r", 45);
+                    d3.select(`.sdg-number[data-sdg="${sdgId}"]`)
+                        .attr("font-size", "20px");
+                    d3.select(`.connection-line[data-sdg="${sdgId}"]`)
+                        .attr("stroke-width", 3)
+                        .attr("opacity", 0.7);
+                })
+                .on("click", function() {
+                    // Filter publications by this SDG
+                    filterPublicationsBySDG(sdgId);
+                });
+            });
+        }
+
+        function setupThemeCards() {
+            document.querySelectorAll('.theme-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    // Remove active class from all cards
+                    document.querySelectorAll('.theme-card').forEach(c => {
+                        c.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked card
+                    this.classList.add('active');
+                    
+                    // Get theme
+                    const theme = this.getAttribute('data-theme');
+                    currentTheme = theme;
+                    
+                    // Update visualization and publications
+                    renderSDGMap();
+                    showPublications(theme);
+                });
+            });
+        }
+
+        function showPublications(theme) {
+            const container = document.getElementById('publicationsList');
+            container.innerHTML = '';
+            
+            if (theme === 'all') {
+                // Show all publications from all themes
+                const allPubs = [];
+                Object.keys(researchThemes).forEach(key => {
+                    if (key !== 'all') {
+                        allPubs.push(...researchThemes[key].publications);
+                    }
+                });
+                
+                if (allPubs.length === 0) {
+                    container.innerHTML = '<div class="empty-state"><h3>No publications found</h3></div>';
+                    return;
+                }
+                
+                allPubs.forEach(pub => {
+                    const pubElement = createPublicationElement(pub);
+                    container.appendChild(pubElement);
+                });
+            } else {
+                const themeData = researchThemes[theme];
+                
+                if (!themeData.publications || themeData.publications.length === 0) {
+                    container.innerHTML = '<div class="empty-state"><h3>No publications found for this theme</h3></div>';
+                    return;
+                }
+                
+                themeData.publications.forEach(pub => {
+                    const pubElement = createPublicationElement(pub);
+                    container.appendChild(pubElement);
+                });
+            }
+        }
+
+        function filterPublicationsBySDG(sdgId) {
+            const container = document.getElementById('publicationsList');
+            container.innerHTML = '';
+            
+            // Collect all publications from all themes that include this SDG
+            const filteredPubs = [];
+            
+            Object.keys(researchThemes).forEach(themeKey => {
+                if (themeKey !== 'all') {
+                    researchThemes[themeKey].publications.forEach(pub => {
+                        if (pub.sdgs && pub.sdgs.includes(sdgId)) {
+                            filteredPubs.push(pub);
+                        }
+                    });
+                }
+            });
+            
+            if (filteredPubs.length === 0) {
+                container.innerHTML = `<div class="empty-state">
+                    <h3>No publications found for SDG ${sdgId}</h3>
+                    <p>${sdgNames[sdgId]}</p>
+                </div>`;
+                return;
+            }
+            
+            // Add header
+            const header = document.createElement('div');
+            header.innerHTML = `<h3 style="color: #1a3c34; margin-bottom: 20px;">Publications contributing to SDG ${sdgId}: ${sdgNames[sdgId]}</h3>`;
+            container.appendChild(header);
+            
+            // Add publications
+            filteredPubs.forEach(pub => {
+                const pubElement = createPublicationElement(pub);
+                container.appendChild(pubElement);
+            });
+        }
+
+        function createPublicationElement(pub) {
+            const div = document.createElement('div');
+            div.className = 'pub-item';
+            div.style.animation = 'fadeIn 0.5s';
+            
+            let sdgBadges = '';
+            if (pub.sdgs) {
+                pub.sdgs.forEach(sdgId => {
+                    sdgBadges += `<span class="sdg-badge" style="background-color: ${sdgColors[sdgId]}">SDG ${sdgId}</span>`;
+                });
+            }
+            
+            div.innerHTML = `
+                <div class="pub-title">${pub.title}</div>
+                <div class="pub-authors">${pub.authors}</div>
+                <div class="pub-journal">${pub.journal}</div>
+                ${sdgBadges}
+            `;
+            
+            return div;
+        }
+    </script>
+</body>
+</html>
