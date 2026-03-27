@@ -970,14 +970,34 @@
         <section id="publications" class="tab-content">
             <div class="content-card">
                 <h2><i class="fas fa-file-alt"></i> Selected Publications</h2>
-                <p style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                <p style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
                     <span>High-impact publications showcasing our research contributions to geospatial science and disaster resilience.</span>
                     <span id="last-updated" class="update-indicator" style="display: none;">
                         <i class="fas fa-sync-alt"></i> Updated: <span id="update-date"></span>
                     </span>
                 </p>
                 
-                <!-- Publications will be loaded here dynamically -->
+                <!-- Publication Controls -->
+                <div class="pub-controls">
+                    <div class="pub-sort">
+                        <span style="color: var(--text-light); margin-right: 10px;">Sort by:</span>
+                        <button class="sort-btn active" data-sort="year">Latest</button>
+                        <button class="sort-btn" data-sort="title">Title</button>
+                        <button class="sort-btn" data-sort="author">Author</button>
+                    </div>
+                    <div class="pub-stats">
+                        <i class="fas fa-chart-line"></i>
+                        <span id="pub-count">0</span> publications
+                    </div>
+                </div>
+                
+                <!-- Search/Filter -->
+                <div class="pub-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="pub-search-input" placeholder="Search by title, author, or year..." class="search-input">
+                </div>
+                
+                <!-- Publications Container -->
                 <div id="publications-container">
                     <div class="loading-spinner">
                         <i class="fas fa-spinner fa-spin"></i> Loading publications...
@@ -990,8 +1010,12 @@
                        class="btn" 
                        target="_blank"
                        style="background: linear-gradient(135deg, #4285F4 0%, #34A853 100%); padding: 12px 30px; font-size: 1.1rem;">
-                        <i class="fab fa-google"></i> View Complete Publication List on GoogleScholar
+                        <i class="fab fa-google"></i> View Complete Publication List on Google Scholar
                     </a>
+                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-light);">
+                        <i class="fas fa-info-circle"></i> Publications are automatically updated from BibTeX file. 
+                        <a href="#update-pubs" id="refresh-pubs-link" style="color: var(--primary-color);">Click here</a> to refresh.
+                    </p>
                 </div>
             </div>
         </section>
@@ -1278,5 +1302,7 @@
 
     <!-- JAVASCRIPT -->
     <script src="script.js"></script>
+    <!-- BibTeX Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/bibtex-js@0.1.0/bibtex-js.min.js"></script>
 </body>
 </html>
