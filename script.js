@@ -27,25 +27,84 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set active tab from URL hash or default
     const hash = window.location.hash.substring(1) || 'pi';
     switchTab(hash);
-    // Remove #pi from URL on initial load if it's the default
     if (window.location.hash === '#pi' || window.location.hash === '') {
         history.replaceState(null, null, window.location.pathname + window.location.search);
     }
+    
+    // Initialize scroll reveal animations
+    initScrollReveal();
+    
+    // Add staggered animation delays to cards
+    addStaggeredDelays();
+    
+    // Load latest updates
+    loadLatestUpdates();
 });
+
+// ===== SCROLL REVEAL ANIMATION =====
+function initScrollReveal() {
+    // Add reveal class to all elements that should animate on scroll
+    const elementsToReveal = [
+        '.content-card',
+        '.team-member',
+        '.project-card',
+        '.publication-item',
+        '.news-item',
+        '.contact-item',
+        '.alumni-member',
+        '.section-header',
+        '.about-text',
+        '.about-grid > div'
+    ];
+    
+    elementsToReveal.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+            el.classList.add('reveal');
+        });
+    });
+    
+    // Set up Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: unobserve after animation
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// ===== ADD STAGGERED DELAYS TO CARDS =====
+function addStaggeredDelays() {
+    const cardGroups = [
+        '.team-member',
+        '.project-card',
+        '.publication-item',
+        '.news-item',
+        '.alumni-member'
+    ];
+    
+    cardGroups.forEach(selector => {
+        document.querySelectorAll(selector).forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.05}s`;
+        });
+    });
+}
 
 // Theme Selector
 themeSelect.addEventListener('change', (e) => {
     const theme = e.target.value;
     
-    // Remove all theme classes
     document.body.classList.remove('theme-coffee', 'theme-retro');
-    
-    // Add selected theme class
     if (theme !== 'default') {
         document.body.classList.add(`theme-${theme}`);
     }
     
-    // Save to localStorage
     localStorage.setItem('sajjadLabTheme', theme);
 });
 
@@ -76,13 +135,9 @@ navItems.forEach(item => {
         e.preventDefault();
         const tabId = item.getAttribute('data-tab');
         
-        // Update URL hash without scrolling
         history.pushState(null, null, `#${tabId}`);
-        
-        // Switch tab
         switchTab(tabId);
         
-        // Close mobile menu if open
         if (navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
             mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
@@ -90,132 +145,82 @@ navItems.forEach(item => {
     });
 });
 
-// Handle browser back/forward buttons
 window.addEventListener('popstate', () => {
-    const hash = window.location.hash.substring(1) || 'about';
+    const hash = window.location.hash.substring(1) || 'pi';
     switchTab(hash);
 });
 
-// Tab switching function
 function switchTab(tabId) {
-    // Hide all tabs
     tabContents.forEach(tab => tab.classList.remove('active'));
     navItems.forEach(item => item.classList.remove('active'));
     
-    // Show selected tab
     const activeTab = document.getElementById(tabId);
     if (activeTab) {
         activeTab.classList.add('active');
     }
     
-    // Activate corresponding nav link
     const activeNavLink = document.querySelector(`.nav-link[data-tab="${tabId}"]`);
     if (activeNavLink) {
         activeNavLink.classList.add('active');
     }
     
-    // If tab doesn't exist, default to about
     if (!activeTab) {
         switchTab('pi');
     }
-    // Scroll to top of page
-    window.scrollTo(0, 0);
+    
+    // Load publications if needed
+    if (tabId === 'publications') {
+        initPublicationsTab();
+    }
+    
+    // Re-trigger scroll reveal for new content
+    setTimeout(() => {
+        initScrollReveal();
+        addStaggeredDelays();
+    }, 100);
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        
-        // Check if it's a tab navigation link
-        const isTabLink = this.classList.contains('nav-link') || 
-                         this.getAttribute('data-tab');
-        
-        // If it's a tab link, prevent scrolling
-        if (isTabLink) {
-            e.preventDefault();
-            // Just switch tabs without scrolling
-            const tabId = href.substring(1);
-            switchTab(tabId);
-        } 
-        // For other anchor links (like footer, within page), allow smooth scroll
-        else if (href !== '#' && href.startsWith('#') && document.querySelector(href)) {
-            e.preventDefault();
-            document.querySelector(href).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Update copyright year
-document.addEventListener('DOMContentLoaded', () => {
-    const footerText = document.querySelector('footer p:last-of-type');
-    if (footerText) {
-        footerText.innerHTML = `The Chinese University of Hong Kong • © ${new Date().getFullYear()}`;
-    }
-});
-
 // ===== TEAM TAB FUNCTIONS =====
-
 function showTeamSection(sectionId) {
-    // Hide all team sections
     document.querySelectorAll('.team-section').forEach(section => {
         section.classList.remove('active');
     });
     
-    // Remove active class from all buttons
     document.querySelectorAll('.team-tab-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     
-    // Show selected section
     const section = document.getElementById(sectionId + '-team');
     if (section) {
         section.classList.add('active');
     }
     
-    // Activate clicked button
     event.target.classList.add('active');
 }
 
-// Initialize team tab when opened
 function initTeamTab() {
-    // Set default active section
     showTeamSection('current');
 }
 
-// Update your tab switching function
-function switchTab(tabId) {
-    // ... existing code ...
-    
-    if (tabId === 'team') {
-        initTeamTab();
-    }
-}
-
-// ===== DYNAMIC PUBLICATIONS FUNCTIONS =====
-
-// Load publications when publications tab is opened
-function initPublicationsTab() {
+// ===== DYNAMIC PUBLICATIONS =====
+async function initPublicationsTab() {
     loadPublications();
 }
 
-// Main function to load publications
 async function loadPublications() {
     const container = document.getElementById('publications-container');
     const lastUpdatedEl = document.getElementById('last-updated');
     const updateDateEl = document.getElementById('update-date');
     
     try {
-        // Show loading state
         container.innerHTML = `
             <div class="loading-spinner">
                 <i class="fas fa-spinner fa-spin"></i> Loading publications...
             </div>
         `;
         
-        // Fetch publications data
         const response = await fetch('data/publications.json');
         
         if (!response.ok) {
@@ -223,11 +228,8 @@ async function loadPublications() {
         }
         
         const data = await response.json();
-        
-        // Display publications
         displayPublications(data.publications);
         
-        // Show last updated date
         if (data.last_updated) {
             const date = new Date(data.last_updated);
             const formattedDate = date.toLocaleDateString('en-US', {
@@ -239,17 +241,14 @@ async function loadPublications() {
             lastUpdatedEl.style.display = 'inline-flex';
         }
         
-        // Update count
-        document.getElementById('pub-count').textContent = data.count;
+        document.getElementById('pub-count').textContent = data.publications.length;
         
     } catch (error) {
         console.error('Error loading publications:', error);
-        // Fallback to static content
         displayFallbackPublications();
     }
 }
 
-// Display publications in the container
 function displayPublications(publications) {
     const container = document.getElementById('publications-container');
     
@@ -280,7 +279,7 @@ function displayPublications(publications) {
     
     publications.forEach((pub, index) => {
         html += `
-            <div class="publication-item" data-year="${pub.year}" data-citations="${pub.citations || 0}">
+            <div class="publication-item" data-year="${pub.year}" data-citations="${pub.citations || 0}" style="animation-delay: ${index * 0.03}s">
                 <div class="pub-title">${pub.title}</div>
                 <div class="pub-authors">${pub.authors}</div>
                 <div class="pub-venue">${pub.venue} (${pub.year})</div>
@@ -307,11 +306,9 @@ function displayPublications(publications) {
     container.innerHTML = html;
 }
 
-// Fallback function if JSON loading fails
 function displayFallbackPublications() {
     const container = document.getElementById('publications-container');
     
-    // Your original static publications HTML
     container.innerHTML = `
         <ul class="publication-list">
             <li class="publication-item">
@@ -324,7 +321,6 @@ function displayFallbackPublications() {
                     </a>
                 </div>
             </li>
-            
             <li class="publication-item">
                 <div class="pub-title">Assessing hazard vulnerability, habitat conservation, and restoration for the enhancement of mainland China's coastal resilience</div>
                 <div class="pub-authors">Sajjad, M., Li, Y., Tang, Z., Cao, L., Liu, X.</div>
@@ -335,7 +331,6 @@ function displayFallbackPublications() {
                     </a>
                 </div>
             </li>
-            
             <li class="publication-item">
                 <div class="pub-title">Integration of machine learning and remote sensing for above ground biomass estimation</div>
                 <div class="pub-authors">Anees, S.A., Mehmood, K., Khan, W.R., Sajjad, M., et al.</div>
@@ -346,7 +341,6 @@ function displayFallbackPublications() {
                     </a>
                 </div>
             </li>
-            
             <li class="publication-item">
                 <div class="pub-title">Risk assessment for the sustainability of coastal communities: A preliminary study</div>
                 <div class="pub-authors">Sajjad, M., Chan, J.C.L.</div>
@@ -361,112 +355,25 @@ function displayFallbackPublications() {
     `;
 }
 
-// ====================
-// Latest Updates Section
-// ====================
-
-function loadLatestUpdates() {
-    const updatesContainer = document.querySelector('.updates-container');
-    if (!updatesContainer) return;
-    
-    // Find news items in your News tab
-    const newsItems = document.querySelectorAll('#news .news-item');
-    
-    if (!newsItems.length) {
-        updatesContainer.innerHTML = '<p>No recent updates available.</p>';
-        return;
-    }
-    
-    // Clear container
-    updatesContainer.innerHTML = '';
-    
-    // Get the 3 most recent news items (they appear in chronological order in your HTML)
-    const recentItems = Array.from(newsItems).slice(0, 3);
-    
-    recentItems.forEach(item => {
-        // Extract date
-        const dateElement = item.querySelector('.news-date');
-        const date = dateElement ? dateElement.textContent.trim() : 'Recent';
-        
-        // Extract title
-        const titleElement = item.querySelector('h3');
-        const title = titleElement ? titleElement.textContent.trim() : '';
-        
-        if (title) {
-            const updateItem = document.createElement('div');
-            updateItem.className = 'update-item';
-            updateItem.innerHTML = `
-                <span class="update-date">${date}</span>
-                <a href="#news" class="update-title">${title}</a>
-            `;
-            updatesContainer.appendChild(updateItem);
-        }
-    });
-    
-    // Add click handlers for smooth scrolling to news section
-    updatesContainer.querySelectorAll('.update-title').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const newsSection = document.getElementById('news');
-            if (newsSection) {
-                // First, switch to the News tab
-                const newsTabLink = document.querySelector('a[data-tab="news"]');
-                if (newsTabLink) {
-                    newsTabLink.click(); // This activates the News tab
-                }
-                
-                // Then scroll to the news section
-                setTimeout(() => {
-                    newsSection.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }, 100);
-            }
-        });
-    });
-}
-
-// Call the function when page loads
-document.addEventListener('DOMContentLoaded', loadLatestUpdates);
-
-// Also call it when switching tabs (in case News tab loads dynamically)
-function checkAndLoadUpdates() {
-    // Small delay to ensure DOM is ready
-    setTimeout(loadLatestUpdates, 300);
-}
-
-// Add event listener for tab changes
-document.addEventListener('tabChanged', checkAndLoadUpdates);
-
-// ====================
-// Latest Updates Section
-// ====================
-
 // Sort publications function
 function sortPublications(sortBy, button) {
-    // Remove active class from all buttons
     document.querySelectorAll('.pub-sort button').forEach(btn => {
         btn.classList.remove('active');
     });
-    
-    // Add active class to clicked button
     button.classList.add('active');
     
-    // Get all publication items
     const container = document.getElementById('publications-container');
     const items = Array.from(container.querySelectorAll('.publication-item'));
     
-    // Sort items based on sortBy
     items.sort((a, b) => {
         if (sortBy === 'date') {
             const yearA = parseInt(a.dataset.year) || 0;
             const yearB = parseInt(b.dataset.year) || 0;
-            return yearB - yearA; // Newest first
+            return yearB - yearA;
         } else if (sortBy === 'citations') {
             const citesA = parseInt(a.dataset.citations) || 0;
             const citesB = parseInt(b.dataset.citations) || 0;
-            return citesB - citesA; // Most cited first
+            return citesB - citesA;
         } else if (sortBy === 'title') {
             const titleA = a.querySelector('.pub-title').textContent.toLowerCase();
             const titleB = b.querySelector('.pub-title').textContent.toLowerCase();
@@ -475,33 +382,96 @@ function sortPublications(sortBy, button) {
         return 0;
     });
     
-    // Reappend sorted items
     items.forEach(item => container.appendChild(item));
 }
 
-// Update your tab switching function to load publications when tab is opened
-function switchTab(tabId) {
-    // Hide all tabs
-    tabContents.forEach(tab => tab.classList.remove('active'));
-    navItems.forEach(item => item.classList.remove('active'));
+// ===== LATEST UPDATES =====
+function loadLatestUpdates() {
+    const updatesContainer = document.querySelector('.updates-container');
+    if (!updatesContainer) return;
     
-    // Show selected tab
-    const activeTab = document.getElementById(tabId);
-    if (activeTab) {
-        activeTab.classList.add('active');
+    const newsItems = document.querySelectorAll('#news .news-item');
+    
+    if (!newsItems.length) {
+        updatesContainer.innerHTML = '<p>No recent updates available.</p>';
+        return;
     }
     
-    // Activate corresponding nav link
-    const activeNavLink = document.querySelector(`.nav-link[data-tab="${tabId}"]`);
-    if (activeNavLink) {
-        activeNavLink.classList.add('active');
-    }
+    updatesContainer.innerHTML = '';
+    const recentItems = Array.from(newsItems).slice(0, 3);
     
-    // Load publications if publications tab is opened
-    if (tabId === 'publications') {
-        initPublicationsTab();
-    }
+    recentItems.forEach(item => {
+        const dateElement = item.querySelector('.news-date');
+        const date = dateElement ? dateElement.textContent.trim() : 'Recent';
+        const titleElement = item.querySelector('h3');
+        const title = titleElement ? titleElement.textContent.trim() : '';
+        
+        if (title) {
+            const updateItem = document.createElement('div');
+            updateItem.className = 'update-item';
+            updateItem.innerHTML = `
+                <span class="update-date">${date}</span>
+                <a href="#" class="update-title" data-news-title="${title}">${title}</a>
+            `;
+            updatesContainer.appendChild(updateItem);
+        }
+    });
     
-    // Scroll to top of page
-    window.scrollTo(0, 0);
+    updatesContainer.querySelectorAll('.update-title').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const newsTabLink = document.querySelector('a[data-tab="news"]');
+            if (newsTabLink) {
+                newsTabLink.click();
+                setTimeout(() => {
+                    const newsSection = document.getElementById('news');
+                    if (newsSection) {
+                        newsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 150);
+            }
+        });
+    });
 }
+
+// ===== HEADER SCROLL EFFECT =====
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 100) {
+        nav.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)';
+    } else {
+        nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+    }
+    lastScroll = currentScroll;
+});
+
+// ===== SMOOTH ANCHOR LINKS =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        const isTabLink = this.classList.contains('nav-link') || this.getAttribute('data-tab');
+        
+        if (isTabLink) {
+            e.preventDefault();
+            const tabId = href.substring(1);
+            switchTab(tabId);
+        } else if (href !== '#' && href.startsWith('#') && document.querySelector(href)) {
+            e.preventDefault();
+            document.querySelector(href).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Update copyright year
+document.addEventListener('DOMContentLoaded', () => {
+    const footerText = document.querySelector('footer p:last-of-type');
+    if (footerText && !footerText.innerHTML.includes('©')) {
+        footerText.innerHTML = `The Chinese University of Hong Kong • © ${new Date().getFullYear()}`;
+    }
+});
