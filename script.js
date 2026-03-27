@@ -1,4 +1,4 @@
-// DOM Elements
+// ===== DOM Elements =====
 const themeSelect = document.getElementById('themeSelect');
 const modeToggle = document.getElementById('modeToggle');
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -6,7 +6,12 @@ const navLinks = document.getElementById('navLinks');
 const navItems = document.querySelectorAll('.nav-link');
 const tabContents = document.querySelectorAll('.tab-content');
 
-// Initialize theme from localStorage or default
+// ===== PUBLICATIONS DATA =====
+let allPublications = [];
+let currentSort = 'year';
+let searchTerm = '';
+
+// ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('sajjadLabTheme') || 'default';
     const savedMode = localStorage.getItem('sajjadLabMode') || 'light';
@@ -43,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ===== SCROLL REVEAL ANIMATION =====
 function initScrollReveal() {
-    // Add reveal class to all elements that should animate on scroll
     const elementsToReveal = [
         '.content-card',
         '.team-member',
@@ -59,16 +63,16 @@ function initScrollReveal() {
     
     elementsToReveal.forEach(selector => {
         document.querySelectorAll(selector).forEach(el => {
-            el.classList.add('reveal');
+            if (!el.classList.contains('reveal')) {
+                el.classList.add('reveal');
+            }
         });
     });
     
-    // Set up Intersection Observer
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // Optional: unobserve after animation
                 observer.unobserve(entry.target);
             }
         });
@@ -91,12 +95,14 @@ function addStaggeredDelays() {
     
     cardGroups.forEach(selector => {
         document.querySelectorAll(selector).forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.05}s`;
+            if (!card.style.animationDelay) {
+                card.style.animationDelay = `${index * 0.05}s`;
+            }
         });
     });
 }
 
-// Theme Selector
+// ===== THEME SELECTOR =====
 themeSelect.addEventListener('change', (e) => {
     const theme = e.target.value;
     
@@ -108,7 +114,7 @@ themeSelect.addEventListener('change', (e) => {
     localStorage.setItem('sajjadLabTheme', theme);
 });
 
-// Dark/Light Mode Toggle
+// ===== DARK MODE TOGGLE =====
 modeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     
@@ -121,7 +127,7 @@ modeToggle.addEventListener('click', () => {
     }
 });
 
-// Mobile Menu Toggle
+// ===== MOBILE MENU =====
 mobileMenuBtn.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
@@ -129,7 +135,7 @@ mobileMenuBtn.addEventListener('click', () => {
         : '<i class="fas fa-bars"></i>';
 });
 
-// Tab Navigation
+// ===== TAB NAVIGATION =====
 navItems.forEach(item => {
     item.addEventListener('click', (e) => {
         e.preventDefault();
@@ -165,10 +171,13 @@ function switchTab(tabId) {
     }
     
     if (!activeTab) {
-        switchTab('pi');
+        const defaultTab = document.getElementById('pi');
+        if (defaultTab) defaultTab.classList.add('active');
+        const defaultNav = document.querySelector('.nav-link[data-tab="pi"]');
+        if (defaultNav) defaultNav.classList.add('active');
     }
     
-    // Load publications if needed
+    // Load publications if publications tab is opened
     if (tabId === 'publications') {
         initPublicationsTab();
     }
@@ -197,42 +206,53 @@ function showTeamSection(sectionId) {
         section.classList.add('active');
     }
     
-    event.target.classList.add('active');
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
 }
 
 function initTeamTab() {
-    showTeamSection('current');
+    const currentBtn = document.querySelector('.team-tab-btn');
+    if (currentBtn) {
+        showTeamSection('current');
+    }
 }
 
-// ===== DYNAMIC PUBLICATIONS =====
-async function initPublicationsTab() {
-    loadPublications();
-}
+// ===== BIBTEX-BASED PUBLICATIONS SYSTEM =====
 
-async function loadPublications() {
+// Load publications from BibTeX file
+async function loadPublicationsFromBibTeX() {
     const container = document.getElementById('publications-container');
-    const lastUpdatedEl = document.getElementById('last-updated');
-    const updateDateEl = document.getElementById('update-date');
+    if (!container) return;
     
     try {
         container.innerHTML = `
             <div class="loading-spinner">
-                <i class="fas fa-spinner fa-spin"></i> Loading publications...
+                <i class="fas fa-spinner fa-spin"></i> Loading publications from BibTeX...
             </div>
         `;
         
-        const response = await fetch('data/publications.json');
+        const response = await fetch('data/publications.bib');
         
         if (!response.ok) {
-            throw new Error('Failed to load publications');
+            throw new Error(`Failed to load publications.bib (${response.status})`);
         }
         
-        const data = await response.json();
-        displayPublications(data.publications);
+        const bibtexContent = await response.text();
+        allPublications = parseBibTeX(bibtexContent);
         
-        if (data.last_updated) {
-            const date = new Date(data.last_updated);
-            const formattedDate = date.toLocaleDateString('en-US', {
+        displayPublications(allPublications);
+        
+        const pubCountEl = document.getElementById('pub-count');
+        if (pubCountEl) {
+            pubCountEl.textContent = allPublications.length;
+        }
+        
+        const lastUpdatedEl = document.getElementById('last-updated');
+        const updateDateEl = document.getElementById('update-date');
+        if (lastUpdatedEl && updateDateEl) {
+            const today = new Date();
+            const formattedDate = today.toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'short',
                 day: 'numeric'
@@ -241,61 +261,181 @@ async function loadPublications() {
             lastUpdatedEl.style.display = 'inline-flex';
         }
         
-        document.getElementById('pub-count').textContent = data.publications.length;
-        
     } catch (error) {
         console.error('Error loading publications:', error);
-        displayFallbackPublications();
+        container.innerHTML = `
+            <div class="no-results">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Unable to load publications. Please make sure the publications.bib file exists in the data folder.</p>
+                <p style="font-size: 0.85rem; margin-top: 10px;">Error: ${error.message}</p>
+                <button onclick="refreshPublications()" class="btn" style="margin-top: 20px;">
+                    <i class="fas fa-sync-alt"></i> Retry
+                </button>
+            </div>
+        `;
     }
 }
 
+// Parse BibTeX content
+function parseBibTeX(bibtexContent) {
+    const publications = [];
+    const entryRegex = /@(\w+)\{([^,]+),\s*([\s\S]*?)\n\}/g;
+    let match;
+    
+    while ((match = entryRegex.exec(bibtexContent)) !== null) {
+        const type = match[1];
+        const citeKey = match[2];
+        const fieldsStr = match[3];
+        
+        const pub = {
+            type: type,
+            citeKey: citeKey,
+            title: extractField(fieldsStr, 'title'),
+            author: extractField(fieldsStr, 'author'),
+            journal: extractField(fieldsStr, 'journal') || extractField(fieldsStr, 'booktitle'),
+            year: extractField(fieldsStr, 'year'),
+            volume: extractField(fieldsStr, 'volume'),
+            number: extractField(fieldsStr, 'number'),
+            pages: extractField(fieldsStr, 'pages'),
+            doi: extractField(fieldsStr, 'doi'),
+            url: extractField(fieldsStr, 'url'),
+            abstract: extractField(fieldsStr, 'abstract'),
+            publisher: extractField(fieldsStr, 'publisher')
+        };
+        
+        if (pub.author) {
+            pub.author = pub.author.replace(/[{}]/g, '').replace(/\s+/g, ' ').trim();
+            pub.authorFormatted = formatAuthors(pub.author);
+        }
+        
+        if (pub.title) {
+            pub.title = pub.title.replace(/[{}]/g, '').trim();
+        }
+        
+        if (pub.journal) {
+            pub.journal = pub.journal.replace(/[{}]/g, '').trim();
+        }
+        
+        if (pub.doi && !pub.url) {
+            pub.url = `https://doi.org/${pub.doi}`;
+        }
+        
+        if (pub.journal) {
+            pub.venue = pub.journal;
+            if (pub.volume) {
+                pub.venue += `, ${pub.volume}`;
+                if (pub.number) pub.venue += `(${pub.number})`;
+            }
+            if (pub.pages) pub.venue += `, ${pub.pages}`;
+        } else if (pub.publisher) {
+            pub.venue = pub.publisher;
+        } else {
+            pub.venue = 'Publication';
+        }
+        
+        publications.push(pub);
+    }
+    
+    publications.sort((a, b) => parseInt(b.year) - parseInt(a.year));
+    
+    return publications;
+}
+
+// Extract field from BibTeX
+function extractField(fieldsStr, fieldName) {
+    const regex = new RegExp(`${fieldName}\\s*=\\s*[{"]((?:[^"{}]|\\{[^}]*\\})*)[}"]`, 'i');
+    const match = fieldsStr.match(regex);
+    if (match) {
+        return match[1].trim();
+    }
+    return null;
+}
+
+// Format authors
+function formatAuthors(authorStr) {
+    if (!authorStr) return '';
+    const authors = authorStr.split(/\sand\s/);
+    const formatted = authors.map(author => {
+        const parts = author.split(',').map(p => p.trim());
+        if (parts.length >= 2) {
+            return `${parts[1]} ${parts[0]}`;
+        }
+        return author;
+    });
+    
+    if (formatted.length > 3) {
+        return `${formatted[0]}, ${formatted[1]}, et al.`;
+    }
+    return formatted.join(', ');
+}
+
+// Display publications with sorting and filtering
 function displayPublications(publications) {
     const container = document.getElementById('publications-container');
+    if (!container) return;
     
-    if (!publications || publications.length === 0) {
+    let filtered = publications;
+    if (searchTerm) {
+        const term = searchTerm.toLowerCase();
+        filtered = publications.filter(pub => 
+            (pub.title && pub.title.toLowerCase().includes(term)) ||
+            (pub.author && pub.author.toLowerCase().includes(term)) ||
+            (pub.year && pub.year.includes(term)) ||
+            (pub.journal && pub.journal.toLowerCase().includes(term))
+        );
+    }
+    
+    filtered.sort((a, b) => {
+        if (currentSort === 'year') {
+            return parseInt(b.year) - parseInt(a.year);
+        } else if (currentSort === 'title') {
+            return (a.title || '').localeCompare(b.title || '');
+        } else if (currentSort === 'author') {
+            return (a.author || '').localeCompare(b.author || '');
+        }
+        return 0;
+    });
+    
+    if (filtered.length === 0) {
         container.innerHTML = `
-            <div style="text-align: center; padding: 3rem; color: var(--text-light);">
-                <i class="fas fa-book-open" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
-                <p>No publications found.</p>
+            <div class="no-results">
+                <i class="fas fa-search"></i>
+                <p>No publications found matching "${searchTerm}"</p>
+                <button onclick="clearPublicationSearch()" class="btn" style="margin-top: 15px;">
+                    <i class="fas fa-times"></i> Clear Search
+                </button>
             </div>
         `;
         return;
     }
     
-    let html = `
-        <div class="pub-controls">
-            <div class="pub-sort">
-                <span style="color: var(--text-light); margin-right: 10px;">Sort by:</span>
-                <button class="active" onclick="sortPublications('date', this)">Latest</button>
-                <button onclick="sortPublications('citations', this)">Most Cited</button>
-                <button onclick="sortPublications('title', this)">Title</button>
-            </div>
-            <div class="pub-stats">
-                <i class="fas fa-chart-line"></i>
-                <span id="pub-count">${publications.length}</span> publications
-            </div>
-        </div>
-    `;
-    
-    publications.forEach((pub, index) => {
+    let html = '';
+    filtered.forEach((pub, index) => {
+        const hasAbstract = pub.abstract && pub.abstract.length > 0;
+        
         html += `
-            <div class="publication-item" data-year="${pub.year}" data-citations="${pub.citations || 0}" style="animation-delay: ${index * 0.03}s">
-                <div class="pub-title">${pub.title}</div>
-                <div class="pub-authors">${pub.authors}</div>
-                <div class="pub-venue">${pub.venue} (${pub.year})</div>
-                ${pub.abstract ? `<div class="pub-abstract">${pub.abstract}</div>` : ''}
+            <div class="publication-item" data-year="${pub.year || 0}" style="animation-delay: ${index * 0.03}s">
+                <div class="pub-title">${escapeHtml(pub.title || 'Untitled')}</div>
+                <div class="pub-authors">${escapeHtml(pub.authorFormatted || pub.author || 'Authors not specified')}</div>
+                <div class="pub-venue">${escapeHtml(pub.venue || pub.journal || '')}${pub.year ? ` (${pub.year})` : ''}</div>
+                ${pub.doi ? `<div class="pub-doi"><i class="fas fa-digital-object-identifier"></i> DOI: ${escapeHtml(pub.doi)}</div>` : ''}
+                ${hasAbstract ? `
+                    <div class="pub-abstract-preview" onclick="toggleAbstract('${pub.citeKey}')">
+                        <i class="fas fa-quote-left"></i> Show abstract
+                    </div>
+                    <div id="abstract-${pub.citeKey}" class="pub-abstract-full">
+                        ${escapeHtml(pub.abstract).replace(/\n/g, '<br>')}
+                    </div>
+                ` : ''}
                 <div class="pub-links">
-                    <a href="${pub.url}" class="pub-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> DOI / View
-                    </a>
-                    ${pub.citations ? `
-                        <span class="citation-count">
-                            <i class="fas fa-quote-right"></i> ${pub.citations} citation${pub.citations !== 1 ? 's' : ''}
-                        </span>
+                    ${pub.doi ? `
+                        <a href="https://doi.org/${escapeHtml(pub.doi)}" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> DOI
+                        </a>
                     ` : ''}
-                    ${pub.pdf_url ? `
-                        <a href="${pub.pdf_url}" class="pub-link" target="_blank">
-                            <i class="fas fa-file-pdf"></i> PDF
+                    ${pub.url ? `
+                        <a href="${escapeHtml(pub.url)}" class="pub-link" target="_blank">
+                            <i class="fas fa-file-alt"></i> View Article
                         </a>
                     ` : ''}
                 </div>
@@ -306,83 +446,92 @@ function displayPublications(publications) {
     container.innerHTML = html;
 }
 
-function displayFallbackPublications() {
-    const container = document.getElementById('publications-container');
-    
-    container.innerHTML = `
-        <ul class="publication-list">
-            <li class="publication-item">
-                <div class="pub-title">Rethinking disaster resilience in high-density cities: Towards an urban resilience knowledge system</div>
-                <div class="pub-authors">Sajjad, M., Chan, J.C.L., Chopra, S.S.</div>
-                <div class="pub-venue">Sustainable Cities and Society, 69, 102850 (2021)</div>
-                <div class="pub-links">
-                    <a href="https://doi.org/10.1016/j.scs.2021.102850" class="pub-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> DOI
-                    </a>
-                </div>
-            </li>
-            <li class="publication-item">
-                <div class="pub-title">Assessing hazard vulnerability, habitat conservation, and restoration for the enhancement of mainland China's coastal resilience</div>
-                <div class="pub-authors">Sajjad, M., Li, Y., Tang, Z., Cao, L., Liu, X.</div>
-                <div class="pub-venue">Earth's Future, 6(3), 326-338 (2018)</div>
-                <div class="pub-links">
-                    <a href="https://doi.org/10.1002/2017EF000676" class="pub-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> DOI
-                    </a>
-                </div>
-            </li>
-            <li class="publication-item">
-                <div class="pub-title">Integration of machine learning and remote sensing for above ground biomass estimation</div>
-                <div class="pub-authors">Anees, S.A., Mehmood, K., Khan, W.R., Sajjad, M., et al.</div>
-                <div class="pub-venue">Ecological Informatics, 82, 102732 (2024)</div>
-                <div class="pub-links">
-                    <a href="https://doi.org/10.1016/j.ecoinf.2024.102732" class="pub-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> DOI
-                    </a>
-                </div>
-            </li>
-            <li class="publication-item">
-                <div class="pub-title">Risk assessment for the sustainability of coastal communities: A preliminary study</div>
-                <div class="pub-authors">Sajjad, M., Chan, J.C.L.</div>
-                <div class="pub-venue">Science of the Total Environment, 671, 339-350 (2019)</div>
-                <div class="pub-links">
-                    <a href="https://doi.org/10.1016/j.scitotenv.2019.03.290" class="pub-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> DOI
-                    </a>
-                </div>
-            </li>
-        </ul>
-    `;
+// Escape HTML to prevent XSS
+function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
 }
 
-// Sort publications function
-function sortPublications(sortBy, button) {
-    document.querySelectorAll('.pub-sort button').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    button.classList.add('active');
-    
-    const container = document.getElementById('publications-container');
-    const items = Array.from(container.querySelectorAll('.publication-item'));
-    
-    items.sort((a, b) => {
-        if (sortBy === 'date') {
-            const yearA = parseInt(a.dataset.year) || 0;
-            const yearB = parseInt(b.dataset.year) || 0;
-            return yearB - yearA;
-        } else if (sortBy === 'citations') {
-            const citesA = parseInt(a.dataset.citations) || 0;
-            const citesB = parseInt(b.dataset.citations) || 0;
-            return citesB - citesA;
-        } else if (sortBy === 'title') {
-            const titleA = a.querySelector('.pub-title').textContent.toLowerCase();
-            const titleB = b.querySelector('.pub-title').textContent.toLowerCase();
-            return titleA.localeCompare(titleB);
+// Toggle abstract visibility
+function toggleAbstract(citeKey) {
+    const abstractDiv = document.getElementById(`abstract-${citeKey}`);
+    if (abstractDiv) {
+        abstractDiv.classList.toggle('show');
+        const previewDiv = abstractDiv.previousElementSibling;
+        if (abstractDiv.classList.contains('show')) {
+            previewDiv.innerHTML = '<i class="fas fa-quote-right"></i> Hide abstract';
+        } else {
+            previewDiv.innerHTML = '<i class="fas fa-quote-left"></i> Show abstract';
         }
-        return 0;
+    }
+}
+
+// Initialize publication search
+function initPublicationSearch() {
+    const searchInput = document.getElementById('pub-search-input');
+    if (searchInput) {
+        searchInput.removeEventListener('input', handleSearchInput);
+        searchInput.addEventListener('input', handleSearchInput);
+    }
+}
+
+function handleSearchInput(e) {
+    searchTerm = e.target.value;
+    displayPublications(allPublications);
+}
+
+// Initialize sort buttons
+function initSortButtons() {
+    const sortBtns = document.querySelectorAll('.sort-btn');
+    sortBtns.forEach(btn => {
+        btn.removeEventListener('click', handleSortClick);
+        btn.addEventListener('click', handleSortClick);
     });
+}
+
+function handleSortClick(e) {
+    const sortBtns = document.querySelectorAll('.sort-btn');
+    sortBtns.forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    currentSort = e.target.dataset.sort;
+    displayPublications(allPublications);
+}
+
+// Clear publication search
+function clearPublicationSearch() {
+    const searchInput = document.getElementById('pub-search-input');
+    if (searchInput) {
+        searchInput.value = '';
+        searchTerm = '';
+        displayPublications(allPublications);
+    }
+}
+
+// Refresh publications
+function refreshPublications() {
+    loadPublicationsFromBibTeX();
+}
+
+// Initialize publications tab
+function initPublicationsTab() {
+    if (allPublications.length === 0) {
+        loadPublicationsFromBibTeX();
+    }
+    initPublicationSearch();
+    initSortButtons();
     
-    items.forEach(item => container.appendChild(item));
+    const refreshLink = document.getElementById('refresh-pubs-link');
+    if (refreshLink) {
+        refreshLink.removeEventListener('click', handleRefreshClick);
+        refreshLink.addEventListener('click', handleRefreshClick);
+    }
+}
+
+function handleRefreshClick(e) {
+    e.preventDefault();
+    refreshPublications();
 }
 
 // ===== LATEST UPDATES =====
@@ -410,8 +559,8 @@ function loadLatestUpdates() {
             const updateItem = document.createElement('div');
             updateItem.className = 'update-item';
             updateItem.innerHTML = `
-                <span class="update-date">${date}</span>
-                <a href="#" class="update-title" data-news-title="${title}">${title}</a>
+                <span class="update-date">${escapeHtml(date)}</span>
+                <a href="#" class="update-title" data-news-title="${escapeHtml(title)}">${escapeHtml(title)}</a>
             `;
             updatesContainer.appendChild(updateItem);
         }
@@ -438,14 +587,16 @@ function loadLatestUpdates() {
 let lastScroll = 0;
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        nav.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)';
-    } else {
-        nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+    if (nav) {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            nav.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)';
+        } else {
+            nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+        }
+        lastScroll = currentScroll;
     }
-    lastScroll = currentScroll;
 });
 
 // ===== SMOOTH ANCHOR LINKS =====
@@ -468,10 +619,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Update copyright year
+// ===== UPDATE COPYRIGHT YEAR =====
 document.addEventListener('DOMContentLoaded', () => {
     const footerText = document.querySelector('footer p:last-of-type');
     if (footerText && !footerText.innerHTML.includes('©')) {
         footerText.innerHTML = `The Chinese University of Hong Kong • © ${new Date().getFullYear()}`;
     }
 });
+
+// ===== EXPOSE FUNCTIONS FOR GLOBAL USE =====
+window.switchTab = switchTab;
+window.showTeamSection = showTeamSection;
+window.toggleAbstract = toggleAbstract;
+window.clearPublicationSearch = clearPublicationSearch;
+window.refreshPublications = refreshPublications;
