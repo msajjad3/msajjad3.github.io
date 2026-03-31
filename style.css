@@ -238,7 +238,7 @@ header {
 
 /* ===== NAVIGATION ===== */
 nav {
-    background-color: var(--card-bg);
+    background-color: rgba(0, 0, 0, 0.03);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
