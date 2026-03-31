@@ -245,7 +245,7 @@ nav {
     z-index: 99;
     border-bottom: 1px solid var(--border-color);
     backdrop-filter: blur(8px);
-    background-color: rgba(var(--card-bg-rgb, 255, 255, 255), 0.95);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
