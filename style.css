@@ -971,15 +971,62 @@ footer .social-links {
         margin-top: 16px;
     }
     
+    /* Fix: Align mobile menu button and social links on same row */
     .nav-container {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row; /* Change from column to row */
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
     }
     
+    /* Keep menu button visible and styled */
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 40px;
+        padding: 8px 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+        order: 1; /* Ensure it stays in order */
+    }
+    
+    .mobile-menu-btn i {
+        font-size: 1rem;
+    }
+    
+    .mobile-menu-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+    }
+    
+    /* Update social links for mobile */
+    .social-links {
+        display: flex;
+        gap: 8px;
+        margin-top: 0;
+        order: 2; /* Place after menu button */
+    }
+    
+    .social-link {
+        width: 36px;
+        height: 36px;
+    }
+    
+    /* Navigation links below */
     .nav-links {
         flex-direction: column;
         display: none;
         width: 100%;
+        order: 3;
+        margin-top: 10px;
     }
     
     .nav-links.active {
@@ -995,12 +1042,8 @@ footer .social-links {
         display: none;
     }
     
-    .mobile-menu-btn {
-        display: block;
-        align-self: flex-end;
-        margin: 5px 0;
-    }
-    
+    /* Remove the existing nav-container flex-direction: column */
+    /* The rest of your existing mobile styles remain the same */
     .team-grid, .projects-grid {
         grid-template-columns: 1fr;
     }
