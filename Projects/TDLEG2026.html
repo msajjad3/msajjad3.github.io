@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>TDLEG 2025-28 | GenAI+VR · Disaster Literacy & SDGs | CUHK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #eef2f5 0%, #e0e8ef 100%);
+            font-family: 'Inter', sans-serif;
+            padding: 2rem 1.5rem;
+            line-height: 1.4;
+        }
+
+        /* animations */
+        @keyframes fadeSlideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glideIn {
+            0% { opacity: 0; transform: translateX(-18px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes softScale {
+            0% { opacity: 0; transform: scale(0.96); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .infographic {
+            background: #ffffff;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 30px 45px -20px rgba(0, 0, 0, 0.35);
+            transition: all 0.2s;
+        }
+
+        /* hero section */
+        .hero {
+            background: linear-gradient(125deg, #0a2f3c 0%, #146b7e 100%);
+            padding: 2.2rem 2rem 2rem 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "🌍";
+            font-size: 7rem;
+            opacity: 0.08;
+            position: absolute;
+            bottom: -15px;
+            right: 0px;
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(6px);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.2rem;
+            animation: fadeSlideUp 0.6s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            line-height: 1.2;
+            max-width: 85%;
+            animation: fadeSlideUp 0.6s ease-out 0.1s both;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            opacity: 0.92;
+            border-left: 3px solid #6fd4e6;
+            padding-left: 1rem;
+            margin: 1rem 0 1.2rem 0;
+            max-width: 80%;
+            animation: fadeSlideUp 0.6s ease-out 0.2s both;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 0.5rem;
+            animation: fadeSlideUp 0.6s ease-out 0.3s both;
+        }
+
+        .pill {
+            background: rgba(255,255,255,0.12);
+            border-radius: 30px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* stats row */
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background: white;
+            margin: -1.8rem 1.8rem 0 1.8rem;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.8rem;
+            box-shadow: 0 15px 25px -12px rgba(0,0,0,0.12);
+            gap: 1rem;
+            position: relative;
+            z-index: 5;
+            animation: softScale 0.5s ease-out 0.2s both;
+        }
+
+        .stat-card {
+            text-align: center;
+            flex: 1;
+            min-width: 105px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #146b7e, #2a9db6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #3d6c7c;
+        }
+
+        /* content */
+        .content {
+            padding: 2rem 2rem 2rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            animation: glideIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .section.delay-1 { animation-delay: 0.05s; }
+        .section.delay-2 { animation-delay: 0.1s; }
+        .section.delay-3 { animation-delay: 0.2s; }
+        .section.delay-4 { animation-delay: 0.3s; }
+        .section.delay-5 { animation-delay: 0.4s; }
+        .section.delay-6 { animation-delay: 0.45s; }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.2rem;
+            color: #0e3b48;
+            border-left: 4px solid #258b9e;
+            padding-left: 0.9rem;
+        }
+
+        .title-icon {
+            font-size: 1.4rem;
+            color: #258b9e;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .info-card {
+            background: #fafeff;
+            border-radius: 1.2rem;
+            padding: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2edf2;
+            transition: all 0.25s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -12px rgba(0, 0, 0, 0.12);
+            border-color: #bee0e8;
+        }
+
+        .info-card i {
+            font-size: 1.8rem;
+            color: #258b9e;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            font-size: 0.85rem;
+            color: #2c5a68;
+        }
+
+        /* phase list */
+        .phase-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .phase-item {
+            background: #f1f7fa;
+            flex: 1;
+            border-radius: 1.2rem;
+            padding: 1rem;
+            border-left: 4px solid #40b3c9;
+            transition: transform 0.2s;
+        }
+        .phase-item:hover { transform: translateY(-3px); background: #ffffff;}
+        .phase-year {
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: #0e5f72;
+        }
+
+        /* beneficiaries */
+        .beneficiary-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+        .benef-card {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 1.2rem;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+            border-top: 4px solid;
+            transition: transform 0.2s;
+        }
+        .benef-card:hover { transform: translateY(-3px);}
+        .short-term { border-top-color: #2a9db6; }
+        .long-term { border-top-color: #f4b942; }
+        .benef-card h3 i { margin-right: 8px;}
+
+        /* SDG styling */
+        .sdg-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0 0.5rem;
+        }
+        .sdg-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8fafc;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .sdg-4 { color: #c7212f; }
+        .sdg-11 { color: #f99d26; }
+        .sdg-13 { color: #3f7e44; }
+        .sdg-17 { color: #1f4a6e; }
+
+        .key-highlight {
+            background: linear-gradient(120deg, #eef5f8, #ffffff);
+            border-radius: 1.2rem;
+            padding: 0.9rem 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 0.8rem;
+            border: 1px solid #ccdfe6;
+        }
+
+        .footer {
+            background: #0a2f3c;
+            color: #bfdde5;
+            padding: 1rem 2rem;
+            font-size: 0.7rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        hr {
+            margin: 0.8rem 0;
+            border: none;
+            height: 1px;
+            background: #d0e2ea;
+        }
+
+        @media (max-width: 760px) {
+            body { padding: 1rem; }
+            .hero h1 { font-size: 1.4rem; max-width: 100%;}
+            .hero-sub { max-width: 100%;}
+            .stats-row { margin: -1rem 1rem 0 1rem; flex-direction: column; gap: 0.5rem;}
+            .content { padding: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="infographic">
+        <!-- hero -->
+        <div class="hero">
+            <div class="badge"><i class="fas fa-graduation-cap"></i> CUHK · TDLEG 2025-28 | SDGs Integrated</div>
+            <h1>Transformative Experiential Learning:<br>Generative AI + VR for Disaster Literacy</h1>
+            <div class="hero-sub">Adaptive AI avatars · place‑based resilience · formative action for a safer future</div>
+            <div class="pill-row">
+                <span class="pill"><i class="fas fa-robot"></i> GenAI avatars</span>
+                <span class="pill"><i class="fas fa-vr-cardboard"></i> Immersive VR</span>
+                <span class="pill"><i class="fas fa-water"></i> HK hazard regimes</span>
+                <span class="pill"><i class="fas fa-globe-asia"></i> Climate action</span>
+            </div>
+        </div>
+
+        <!-- stats -->
+        <div class="stats-row">
+            <div class="stat-card"><div class="stat-number">650+</div><div class="stat-label">student beneficiaries</div></div>
+            <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">disaster VR scenes</div></div>
+            <div class="stat-card"><div class="stat-number">A3GIF™</div><div class="stat-label">adaptive AI framework</div></div>
+            <div class="stat-card"><div class="stat-number">12+</div><div class="stat-label">teacher workshops</div></div>
+        </div>
+
+        <div class="content">
+            <!-- Principal Supervisor only -->
+            <div class="section delay-1">
+                <div class="section-title"><i class="fas fa-user-tie title-icon"></i> Principal Supervisor</div>
+                <div class="info-card" style="background: linear-gradient(105deg, #f1f9fc, white); border-left: 5px solid #258b9e;">
+                    <i class="fas fa-satellite" style="font-size: 1.6rem;"></i>
+                    <h3>Dr. Muhammad Sajjad</h3>
+                    <p>Research Assistant Professor, Department of Geography and Resource Management, CUHK<br>
+                    <span style="font-size: 0.8rem;"><i class="fas fa-envelope"></i> muhammadsajjad@cuhk.edu.hk</span><br>
+                    Expertise: multi‑hazard assessment, extreme weather resilience, experiential learning & AI pedagogy.</p>
+                </div>
+            </div>
+
+            <!-- Why now? Critical gap (retained from previous good version) -->
+            <div class="section delay-2">
+                <div class="section-title"><i class="fas fa-bullhorn title-icon"></i> Why now? Critical gap in disaster education</div>
+                <div class="grid-2">
+                    <div class="info-card"><i class="fas fa-cloud-showers-heavy"></i><h3>Safety + realism gap</h3><p>Fieldwork limited by extreme weather & logistics. Students miss authentic disaster rehearsal. GenAI+VR fills the void with safe, repeatable plan‑act‑reflect‑retry loops.</p></div>
+                    <div class="info-card"><i class="fas fa-brain"></i><h3>False sense of security</h3><p>HK residents underestimate local landslide/typhoon risk. Place‑based immersion plus adaptive AI avatars builds real decision confidence and risk perception.</p></div>
+                    <div class="info-card"><i class="fas fa-arrows-spin"></i><h3>Transferable learning</h3><p>From slope inspection to emergency coordination: students apply skills across hazards, supported by GenAI that calibrates trust & scaffolding.</p></div>
+                </div>
+            </div>
+
+            <!-- A3GIF framework + phases (core element) -->
+            <div class="section delay-3">
+                <div class="section-title"><i class="fas fa-cubes title-icon"></i> A3GIF: Adaptive Avatar–Archetype GenAI Immersive Framework</div>
+                <div class="phase-list">
+                    <div class="phase-item"><span class="phase-year"><i class="far fa-calendar-alt"></i> Phase 1 (2026)</span><br>Core VR slope scene + learner archetype mapping (PLSPQ). AI prompt refinement & pilot (n≥120). Non‑HMD participation >80%.</div>
+                    <div class="phase-item"><span class="phase-year"><i class="far fa-calendar-alt"></i> Phase 2 (2027)</span><br>4 full disaster scenarios: slope, drainage, typhoon shelter, emergency centre. Auto‑archetype personalization, 300+ students.</div>
+                    <div class="phase-item"><span class="phase-year"><i class="far fa-calendar-alt"></i> Phase 3 (2028)</span><br>Launch A3GIF, cross‑faculty pilot (English Dept). Open repository, CUHK Teaching Expo, Q1 publications.</div>
+                </div>
+            </div>
+
+            <!-- Hong Kong–True Immersive Scenes (from the good version) -->
+            <div class="section delay-4">
+                <div class="section-title"><i class="fas fa-map-marked-alt title-icon"></i> Hong Kong–True Immersive Scenes</div>
+                <div class="grid-2">
+                    <div class="info-card"><i class="fas fa-mountain"></i><h3>Slope inspection & Landslide</h3><p>GEO thresholds, inclinometers, evacuation decisions. Roleplay with Site Supervisor AI avatar.</p></div>
+                    <div class="info-card"><i class="fas fa-city"></i><h3>Urban drainage / flooding</h3><p>Sensor‑based prediction, real‑time stormwater response (Amber/Red/Black signals).</p></div>
+                    <div class="info-card"><i class="fas fa-ship"></i><h3>Aberdeen Typhoon Shelter</h3><p>Operational management, vessel safety, coordination with emergency crews.</p></div>
+                    <div class="info-card"><i class="fas fa-head-side-medical"></i><h3>Emergency Ops Centre</h3><p>Multi‑hazard (typhoon+landslide+flood) decision making, stress & empathy training.</p></div>
+                </div>
+            </div>
+
+            <!-- Short & Long Term Beneficiaries (integrated) -->
+            <div class="section delay-5">
+                <div class="section-title"><i class="fas fa-users title-icon"></i> Expected Beneficiaries — Short & Long Term</div>
+                <div class="beneficiary-grid">
+                    <div class="benef-card short-term">
+                        <h3><i class="fas fa-clock" style="color:#2a9db6;"></i> Short‑term (2026–2028)</h3>
+                        <ul style="margin-left: 1.2rem; font-size: 0.85rem; color: #2c5a68;">
+                            <li>≥550 CUHK students: GRMD2221, UGEB2222, UGEB2871, ENGE3950</li>
+                            <li>12–20 faculty members adopting VR/GenAI modules & rubrics</li>
+                            <li>6 immersive HMD workshops + direct disaster simulation training</li>
+                            <li>Skill gains: decision‑making, hazard calibration, AI collaboration</li>
+                        </ul>
+                    </div>
+                    <div class="benef-card long-term">
+                        <h3><i class="fas fa-tree" style="color:#f4b942;"></i> Long‑term (2028 onwards)</h3>
+                        <ul style="margin-left: 1.2rem; font-size: 0.85rem; color: #2c5a68;">
+                            <li>Cross‑disciplinary replication (engineering, urban planning, public health)</li>
+                            <li>Open VR scene library + prompt templates → low‑cost adoption across HEIs</li>
+                            <li>HK Red Cross Community Resilience Service — scaling citywide disaster literacy</li>
+                            <li>Policy influence: evidence‑based disaster preparedness education framework</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SDGs & Global Agenda with SDG colors -->
+            <div class="section delay-6">
+                <div class="section-title"><i class="fas fa-globe-americas title-icon"></i> Aligned with UN SDGs & Global Frameworks</div>
+                <div class="sdg-bar">
+                    <span class="sdg-badge"><i class="fas fa-book-open sdg-4"></i> <strong style="color:#c7212f;">SDG 4</strong> · Quality Education</span>
+                    <span class="sdg-badge"><i class="fas fa-city sdg-11"></i> <strong style="color:#f99d26;">SDG 11</strong> · Sustainable Cities</span>
+                    <span class="sdg-badge"><i class="fas fa-leaf sdg-13"></i> <strong style="color:#3f7e44;">SDG 13</strong> · Climate Action</span>
+                    <span class="sdg-badge"><i class="fas fa-handshake sdg-17"></i> <strong style="color:#1f4a6e;">SDG 17</strong> · Partnerships</span>
+                </div>
+                <div class="info-card" style="background: #fafbf7; margin-top: 0.3rem;">
+                    <p><i class="fas fa-chalkboard"></i> <strong>Global relevance:</strong> Supports Sendai Framework for Disaster Risk Reduction (2015-2030) and UNESCO’s ESD for 2030. The project builds climate-resilient communities through AI-enhanced place-based education, directly advancing disaster literacy, risk perception, and inclusive capacity building in the face of increasing extreme weather events.</p>
+                </div>
+            </div>
+
+            <!-- Key deliverables & outcomes summary -->
+            <div class="section delay-6">
+                <div class="section-title"><i class="fas fa-chart-line title-icon"></i> Key deliverables & projected outcomes</div>
+                <div class="key-highlight">
+                    <span><i class="fas fa-vr-cardboard"></i> 4 VR modules + prompt libraries</span>
+                    <span><i class="fas fa-chalkboard-user"></i> ≥2 courses adopting GenAI-VR</span>
+                    <span><i class="fas fa-chart-simple"></i> 70% engagement lift | confidence +0.6</span>
+                    <span><i class="fas fa-dollar-sign"></i> cost per student ≤HKD 300 (reuse)</span>
+                </div>
+                <div class="key-highlight" style="margin-top: 0.5rem;">
+                    <span><i class="fas fa-calendar-week"></i> Timeline: Jan 2026 – Apr 2028</span>
+                    <span><i class="fas fa-handshake"></i> Partners: Lingnan U, HKBU, HK Red Cross</span>
+                    <span><i class="fas fa-chart-pie"></i> 600+ total beneficiary count (3 years)</span>
+                </div>
+                <hr>
+                <div style="font-size: 0.75rem; text-align: center; color: #306d7e; padding-top: 0.2rem;">
+                    <i class="fas fa-leaf"></i> Long-term alignment: CUHK 2026-30 imperatives · Leading AI in T&L · Generative AI ethics · Experiential learning for global challenges
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span><i class="far fa-copyright"></i> The Chinese University of Hong Kong · Teaching Development and Language Enhancement Grant 2025-28</span>
+            <span><i class="fas fa-university"></i> Principal Supervisor: Dr. Muhammad Sajjad (GRM)</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
