@@ -276,11 +276,29 @@
             margin-top: 0.8rem;
             display: inline-block;
         }
+        .back-link {
+            color: rgb(7, 7, 7);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(63, 167, 177, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: #30954680;
+        }
     </style>
 </head>
 <body>
 
 <div class="qr-studio">
+            <a href="../index.html#tools4good" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Tools4Good
+        </a>
     <div class="hero">
         <h1>✦ QRaft Studio ✦</h1>
         <p>Generate professional-grade QR codes with dynamic styling and instant export</p>
