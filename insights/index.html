@@ -7,41 +7,45 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <!-- Use the SAME header/nav as your main site -->
-    <header class="site-header"> <!-- Assuming you have this class -->
-        <nav>
-            <a href="/">Home</a>
-            <a href="/insights/" class="active">Insights</a> <!-- Mark current page -->
-            <a href="/#research">Research</a>
-            <a href="/#contact">Contact</a>
+    <!-- Navigation with Professional Buttons -->
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="/">SAJJAD Lab</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-btn">Home</a></li>
+                <li><a href="/insights/" class="nav-btn active">Insights</a></li>
+                <li><a href="/#research" class="nav-btn">Research</a></li>
+                <li><a href="/#contact" class="nav-btn">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
-        <!-- Use the same container as your main content -->
         <section class="container insights-section">
             <h1>📝 Insights from the Lab</h1>
             <p class="section-subtitle">Translating our research on geospatial data science, AI, and disaster resilience into accessible knowledge.</p>
 
-            <!-- Blog posts as cards, matching your project/team card style -->
-            <div class="insights-grid"> <!-- New grid wrapper -->
-                <article class="insight-card"> <!-- Use same card class as your projects -->
+            <div class="insights-grid">
+                <!-- Post 1 -->
+                <article class="insight-card">
                     <div class="card-image">
-                        <img src="/insights/images/CCE-and-LLA.png.jpg" alt="Cover image for post 1">
+                        <img src="/insights/images/CCE-and-LLA.png" alt="CCE and LLA diagram">
                     </div>
                     <div class="card-content">
                         <h2><a href="/insights/post-1.html">How AI and Satellites Help Us Predict Flood Risks in Cities</a></h2>
                         <p class="post-meta">Published: July 20, 2026 | By Dr. Muhammad Sajjad</p>
                         <p>Understanding the hidden vulnerabilities in our urban landscapes using machine learning and remote sensing.</p>
-                        <a href="/insights/post-1.html" class="btn btn-primary">Read More →</a> <!-- Use your button class -->
+                        <a href="/insights/post-1.html" class="btn btn-primary">Read More →</a>
                     </div>
                 </article>
-                <!-- Repeat for other posts -->
+
+                <!-- Add more posts here -->
             </div>
         </section>
     </main>
 
-    <!-- Use the SAME footer as your main site -->
     <footer class="site-footer">
         <p>&copy; 2026 SAJJAD Lab. All rights reserved.</p>
     </footer>
