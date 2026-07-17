@@ -681,6 +681,168 @@ main {
     opacity: 0.3;
 }
 
+/* =======Tools4Good Styles======== */
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.tool-card {
+    background: var(--card-bg, #ffffff);
+    border-radius: 15px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color, #e0e0e0);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tool-card:hover::before {
+    opacity: 1;
+}
+
+.tool-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.tool-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    background: rgba(26, 95, 122, 0.08);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+.tool-card:hover .tool-icon {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.05);
+}
+
+.tool-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: var(--text-color, #2c3e50);
+}
+
+.tool-card p {
+    color: var(--text-light, #666);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.tool-card .tag {
+    display: inline-block;
+    padding: 4px 12px;
+    margin: 3px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(26, 95, 122, 0.1);
+    color: var(--primary-color);
+    border: 1px solid rgba(26, 95, 122, 0.15);
+}
+
+.tool-card .btn-learn-more {
+    display: inline-block;
+    padding: 10px 25px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.tool-card .btn-learn-more:hover {
+    background: var(--secondary-color);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(26, 95, 122, 0.3);
+}
+
+.tool-card .btn-learn-more[style*="cursor: not-allowed"] {
+    opacity: 0.6;
+    cursor: not-allowed !important;
+    background: #95a5a6;
+}
+
+.tool-card .btn-learn-more[style*="cursor: not-allowed"]:hover {
+    transform: none;
+    box-shadow: none;
+    background: #95a5a6;
+}
+
+/* Dark mode support */
+body.dark-mode .tool-card {
+    background: #2d2d2d;
+    border-color: #444;
+}
+
+body.dark-mode .tool-card h3 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .tool-card p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .tool-icon {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .tool-card .tag {
+    background: rgba(255, 255, 255, 0.08);
+    color: #a0c4d6;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .tool-card {
+        padding: 25px 20px;
+    }
+    
+    .tool-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5rem;
+    }
+}
+
 /* ===== NEWS ===== */
 .news-item {
     padding: 1.2rem 0;
