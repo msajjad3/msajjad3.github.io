@@ -1064,45 +1064,46 @@ body.dark-mode .tool-card .tag {
 
 /* ===== INSIGHTS SECTION ===== */
 .insights-section {
-    padding: 4rem 0; /* Match padding of other sections */
+    padding: 4rem 0;
 }
 
 .insights-section h1 {
-    /* Inherits from your existing h1 styles, but can be tweaked */
     margin-bottom: 0.5rem;
 }
 
 .section-subtitle {
     font-size: 1.2rem;
-    color: #94a3b8; /* A muted color from your palette */
+    color: var(--text-light);
     margin-bottom: 3rem;
 }
 
 .insights-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Single column for now */
-    gap: 2.5rem; /* Spacing between cards */
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
 }
 
-/* Style the insight cards to match your existing card designs */
+/* Style insight cards to match your existing card designs */
 .insight-card {
-    background: #1e1b4b; /* Your card background color */
-    border-radius: 0.75rem; /* Your card border-radius */
+    background: var(--card-bg);
+    border-radius: 24px;
     overflow: hidden;
-    border: 1px solid #312e81; /* Your card border color */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* For image + content side-by-side */
-    /* Add any other properties your project cards have */
+    border: 1px solid var(--border-color);
+    transition: var(--transition-bounce);
+    display: flex;
+    box-shadow: var(--shadow);
 }
 
 .insight-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.3); /* Your glow effect */
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-color);
 }
 
 .card-image {
     flex: 0 0 280px;
-    background: #2e1065; /* Placeholder background */
+    background: var(--border-color);
+    overflow: hidden;
 }
 
 .card-image img {
@@ -1110,11 +1111,18 @@ body.dark-mode .tool-card .tag {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: var(--transition);
+}
+
+.insight-card:hover .card-image img {
+    transform: scale(1.02);
 }
 
 .card-content {
     padding: 1.8rem;
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-content h2 {
@@ -1123,24 +1131,35 @@ body.dark-mode .tool-card .tag {
 }
 
 .card-content h2 a {
-    color: #a855f7; /* Your link color */
+    color: var(--primary-color);
     text-decoration: none;
     font-size: 1.5rem;
+    transition: var(--transition);
 }
 
 .card-content h2 a:hover {
+    color: var(--accent-color);
     text-decoration: underline;
 }
 
-.post-meta {
-    color: #94a3b8;
+.card-content .post-meta {
+    color: var(--text-light);
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
 
+.card-content p {
+    flex: 1;
+    margin-bottom: 1.2rem;
+}
+
+.card-content .btn {
+    align-self: flex-start;
+}
+
 /* Individual Post Page */
 .post-main {
-    padding: 4rem 0; /* Match other sections */
+    padding: 4rem 0;
 }
 
 .post-header {
@@ -1150,14 +1169,21 @@ body.dark-mode .tool-card .tag {
 .post-header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.post-header .post-meta {
+    color: var(--text-light);
+    font-size: 0.95rem;
 }
 
 .post-cover {
     width: 100%;
     max-height: 400px;
     object-fit: cover;
-    border-radius: 0.75rem;
+    border-radius: 16px;
     margin-top: 1.5rem;
+    border: 1px solid var(--border-color);
 }
 
 .post-content {
@@ -1166,7 +1192,7 @@ body.dark-mode .tool-card .tag {
 }
 
 .post-content h2 {
-    color: #c084fc; /* Your accent color */
+    color: var(--secondary-color);
     margin-top: 2.5rem;
     margin-bottom: 1rem;
 }
@@ -1175,16 +1201,44 @@ body.dark-mode .tool-card .tag {
     margin-bottom: 1.2rem;
 }
 
-/* Responsive Design for Insights */
+.post-content ul {
+    margin: 1rem 0 1.5rem 1.5rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* ===== INSIGHTS RESPONSIVE ===== */
 @media (max-width: 768px) {
     .insight-card {
         flex-direction: column;
     }
+    
     .card-image {
         flex: 0 0 200px;
     }
+    
     .post-header h1 {
         font-size: 2rem;
+    }
+    
+    .post-cover {
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-image {
+        flex: 0 0 160px;
+    }
+    
+    .card-content h2 a {
+        font-size: 1.2rem;
+    }
+    
+    .post-header h1 {
+        font-size: 1.6rem;
     }
 }
 
