@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet@YourTime - SAJJAD Lab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Override and extend main styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .tool-header {
+            background: linear-gradient(135deg, var(--primary-color, #1a5f7a), var(--secondary-color, #2a9d8f));
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .tool-header h1 {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .tool-header .subtitle {
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        .back-link {
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        /* Controls */
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            background: var(--card-bg, #ffffff);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color, #e0e0e0);
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .control-group label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-light, #666);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .control-group input,
+        .control-group select {
+            padding: 10px 14px;
+            border: 2px solid var(--border-color, #e0e0e0);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+            background: white;
+            color: var(--text-color, #2c3e50);
+        }
+        
+        .control-group input:focus,
+        .control-group select:focus {
+            outline: none;
+            border-color: var(--primary-color, #1a5f7a);
+            box-shadow: 0 0 0 3px rgba(26, 95, 122, 0.1);
+        }
+        
+        /* Participants */
+        .participants-section {
+            background: var(--card-bg, #ffffff);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color, #e0e0e0);
+        }
+        
+        .participants-section h3 {
+            color: var(--primary-color, #1a5f7a);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .participant-input-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .participant-input-group input,
+        .participant-input-group select {
+            flex: 1;
+            min-width: 150px;
+            padding: 10px 14px;
+            border: 2px solid var(--border-color, #e0e0e0);
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .participant-input-group input:focus,
+        .participant-input-group select:focus {
+            outline: none;
+            border-color: var(--primary-color, #1a5f7a);
+        }
+        
+        .btn {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color, #1a5f7a);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #134b61;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 95, 122, 0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary-color, #2a9d8f);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #1f7a6f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
+        }
+        
+        .btn-danger {
+            background: var(--accent-color, #e76f51);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c95a3f;
+            transform: translateY(-2px);
+        }
+        
+        .btn-sm {
+            padding: 6px 14px;
+            font-size: 0.8rem;
+        }
+        
+        .participants-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .participant-tag {
+            background: var(--primary-color, #1a5f7a);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .participant-tag .remove-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            padding: 0;
+        }
+        
+        .participant-tag .remove-btn:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        
+        /* Calendar Grid */
+        .schedule-container {
+            background: var(--card-bg, #ffffff);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color, #e0e0e0);
+            overflow-x: auto;
+        }
+        
+        .schedule-grid {
+            min-width: 700px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .schedule-grid th,
+        .schedule-grid td {
+            border: 1px solid var(--border-color, #e0e0e0);
+            padding: 6px;
+            text-align: center;
+            font-size: 0.85rem;
+            min-width: 35px;
+        }
+        
+        .schedule-grid th {
+            background: #f8f9fa;
+            font-weight: 700;
+            color: var(--text-light, #666);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            padding: 10px 6px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        
+        .schedule-grid .time-label {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: var(--text-light, #666);
+            white-space: nowrap;
+            position: sticky;
+            left: 0;
+            z-index: 5;
+            padding: 8px 12px;
+            font-size: 0.8rem;
+        }
+        
+        .schedule-grid .participant-label {
+            background: var(--primary-color, #1a5f7a);
+            color: white;
+            font-weight: 600;
+            white-space: nowrap;
+            position: sticky;
+            left: 0;
+            z-index: 5;
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            min-width: 120px;
+        }
+        
+        .schedule-grid .time-cell {
+            cursor: pointer;
+            transition: all 0.15s ease;
+            height: 28px;
+            min-width: 30px;
+        }
+        
+        .schedule-grid .time-cell:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 2;
+            position: relative;
+        }
+        
+        .schedule-grid .time-cell.available {
+            background: #2a9d8f;
+        }
+        
+        .schedule-grid .time-cell.unavailable {
+            background: #e76f51;
+        }
+        
+        .schedule-grid .time-cell.maybe {
+            background: #f4a261;
+        }
+        
+        .schedule-grid .time-cell.empty {
+            background: #f0f0f0;
+        }
+        
+        .schedule-grid .time-cell.available:hover {
+            background: #1f7a6f;
+        }
+        .schedule-grid .time-cell.unavailable:hover {
+            background: #c95a3f;
+        }
+        .schedule-grid .time-cell.maybe:hover {
+            background: #e08a3d;
+        }
+        .schedule-grid .time-cell.empty:hover {
+            background: #e0e0e0;
+        }
+        
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 25px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            align-items: center;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .legend-color {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            border: 2px solid rgba(0,0,0,0.1);
+        }
+        
+        .legend-color.available { background: #2a9d8f; }
+        .legend-color.unavailable { background: #e76f51; }
+        .legend-color.maybe { background: #f4a261; }
+        .legend-color.empty { background: #f0f0f0; }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border-color, #e0e0e0);
+        }
+        
+        .stat-card .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color, #1a5f7a);
+        }
+        
+        .stat-card .label {
+            font-size: 0.8rem;
+            color: var(--text-light, #666);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Best Times */
+        .best-times {
+            background: linear-gradient(135deg, rgba(42, 157, 143, 0.08), rgba(26, 95, 122, 0.08));
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary-color, #2a9d8f);
+            margin-top: 20px;
+        }
+        
+        .best-times h4 {
+            color: var(--secondary-color, #2a9d8f);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .best-times .time-slot {
+            display: inline-block;
+            padding: 8px 18px;
+            margin: 5px;
+            background: white;
+            border-radius: 20px;
+            border: 2px solid var(--secondary-color, #2a9d8f);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-color, #2c3e50);
+        }
+        
+        .best-times .time-slot .availability-count {
+            color: var(--secondary-color, #2a9d8f);
+            font-weight: 700;
+        }
+        
+        /* Actions */
+        .actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color, #e0e0e0);
+        }
+        
+        /* Dark mode support */
+        body.dark-mode .controls,
+        body.dark-mode .participants-section,
+        body.dark-mode .schedule-container,
+        body.dark-mode .stat-card {
+            background: #2d2d44;
+            border-color: #4a4a6a;
+        }
+        
+        body.dark-mode .schedule-grid th,
+        body.dark-mode .schedule-grid .time-label {
+            background: #3d3d5c;
+            color: #b0b0b0;
+        }
+        
+        body.dark-mode .schedule-grid td {
+            border-color: #4a4a6a;
+        }
+        
+        body.dark-mode .schedule-grid .time-cell.empty {
+            background: #3d3d5c;
+        }
+        
+        body.dark-mode .legend {
+            background: #3d3d5c;
+        }
+        
+        body.dark-mode .control-group input,
+        body.dark-mode .control-group select,
+        body.dark-mode .participant-input-group input,
+        body.dark-mode .participant-input-group select {
+            background: #3d3d5c;
+            color: #e0e0e0;
+            border-color: #4a4a6a;
+        }
+        
+        body.dark-mode .best-times {
+            background: linear-gradient(135deg, rgba(42, 157, 143, 0.15), rgba(26, 95, 122, 0.15));
+        }
+        
+        body.dark-mode .best-times .time-slot {
+            background: #3d3d5c;
+            border-color: var(--secondary-color, #2a9d8f);
+            color: #e0e0e0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .tool-header h1 {
+                font-size: 1.5rem;
+                flex-wrap: wrap;
+            }
+            
+            .controls {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .participant-input-group {
+                flex-direction: column;
+            }
+            
+            .schedule-grid {
+                font-size: 0.7rem;
+                min-width: 500px;
+            }
+            
+            .schedule-grid th,
+            .schedule-grid td {
+                padding: 3px;
+                min-width: 25px;
+            }
+            
+            .schedule-grid .time-cell {
+                height: 22px;
+                min-width: 22px;
+            }
+            
+            .schedule-grid .participant-label {
+                min-width: 80px;
+                font-size: 0.7rem;
+                padding: 4px 6px;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .controls {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Tool Header -->
+        <div class="tool-header">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 15px;">
+                <div>
+                    <h1>
+                        <i class="fas fa-calendar-check"></i>
+                        Meet@YourTime
+                    </h1>
+                    <p class="subtitle">Find the best time for your team to meet across different time zones</p>
+                </div>
+                <a href="../index.html#tools4good" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Tools4Good
+                </a>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="control-group">
+                <label for="eventName">Event Name</label>
+                <input type="text" id="eventName" placeholder="e.g., Lab Meeting" value=" ">
+            </div>
+            <div class="control-group">
+                <label for="startDate">Date</label>
+                <input type="date" id="startDate">
+            </div>
+            <div class="control-group">
+                <label for="timeZone">Your Time Zone</label>
+                <select id="timeZone">
+                    <!-- Populated by JavaScript -->
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="timeRangeStart">No earlier than</label>
+                <input type="time" id="timeRangeStart" value="08:00">
+            </div>
+            <div class="control-group">
+                <label for="timeRangeEnd">no later than</label>
+                <input type="time" id="timeRangeEnd" value="20:00">
+            </div>
+        </div>
+
+        <!-- Participants -->
+        <div class="participants-section">
+            <h3><i class="fas fa-users"></i> Participants</h3>
+            <div class="participant-input-group">
+                <input type="text" id="participantName" placeholder="Enter your/participant name" onkeypress="if(event.key==='Enter') addParticipant()">
+                <select id="participantTimeZone">
+                    <!-- Populated by JavaScript -->
+                </select>
+                <button class="btn btn-primary" onclick="addParticipant()">
+                    <i class="fas fa-plus"></i> Add
+                </button>
+                <button class="btn btn-secondary" onclick="addSampleParticipants()">
+                    <i class="fas fa-users"></i> Add Sample
+                </button>
+                <button class="btn btn-danger" onclick="clearAllParticipants()">
+                    <i class="fas fa-trash"></i> Clear All
+                </button>
+            </div>
+            <div class="participants-list" id="participantsList"></div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color available"></div>
+                <span>Available</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color unavailable"></div>
+                <span>Unavailable</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color maybe"></div>
+                <span>Maybe</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color empty"></div>
+                <span>Not Set</span>
+            </div>
+            <div class="legend-item" style="margin-left: auto;">
+                <button class="btn btn-sm btn-danger" onclick="clearAllAvailability()">
+                    <i class="fas fa-eraser"></i> Clear Availability
+                </button>
+            </div>
+        </div>
+
+        <!-- Schedule Grid -->
+        <div class="schedule-container">
+            <div style="text-align: center; padding: 20px; color: var(--text-light, #666);" id="emptyState">
+                <i class="fas fa-users" style="font-size: 3rem; display: block; margin-bottom: 15px; opacity: 0.3;"></i>
+                <p>Add participants to start scheduling</p>
+            </div>
+            <table class="schedule-grid" id="scheduleGrid" style="display: none;">
+                <!-- Generated by JavaScript -->
+            </table>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats" id="statsContainer"></div>
+
+        <!-- Best Times -->
+        <div class="best-times" id="bestTimes">
+            <h4><i class="fas fa-star"></i> Best Meeting Times</h4>
+            <p style="color: var(--text-light, #666);" id="bestTimesMessage">Click on time slots to mark availability. The best times will appear here.</p>
+            <div id="bestTimesList"></div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+            <button class="btn btn-primary" onclick="shareSchedule()">
+                <i class="fas fa-share-alt"></i> Share Schedule
+            </button>
+            <button class="btn btn-secondary" onclick="exportSchedule()">
+                <i class="fas fa-download"></i> Export CSV
+            </button>
+            <button class="btn btn-secondary" onclick="resetAll()">
+                <i class="fas fa-redo"></i> Reset All
+            </button>
+        </div>
+        <footer style="margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--border-color, #e0e0e0); text-align: center; font-size: 0.9rem; color: var(--text-light, #666);">
+            Copyright © 2026 Meet@YourTime by <a href="https://sajjadm.com" target="_blank" style="color: var(--primary-color, #1a5f7a); text-decoration: underline;">SAJJAD Lab</a>
+        </footer>
+    </div>
+
+    <script>
+        // ===== STATE =====
+        let participants = [];
+        let availability = {};
+        let timeSlots = [];
+        
+        // ===== TIME ZONES =====
+        function getTimeZones() {
+            return Intl.supportedValuesOf('timeZone');
+        }
+        
+        function populateTimeZones() {
+            const tzSelects = ['timeZone', 'participantTimeZone'];
+            const timezones = getTimeZones();
+            const systemTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            
+            tzSelects.forEach(id => {
+                const select = document.getElementById(id);
+                if (!select) return;
+                select.innerHTML = '';
+                timezones.forEach(tz => {
+                    const option = document.createElement('option');
+                    option.value = tz;
+                    option.textContent = tz.replace(/_/g, ' ');
+                    if (tz === systemTz) option.selected = true;
+                    select.appendChild(option);
+                });
+            });
+        }
+        
+        // ===== INIT =====
+        document.addEventListener('DOMContentLoaded', function() {
+            populateTimeZones();
+            
+            // Set default date to today
+            const today = new Date();
+            const dateStr = today.toISOString().split('T')[0];
+            document.getElementById('startDate').value = dateStr;
+            
+            // Add sample participants
+            addSampleParticipants();
+        });
+        
+        // ===== PARTICIPANTS =====
+        function addParticipant() {
+            const nameInput = document.getElementById('participantName');
+            const tzSelect = document.getElementById('participantTimeZone');
+            const name = nameInput.value.trim();
+            const tz = tzSelect.value;
+            
+            if (!name) {
+                alert('Please enter a participant name.');
+                return;
+            }
+            
+            if (participants.some(p => p.name.toLowerCase() === name.toLowerCase())) {
+                alert('Participant already exists.');
+                return;
+            }
+            
+            const participant = {
+                id: Date.now().toString(),
+                name: name,
+                timeZone: tz
+            };
+            
+            participants.push(participant);
+            availability[participant.id] = {};
+            
+            nameInput.value = '';
+            renderParticipants();
+            generateTimeSlots();
+            renderSchedule();
+            updateStats();
+            findBestTimes();
+        }
+        
+        function removeParticipant(id) {
+            if (!confirm('Remove this participant?')) return;
+            participants = participants.filter(p => p.id !== id);
+            delete availability[id];
+            renderParticipants();
+            generateTimeSlots();
+            renderSchedule();
+            updateStats();
+            findBestTimes();
+        }
+        
+        function clearAllParticipants() {
+            if (!confirm('Remove all participants?')) return;
+            participants = [];
+            availability = {};
+            renderParticipants();
+            generateTimeSlots();
+            renderSchedule();
+            updateStats();
+            findBestTimes();
+        }
+        
+        function addSampleParticipants() {
+            const samples = [
+
+            ];
+            
+            let added = 0;
+            samples.forEach(sample => {
+                if (!participants.some(p => p.name === sample.name)) {
+                    const participant = {
+                        id: Date.now().toString() + Math.random().toString(36).substr(2, 4),
+                        name: sample.name,
+                        timeZone: sample.tz
+                    };
+                    participants.push(participant);
+                    availability[participant.id] = {};
+                    added++;
+                }
+            });
+            
+            if (added > 0) {
+                renderParticipants();
+                generateTimeSlots();
+                renderSchedule();
+                updateStats();
+                findBestTimes();
+            }
+        }
+        
+        function renderParticipants() {
+            const list = document.getElementById('participantsList');
+            if (participants.length === 0) {
+                list.innerHTML = '<p style="color: var(--text-light, #666); font-size: 0.9rem;">No participants added yet.</p>';
+                return;
+            }
+            
+            list.innerHTML = participants.map(p => `
+                <span class="participant-tag">
+                    <i class="fas fa-user"></i>
+                    ${p.name}
+                    <span style="font-weight: 300; opacity: 0.8; font-size: 0.75rem;">${p.timeZone.replace(/_/g, ' ')}</span>
+                    <button class="remove-btn" onclick="removeParticipant('${p.id}')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </span>
+            `).join('');
+        }
+        
+        // ===== TIME SLOTS =====
+        function generateTimeSlots() {
+            const startDate = document.getElementById('startDate').value;
+            const startTime = document.getElementById('timeRangeStart').value;
+            const endTime = document.getElementById('timeRangeEnd').value;
+            
+            if (!startDate || !startTime || !endTime) return;
+            
+            timeSlots = [];
+            const [startHour, startMin] = startTime.split(':').map(Number);
+            const [endHour, endMin] = endTime.split(':').map(Number);
+            
+            // Generate 7 days
+            for (let d = 0; d < 7; d++) {
+                const date = new Date(startDate);
+                date.setDate(date.getDate() + d);
+                const dateStr = date.toISOString().split('T')[0];
+                const dayName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getDay()];
+                const monthDay = date.getDate();
+                
+                for (let h = startHour; h < endHour; h++) {
+                    for (let m = 0; m < 60; m += 30) {
+                        const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+                        const displayTime = new Date(2000, 0, 1, h, m).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+                        timeSlots.push({
+                            date: dateStr,
+                            day: dayName,
+                            monthDay: monthDay,
+                            time: timeStr,
+                            displayTime: displayTime,
+                            label: `${dateStr} ${timeStr}`
+                        });
+                    }
+                }
+            }
+        }
+        
+        // ===== SCHEDULE RENDERING =====
+        function renderSchedule() {
+            const grid = document.getElementById('scheduleGrid');
+            const emptyState = document.getElementById('emptyState');
+            
+            if (participants.length === 0 || timeSlots.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+            
+            grid.style.display = 'table';
+            emptyState.style.display = 'none';
+            
+            // Group by date
+            const dates = {};
+            timeSlots.forEach((slot, index) => {
+                if (!dates[slot.date]) dates[slot.date] = [];
+                dates[slot.date].push({ ...slot, index });
+            });
+            
+            let html = '<thead><tr><th style="min-width:120px;">Participant</th>';
+            
+            // Time headers - show date rows and time rows
+            const dateKeys = Object.keys(dates);
+            const uniqueTimes = [...new Set(timeSlots.map(s => s.time))].sort();
+            
+            // Date header row
+            dateKeys.forEach(date => {
+                const dateObj = new Date(date);
+                const dayName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][dateObj.getDay()];
+                const monthDay = dateObj.getDate();
+                const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][dateObj.getMonth()];
+                html += `<th colspan="${uniqueTimes.length}" style="background: var(--primary-color, #1a5f7a); color: white; padding: 6px 4px;">
+                    ${dayName} ${month} ${monthDay}
+                </th>`;
+            });
+            html += '</tr><tr><th style="min-width:120px; background: #f8f9fa;">Time</th>';
+            
+            // Time sub-header
+            dateKeys.forEach(() => {
+                uniqueTimes.forEach(time => {
+                    const displayTime = new Date(2000, 0, 1, parseInt(time.split(':')[0]), parseInt(time.split(':')[1]))
+                        .toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+                    html += `<th style="font-weight: 400; font-size: 0.7rem;">${displayTime}</th>`;
+                });
+            });
+            html += '</tr></thead><tbody>';
+            
+            // Each participant row
+            participants.forEach(p => {
+                html += `<tr><td class="participant-label">${p.name}</td>`;
+                
+                timeSlots.forEach((slot, index) => {
+                    const key = `${slot.date}|${slot.time}`;
+                    const status = availability[p.id]?.[key] || 'empty';
+                    html += `<td class="time-cell ${status}" 
+                              onclick="toggleAvailability('${p.id}', ${index})"
+                              title="${slot.date} ${slot.displayTime} - ${p.name}"></td>`;
+                });
+                
+                html += '</tr>';
+            });
+            
+            html += '</tbody>';
+            grid.innerHTML = html;
+        }
+        
+        // ===== AVAILABILITY =====
+        function toggleAvailability(participantId, slotIndex) {
+            const slot = timeSlots[slotIndex];
+            if (!slot) return;
+            
+            const key = `${slot.date}|${slot.time}`;
+            if (!availability[participantId]) availability[participantId] = {};
+            
+            const current = availability[participantId][key] || 'empty';
+            const next = {
+                'empty': 'available',
+                'available': 'unavailable',
+                'unavailable': 'maybe',
+                'maybe': 'empty'
+            };
+            
+            availability[participantId][key] = next[current] || 'available';
+            renderSchedule();
+            updateStats();
+            findBestTimes();
+        }
+        
+        function clearAllAvailability() {
+            if (!confirm('Clear all availability data?')) return;
+            Object.keys(availability).forEach(id => {
+                availability[id] = {};
+            });
+            renderSchedule();
+            updateStats();
+            findBestTimes();
+        }
+        
+        // ===== STATS =====
+        function updateStats() {
+            const container = document.getElementById('statsContainer');
+            if (participants.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+            
+            let totalAvailable = 0;
+            let totalMaybe = 0;
+            
+            participants.forEach(p => {
+                const avail = availability[p.id] || {};
+                const values = Object.values(avail);
+                totalAvailable += values.filter(v => v === 'available').length;
+                totalMaybe += values.filter(v => v === 'maybe').length;
+            });
+            
+            container.innerHTML = `
+                <div class="stat-card">
+                    <div class="number">${participants.length}</div>
+                    <div class="label">Participants</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${timeSlots.length}</div>
+                    <div class="label">Time Slots</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${totalAvailable}</div>
+                    <div class="label">Available</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${totalMaybe}</div>
+                    <div class="label">Maybe</div>
+                </div>
+            `;
+        }
+        
+        // ===== BEST TIMES =====
+        function findBestTimes() {
+            const list = document.getElementById('bestTimesList');
+            const message = document.getElementById('bestTimesMessage');
+            
+            if (participants.length === 0) {
+                list.innerHTML = '';
+                message.textContent = 'Add participants to find best times.';
+                return;
+            }
+            
+            // Count availability per time slot
+            const counts = {};
+            timeSlots.forEach((slot, index) => {
+                const key = `${slot.date}|${slot.time}`;
+                let available = 0;
+                let maybe = 0;
+                
+                participants.forEach(p => {
+                    const status = availability[p.id]?.[key] || 'empty';
+                    if (status === 'available') available++;
+                    if (status === 'maybe') maybe++;
+                });
+                
+                counts[key] = { available, maybe, total: participants.length, slot, index };
+            });
+            
+            const sorted = Object.values(counts)
+                .filter(c => c.available > 0 || c.maybe > 0)
+                .sort((a, b) => b.available - a.available || b.maybe - a.maybe);
+            
+            if (sorted.length === 0) {
+                list.innerHTML = '';
+                message.textContent = 'No availability data yet. Click on time slots to mark availability.';
+                return;
+            }
+            
+            message.textContent = 'Top 5 best meeting times based on availability:';
+            
+            const top = sorted.slice(0, 5);
+            list.innerHTML = top.map(c => {
+                const dateObj = new Date(c.slot.date);
+                const dayName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][dateObj.getDay()];
+                const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][dateObj.getMonth()];
+                const dateStr = `${dayName} ${month} ${dateObj.getDate()}`;
+                const pct = Math.round((c.available / c.total) * 100);
+                const maybeText = c.maybe > 0 ? ` +${c.maybe} maybe` : '';
+                return `<span class="time-slot">
+                    ${dateStr} ${c.slot.displayTime}
+                    <span class="availability-count">${c.available}/${c.total}</span>
+                    ${maybeText}
+                </span>`;
+            }).join(' ');
+        }
+        
+        // ===== SHARE & EXPORT =====
+        function shareSchedule() {
+            const data = {
+                event: document.getElementById('eventName').value,
+                date: document.getElementById('startDate').value,
+                timeZone: document.getElementById('timeZone').value,
+                participants: participants,
+                availability: availability
+            };
+            
+            const json = JSON.stringify(data);
+            const encoded = encodeURIComponent(json);
+            const url = window.location.href.split('?')[0] + '?data=' + encoded;
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Schedule link copied to clipboard!');
+                }).catch(() => {
+                    prompt('Copy this URL to share:', url);
+                });
+            } else {
+                prompt('Copy this URL to share:', url);
+            }
+        }
+        
+        function exportSchedule() {
+            if (participants.length === 0 || timeSlots.length === 0) {
+                alert('No data to export.');
+                return;
+            }
+            
+            let csv = 'Participant,Date,Time,Status\n';
+            timeSlots.forEach(slot => {
+                participants.forEach(p => {
+                    const key = `${slot.date}|${slot.time}`;
+                    const status = availability[p.id]?.[key] || 'empty';
+                    csv += `"${p.name}",${slot.date},${slot.displayTime},${status}\n`;
+                });
+            });
+            
+            const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `meeting-schedule-${document.getElementById('eventName').value || 'meeting'}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        function resetAll() {
+            if (!confirm('Reset everything?')) return;
+            participants = [];
+            availability = {};
+            timeSlots = [];
+            document.getElementById('participantsList').innerHTML = '<p style="color: var(--text-light, #666); font-size: 0.9rem;">No participants added yet.</p>';
+            document.getElementById('scheduleGrid').style.display = 'none';
+            document.getElementById('emptyState').style.display = 'block';
+            document.getElementById('statsContainer').innerHTML = '';
+            document.getElementById('bestTimesList').innerHTML = '';
+            document.getElementById('bestTimesMessage').textContent = 'Add participants to find best times.';
+            document.getElementById('eventName').value = 'SAJJAD Lab Meeting';
+            document.getElementById('participantName').value = '';
+        }
+        
+        // ===== EVENT LISTENERS =====
+        document.getElementById('startDate').addEventListener('change', () => {
+            generateTimeSlots();
+            renderSchedule();
+            updateStats();
+            findBestTimes();
+        });
+        
+        document.getElementById('timeRangeStart').addEventListener('change', () => {
+            generateTimeSlots();
+            renderSchedule();
+            updateStats();
+            findBestTimes();
+        });
+        
+        document.getElementById('timeRangeEnd').addEventListener('change', () => {
+            generateTimeSlots();
+            renderSchedule();
+            updateStats();
+            findBestTimes();
+        });
+        
+        // ===== LOAD FROM URL =====
+        (function loadFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            const data = params.get('data');
+            if (data) {
+                try {
+                    const decoded = JSON.parse(decodeURIComponent(data));
+                    if (decoded.participants) {
+                        participants = decoded.participants;
+                        availability = decoded.availability || {};
+                        if (decoded.event) document.getElementById('eventName').value = decoded.event;
+                        if (decoded.date) document.getElementById('startDate').value = decoded.date;
+                        if (decoded.timeZone) document.getElementById('timeZone').value = decoded.timeZone;
+                        renderParticipants();
+                        generateTimeSlots();
+                        renderSchedule();
+                        updateStats();
+                        findBestTimes();
+                    }
+                } catch (e) {
+                    console.log('Could not load shared data');
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
