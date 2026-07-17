@@ -7,41 +7,57 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/insights/">Insights</a>
-            <a href="/#research">Research</a>
-            <a href="/#contact">Contact</a>
+    <!-- Navigation with Professional Buttons -->
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="/">SAJJAD Lab</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-btn">Home</a></li>
+                <li><a href="/insights/" class="nav-btn active">Insights</a></li>
+                <li><a href="/#research" class="nav-btn">Research</a></li>
+                <li><a href="/#contact" class="nav-btn">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main class="post-main">
-        <article>
+    <main>
+        <article class="container post-main">
             <div class="post-header">
                 <h1>How AI and Satellites Help Us Predict Flood Risks in Cities</h1>
                 <p class="post-meta">Published: July 20, 2026 | By Dr. Muhammad Sajjad</p>
-                <img src="insights/images/CCE-and-LLA.png" alt="Cover image" class="post-cover">
+                <img src="/insights/images/CCE-and-LLA.png" alt="CCE and LLA diagram" class="post-cover">
             </div>
 
             <div class="post-content">
-                <!-- Start writing your post here -->
                 <p>Flooding is one of the most destructive natural disasters, and it's getting worse in cities. But here's the challenge: we often don't know <em>where</em> the flood will hit hardest, or <em>who</em> will be affected most. That's where our research comes in.</p>
 
                 <h2>The Problem: Uneven Risk</h2>
                 <p>In any city, some neighborhoods are much more vulnerable to floods. Why? It's a mix of geography, infrastructure, and socio-economics. Low-income communities often have fewer resources to recover.</p>
 
-                <!-- More content... -->
+                <h2>How We Approached It</h2>
+                <p>We combined remote sensing (satellite images) with machine learning to identify patterns that predict flooding. Think of it like training a computer to spot the "tells" of a flood-prone area.</p>
+
+                <h2>Key Findings</h2>
+                <ul>
+                    <li>Areas with less green space and more concrete are at higher risk</li>
+                    <li>Vulnerability is linked to more than just geography — it's about community preparedness</li>
+                    <li>AI can help city planners prioritize infrastructure upgrades</li>
+                </ul>
+
+                <h2>Why This Matters</h2>
+                <p>By understanding which areas are most vulnerable, we can help emergency services prepare better and communities advocate for fairer climate adaptation policies.</p>
 
                 <h2>The Original Paper</h2>
-                <p>This post is based on our research paper: <a href="[Link to your paper/DOI]" target="_blank">"Integration of machine learning and remote sensing for above ground biomass estimation"</a> published in <em>Ecological Informatics</em>, 2024.</p>
+                <p>This post is based on our research paper: <a href="#" target="_blank">"Integration of machine learning and remote sensing for above ground biomass estimation"</a> published in <em>Ecological Informatics</em>, 2024.</p>
 
-                <p><a href="/insights/">← Back to all Insights</a></p>
+                <p><a href="/insights/" class="btn btn-secondary">← Back to all Insights</a></p>
             </div>
         </article>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>&copy; 2026 SAJJAD Lab. All rights reserved.</p>
     </footer>
 </body>
