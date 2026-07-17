@@ -1102,14 +1102,14 @@ body.dark-mode .tool-card .tag {
 
 /* ===== FIXED: 16:9 IMAGE CONTAINER ===== */
 .card-image {
-    flex: 0 0 280px; /* Fixed width on desktop */
+    flex: 0 0 480px; /* Fixed width on desktop */
     background: var(--border-color);
     overflow: hidden;
     position: relative;
     /* 16:9 aspect ratio enforced */
     aspect-ratio: 16 / 9;
     /* Ensure the container respects its own width */
-    width: 280px; /* Match flex-basis */
+    width: 480px; /* Match flex-basis */
 }
 
 /* Make the image fill the container perfectly */
