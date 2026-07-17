@@ -1062,44 +1062,47 @@ body.dark-mode .tool-card .tag {
     border-color: var(--secondary-color);
 }
 
-/* ===== INSIGHTS SECTION STYLES ===== */
-.insights-main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
+/* ===== INSIGHTS SECTION ===== */
+.insights-section {
+    padding: 4rem 0; /* Match padding of other sections */
 }
 
-.insights-main h1 {
-    color: #a855f7;
-    font-size: 2.8rem;
+.insights-section h1 {
+    /* Inherits from your existing h1 styles, but can be tweaked */
     margin-bottom: 0.5rem;
 }
 
-.insights-main .subtitle {
+.section-subtitle {
     font-size: 1.2rem;
-    color: #ccc;
+    color: #94a3b8; /* A muted color from your palette */
     margin-bottom: 3rem;
 }
 
+.insights-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for now */
+    gap: 2.5rem; /* Spacing between cards */
+}
+
+/* Style the insight cards to match your existing card designs */
 .insight-card {
-    display: flex;
-    background: #1a1a2e;
-    border-radius: 12px;
+    background: #1e1b4b; /* Your card background color */
+    border-radius: 0.75rem; /* Your card border-radius */
     overflow: hidden;
-    margin-bottom: 2.5rem;
-    border: 1px solid #2a2a4e;
+    border: 1px solid #312e81; /* Your card border color */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* For image + content side-by-side */
+    /* Add any other properties your project cards have */
 }
 
 .insight-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.3); /* Your glow effect */
 }
 
 .card-image {
     flex: 0 0 280px;
-    background: #2a2a4e;
-    overflow: hidden;
+    background: #2e1065; /* Placeholder background */
 }
 
 .card-image img {
@@ -1116,11 +1119,11 @@ body.dark-mode .tool-card .tag {
 
 .card-content h2 {
     margin-top: 0;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
 }
 
 .card-content h2 a {
-    color: #a855f7;
+    color: #a855f7; /* Your link color */
     text-decoration: none;
     font-size: 1.5rem;
 }
@@ -1130,23 +1133,14 @@ body.dark-mode .tool-card .tag {
 }
 
 .post-meta {
-    color: #888;
+    color: #94a3b8;
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
 
-.read-more {
-    display: inline-block;
-    margin-top: 0.5rem;
-    color: #a855f7;
-    font-weight: 500;
-}
-
 /* Individual Post Page */
 .post-main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 4rem 0; /* Match other sections */
 }
 
 .post-header {
@@ -1154,7 +1148,6 @@ body.dark-mode .tool-card .tag {
 }
 
 .post-header h1 {
-    color: #a855f7;
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
 }
@@ -1163,7 +1156,7 @@ body.dark-mode .tool-card .tag {
     width: 100%;
     max-height: 400px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 0.75rem;
     margin-top: 1.5rem;
 }
 
@@ -1173,7 +1166,7 @@ body.dark-mode .tool-card .tag {
 }
 
 .post-content h2 {
-    color: #c084fc;
+    color: #c084fc; /* Your accent color */
     margin-top: 2.5rem;
     margin-bottom: 1rem;
 }
@@ -1182,16 +1175,13 @@ body.dark-mode .tool-card .tag {
     margin-bottom: 1.2rem;
 }
 
-/* Responsive Design */
+/* Responsive Design for Insights */
 @media (max-width: 768px) {
     .insight-card {
         flex-direction: column;
     }
     .card-image {
-        flex: 0 0 180px;
-    }
-    .insights-main h1 {
-        font-size: 2.2rem;
+        flex: 0 0 200px;
     }
     .post-header h1 {
         font-size: 2rem;
