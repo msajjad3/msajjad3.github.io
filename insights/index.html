@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <!-- Navigation with Professional Buttons -->
-    <header class="site-header">
-        <nav class="main-nav">
-            <div class="nav-logo">
-                <a href="/">SAJJAD Lab</a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="/" class="nav-btn">Home</a></li>
-                <li><a href="/insights/" class="nav-btn active">Insights</a></li>
-                <li><a href="/#research" class="nav-btn">Research</a></li>
-                <li><a href="/#contact" class="nav-btn">Contact</a></li>
+    <!-- Use your existing navigation structure -->
+    <nav>
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/insights/" class="active">Insights</a></li>
+                <li><a href="/#research">Research</a></li>
+                <li><a href="/#contact">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+        </div>
+    </nav>
 
     <main>
         <section class="container insights-section">
@@ -28,7 +28,6 @@
             <p class="section-subtitle">Translating our research on geospatial data science, AI, and disaster resilience into accessible knowledge.</p>
 
             <div class="insights-grid">
-                <!-- Post 1 -->
                 <article class="insight-card">
                     <div class="card-image">
                         <img src="/insights/images/CCE-and-LLA.png" alt="CCE and LLA diagram">
@@ -37,7 +36,7 @@
                         <h2><a href="/insights/post-1.html">How AI and Satellites Help Us Predict Flood Risks in Cities</a></h2>
                         <p class="post-meta">Published: July 20, 2026 | By Dr. Muhammad Sajjad</p>
                         <p>Understanding the hidden vulnerabilities in our urban landscapes using machine learning and remote sensing.</p>
-                        <a href="/insights/post-1.html" class="btn btn-primary">Read More →</a>
+                        <a href="/insights/post-1.html" class="btn">Read More →</a>
                     </div>
                 </article>
 
@@ -46,8 +45,21 @@
         </section>
     </main>
 
-    <footer class="site-footer">
-        <p>&copy; 2026 SAJJAD Lab. All rights reserved.</p>
+    <!-- Use your existing footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 SAJJAD Lab. All rights reserved.</p>
+            <div class="social-links">
+                <!-- Your social links -->
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle (if needed)
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
