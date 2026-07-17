@@ -1114,7 +1114,7 @@ body.dark-mode .tool-card .tag {
 
 /* Make the image fill the container perfectly */
 .card-image img {
-    width: 100%;
+    width: 50%;
     height: 100%;
     object-fit: cover;
     display: block;
