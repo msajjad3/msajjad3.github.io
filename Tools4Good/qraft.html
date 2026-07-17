@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>QRaft by SAJJAD-Lab| Your Professional QR Code Studio</title>
+    <!-- Google Fonts & modern reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- QRCode.js library (stable, lightweight) -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <!-- html2canvas for high-fidelity professional export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #e9eff7 0%, #dce3ec 100%);
+            font-family: 'Inter', sans-serif;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* main card container */
+        .qr-studio {
+            max-width: 1320px;
+            width: 100%;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(2px);
+            border-radius: 2.5rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            padding: 2rem 2rem 2.5rem;
+            transition: all 0.2s ease;
+        }
+
+        /* header area */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1A2A4F, #2C3E6D);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+        .hero p {
+            color: #4a5b7a;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        /* two column layout */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        /* left panel - controls */
+        .control-panel {
+            background: white;
+            border-radius: 1.8rem;
+            padding: 1.6rem 1.8rem;
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .control-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .control-group label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #2c3e66;
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border-radius: 1.2rem;
+            border: 1.5px solid #e2e8f0;
+            background: #fefefe;
+            font-family: 'Inter', monospace;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            outline: none;
+            font-weight: 500;
+        }
+        input:focus, select:focus {
+            border-color: #3b6e9f;
+            box-shadow: 0 0 0 3px rgba(59,110,159,0.2);
+        }
+        .url-input {
+            font-family: monospace;
+        }
+
+        /* color rows */
+        .color-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .color-row input[type="color"] {
+            width: 60px;
+            height: 52px;
+            padding: 4px;
+            border-radius: 16px;
+            cursor: pointer;
+            background: white;
+        }
+        .color-row span {
+            flex: 1;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        /* size slider */
+        .size-slider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .size-slider input {
+            flex: 3;
+        }
+        .size-slider span {
+            flex: 1;
+            background: #eef2f8;
+            padding: 0.5rem;
+            text-align: center;
+            border-radius: 2rem;
+            font-weight: 600;
+        }
+
+        button {
+            background: #1E2F4B;
+            border: none;
+            padding: 0.9rem 1.4rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            width: 100%;
+            margin-top: 0.4rem;
+        }
+        .btn-secondary {
+            background: #ffffff;
+            color: #1f3a5f;
+            border: 1.5px solid #cbdde9;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+        .btn-secondary:hover {
+            background: #f1f7fd;
+            border-color: #8aaec4;
+        }
+        button:hover {
+            background: #0f213b;
+            transform: translateY(-2px);
+        }
+        .export-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .export-group button {
+            margin-top: 0;
+        }
+
+        /* right panel - QR showcase */
+        .preview-panel {
+            background: white;
+            border-radius: 1.8rem;
+            padding: 1.6rem;
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-container {
+            background: #fff;
+            border-radius: 2rem;
+            padding: 1.8rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        #qrcodeCanvas {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* the qrcodejs div wrapper */
+        #qrcodeCanvas div, #qrcodeCanvas img, #qrcodeCanvas canvas {
+            display: block;
+            border-radius: 18px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+        }
+
+        .qr-caption {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #43627f;
+            background: #f2f6fc;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            font-weight: 500;
+        }
+        .badge-pro {
+            font-size: 0.7rem;
+            background: #e9eef3;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            margin-left: 8px;
+            font-weight: normal;
+        }
+
+        @media (max-width: 860px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .qr-studio {
+                padding: 1.2rem;
+            }
+            body {
+                padding: 1rem;
+            }
+        }
+        footer {
+            text-align: center;
+            margin-top: 2.2rem;
+            font-size: 0.75rem;
+            color: #4e6c8c;
+            font-weight: 500;
+        }
+        .error-message {
+            color: #c2453b;
+            background: #fee9e7;
+            border-radius: 2rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            margin-top: 0.8rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="qr-studio">
+    <div class="hero">
+        <h1>✦ QRaft Studio ✦</h1>
+        <p>Generate professional-grade QR codes with dynamic styling and instant export</p>
+    </div>
+
+    <div class="dashboard">
+        <!-- Left Panel: controls for customization -->
+        <div class="control-panel">
+            <div class="control-group">
+                <label>🔗 Target URL / Link</label>
+                <input type="url" id="urlInput" class="url-input" placeholder="https://yourdomain.com/portfolio" value="https://sajjadm.com">
+                <small style="display: block; margin-top: 6px; opacity: 0.7;">✅ Any valid link or text</small>
+            </div>
+
+            <div class="control-group">
+                <label>🎨 Foreground (QR dots)</label>
+                <div class="color-row">
+                    <input type="color" id="fgColor" value="#1A2A4F">
+                    <span>Deep indigo / brand color</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>⬜ Background color</label>
+                <div class="color-row">
+                    <input type="color" id="bgColor" value="#FFFFFF">
+                    <span>Crisp white / light neutral</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>📐 QR Code Size (px)</label>
+                <div class="size-slider">
+                    <input type="range" id="sizeSlider" min="160" max="450" value="260" step="5">
+                    <span id="sizeValue">260px</span>
+                </div>
+                <small style="opacity: 0.65;">Larger size = higher resolution for printing</small>
+            </div>
+
+            <div class="control-group">
+                <label>🖌️ Error Correction Level</label>
+                <select id="errorLevel">
+                    <option value="L">L - 7% (small, fast)</option>
+                    <option value="M" selected>M - 15% (balanced, recommended)</option>
+                    <option value="Q">Q - 25% (durable)</option>
+                    <option value="H">H - 30% (high resilience)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <button id="generateBtn">⟳ Generate & Refresh QR</button>
+            </div>
+
+            <div class="export-group">
+                <button id="downloadPNG" class="btn-secondary">📸 Download PNG (HD)</button>
+                <button id="copyQRBase64" class="btn-secondary">📋 Copy as Image</button>
+            </div>
+            <div id="copyFeedback" style="font-size:12px; margin-top:8px; text-align:center; color:#2c6e4f;"></div>
+        </div>
+
+        <!-- Right Panel: QR visual and preview -->
+        <div class="preview-panel">
+            <div class="qr-container" id="qrFrame">
+                <div id="qrcodeCanvas"></div>
+            </div>
+            <div class="qr-caption">
+                ✦ professional grade ✦ <span id="currentUrlPreview">ready</span>
+                <span class="badge-pro">custom styling</span>
+            </div>
+            <div style="font-size: 12px; margin-top: 12px; color:#517ea6;">
+                ⚡ High contrast · smooth edges
+            </div>
+        </div>
+    </div>
+    <footer>
+        Copyright © 2026 QRaft Studio by <a href="https://sajjadm.com" target="_blank" style="color:#1A2A4F; text-decoration:underline;">SAJJAD Lab</a>
+    </footer>
+</div>
+
+<script>
+    (function() {
+        // DOM elements
+        const urlInput = document.getElementById('urlInput');
+        const fgColorPicker = document.getElementById('fgColor');
+        const bgColorPicker = document.getElementById('bgColor');
+        const sizeSlider = document.getElementById('sizeSlider');
+        const sizeValueSpan = document.getElementById('sizeValue');
+        const errorLevelSelect = document.getElementById('errorLevel');
+        const generateBtn = document.getElementById('generateBtn');
+        const downloadBtn = document.getElementById('downloadPNG');
+        const copyBtn = document.getElementById('copyQRBase64');
+        const copyFeedbackSpan = document.getElementById('copyFeedback');
+        const currentUrlPreviewSpan = document.getElementById('currentUrlPreview');
+
+        let currentQRCodeObject = null;      // store QRCode instance
+        let currentOptions = {
+            url: urlInput.value,
+            fg: fgColorPicker.value,
+            bg: bgColorPicker.value,
+            size: parseInt(sizeSlider.value, 10),
+            errorCorrection: errorLevelSelect.value
+        };
+
+        // Helper: clear previous QR code container
+        function clearQRContainer() {
+            const container = document.getElementById('qrcodeCanvas');
+            if (container) {
+                container.innerHTML = '';   // wipe any existing divs/canvas
+            }
+        }
+
+        // Function to generate QR using QRCode.js with custom colors and size
+        // Since QRCode.js creates an <img> or <div> based on canvas drawing, but we need to override colors.
+        // Strategy: Use QRCode.js to generate the QR matrix data? Actually it draws automatically but we cannot change color after.
+        // Better approach: use dynamic canvas generation from QRCode instance? Not straightforward. 
+        // Instead we reimplement safe generation: Use QRCode.js to generate a clean QR code, then replace its internal canvas/img with custom colors?
+        // But the library draws directly using canvas context; we need to manipulate canvas after draw? Or we can use "QRCode" instance and then
+        // apply a recoloring method? Actually the library supports setting color only if we use the canvas mode and override after render.
+        // For robust custom foreground/background we will use a more flexible method: generate QR data matrix using "QRCode" library but then draw on custom canvas.
+        // However simpler: use QRCode.js internal only for matrix? I'll create a custom canvas drawing function based on qrcode library's "QRCodeModel".
+        // To guarantee full control over colors & sizes, we implement our own drawing using qrcode-generator concept? But we already included qrcodejs library.
+        // To maintain simplicity AND professional style, we use 'QRCode' instance, but we will hook into its makeCode method, and after render we apply a post-process filter to recolor canvas.
+        // But the library with version 1.0.0 uses either table or canvas. By default it creates <div> with table? Actually new QRCode(element, options) will produce canvas if browser supports.
+        // However to reliably set colors, we can generate a canvas from scratch: Use 'QRCode' object's _oDrawing or get the generated canvas.
+        // Safer: I will generate with QRCode library, then after generation capture canvas element and re-draw with new colors filling style.
+        // For initial rendering I need to override after each change.
+        
+        // Advanced function: generate and recolor using QRCode library with style control
+        function generateProfessionalQR() {
+            const url = urlInput.value.trim();
+            if (!url) {
+                alert("Please enter a valid link or text to encode.");
+                return false;
+            }
+            const fgColor = fgColorPicker.value;
+            const bgColor = bgColorPicker.value;
+            const size = parseInt(sizeSlider.value, 10);
+            const errorCorrection = errorLevelSelect.value;
+            
+            // store used for export
+            currentOptions = { url, fg: fgColor, bg: bgColor, size, errorCorrection };
+            currentUrlPreviewSpan.innerText = url.length > 35 ? url.substring(0,32)+"..." : url;
+            
+            // Clear container
+            clearQRContainer();
+            const container = document.getElementById('qrcodeCanvas');
+            
+            // Create new container div that will hold the generated qr code from library (canvas mode)
+            // Use QRCode constructor with corrected parameters: https://github.com/davidshimjs/qrcodejs
+            // We will generate temporary and then apply color remapping.
+            // To get full control: we create a detached div, generate QR, extract canvas, apply custom colors & size, then attach.
+            const tempDiv = document.createElement('div');
+            tempDiv.style.width = `${size}px`;
+            tempDiv.style.height = `${size}px`;
+            tempDiv.style.display = 'none';
+            document.body.appendChild(tempDiv);
+            
+            // Dispose any existing QR generation on tempDiv
+            let qrTemp;
+            try {
+                qrTemp = new QRCode(tempDiv, {
+                    text: url,
+                    width: size,
+                    height: size,
+                    colorDark: "#000000",    // temp black, we'll override
+                    colorLight: "#FFFFFF",
+                    correctLevel: getQRCorrectLevel(errorCorrection)
+                });
+            } catch(e) {
+                console.warn(e);
+                document.body.removeChild(tempDiv);
+                alert("QR generation error, check URL.");
+                return false;
+            }
+            
+            // Wait for microtask / slight delay for rendering
+            setTimeout(() => {
+                // Find actual canvas inside tempDiv
+                const canvasElem = tempDiv.querySelector('canvas');
+                if (!canvasElem) {
+                    // fallback in case of table rendering (rare)
+                    document.body.removeChild(tempDiv);
+                    fallbackQRDraw(container, url, fgColor, bgColor, size, errorCorrection);
+                    return;
+                }
+                
+                // Create new canvas with desired size and recolored pattern
+                const originalCanvas = canvasElem;
+                const srcCanvas = document.createElement('canvas');
+                const srcCtx = srcCanvas.getContext('2d');
+                srcCanvas.width = originalCanvas.width;
+                srcCanvas.height = originalCanvas.height;
+                // draw original qr code black/white
+                srcCtx.drawImage(originalCanvas, 0, 0);
+                const imageData = srcCtx.getImageData(0, 0, srcCanvas.width, srcCanvas.height);
+                const data = imageData.data;
+                
+                // Recolor based on brightness: original code uses dark (#000) and light (#FFF)
+                // we replace dark pixels with fgColor, light with bgColor.
+                const fgRGB = hexToRgb(fgColor);
+                const bgRGB = hexToRgb(bgColor);
+                if (!fgRGB || !bgRGB) return;
+                
+                for (let i = 0; i < data.length; i += 4) {
+                    const r = data[i];
+                    const g = data[i+1];
+                    const b = data[i+2];
+                    const brightness = (r + g + b) / 3;
+                    // dark pixel (near black) -> fg color, light pixel -> bg color (but also keep alpha)
+                    if (brightness < 128) {
+                        data[i] = fgRGB.r;
+                        data[i+1] = fgRGB.g;
+                        data[i+2] = fgRGB.b;
+                    } else {
+                        data[i] = bgRGB.r;
+                        data[i+1] = bgRGB.g;
+                        data[i+2] = bgRGB.b;
+                    }
+                }
+                srcCtx.putImageData(imageData, 0, 0);
+                
+                // Create final canvas with target size (scaled)
+                const finalCanvas = document.createElement('canvas');
+                finalCanvas.width = size;
+                finalCanvas.height = size;
+                const finalCtx = finalCanvas.getContext('2d');
+                finalCtx.imageSmoothingEnabled = true;
+                finalCtx.drawImage(srcCanvas, 0, 0, srcCanvas.width, srcCanvas.height, 0, 0, size, size);
+                
+                // Clear container and put final canvas with rounded corners / glass effect optional
+                container.innerHTML = '';
+                finalCanvas.style.borderRadius = '24px';
+                finalCanvas.style.boxShadow = '0 12px 22px -10px rgba(0,0,0,0.1)';
+                finalCanvas.style.display = 'block';
+                finalCanvas.style.maxWidth = '100%';
+                container.appendChild(finalCanvas);
+                
+                // store canvas reference for export
+                window.__currentQRCanvas = finalCanvas;
+                // remove temp div
+                document.body.removeChild(tempDiv);
+            }, 20);
+            return true;
+        }
+        
+        // fallback using pure canvas drawing if qrcodejs fails – robust
+        function fallbackQRDraw(container, text, fg, bg, width, errorCorrection) {
+            // Use QRCode library only for matrix? but we can include a tiny fallback: use QRCode instance to get matrix data via internal? 
+            // Instead we will use the same lib method but simpler: use the already loaded QRCode library to create temporary and extract imageData safe.
+            const tmpDiv = document.createElement('div');
+            tmpDiv.style.width = `${width}px`;
+            tmpDiv.style.height = `${width}px`;
+            document.body.appendChild(tmpDiv);
+            const tempQR = new QRCode(tmpDiv, {
+                text: text,
+                width: width,
+                height: width,
+                colorDark: "#000",
+                colorLight: "#FFF",
+                correctLevel: getQRCorrectLevel(errorCorrection)
+            });
+            setTimeout(() => {
+                const canvas = tmpDiv.querySelector('canvas');
+                if (canvas) {
+                    const imgData = canvas.getContext('2d').getImageData(0,0,canvas.width,canvas.height);
+                    const fgRGB = hexToRgb(fg);
+                    const bgRGB = hexToRgb(bg);
+                    for(let i=0; i<imgData.data.length; i+=4) {
+                        const bright = (imgData.data[i] + imgData.data[i+1] + imgData.data[i+2])/3;
+                        if(bright < 128) {
+                            imgData.data[i]=fgRGB.r; imgData.data[i+1]=fgRGB.g; imgData.data[i+2]=fgRGB.b;
+                        } else {
+                            imgData.data[i]=bgRGB.r; imgData.data[i+1]=bgRGB.g; imgData.data[i+2]=bgRGB.b;
+                        }
+                    }
+                    const finalCanvas = document.createElement('canvas');
+                    finalCanvas.width = width; finalCanvas.height = width;
+                    const ctx = finalCanvas.getContext('2d');
+                    ctx.putImageData(imgData,0,0);
+                    container.innerHTML = '';
+                    finalCanvas.style.borderRadius = '20px';
+                    container.appendChild(finalCanvas);
+                    window.__currentQRCanvas = finalCanvas;
+                }
+                document.body.removeChild(tmpDiv);
+            }, 30);
+        }
+        
+        // helper hex to rgb
+        function hexToRgb(hex) {
+            let c = hex.substring(1);
+            if (c.length === 3) c = c.split('').map(ch => ch+ch).join('');
+            const intVal = parseInt(c, 16);
+            return { r: (intVal >> 16) & 255, g: (intVal >> 8) & 255, b: intVal & 255 };
+        }
+        
+        function getQRCorrectLevel(level) {
+            switch(level) {
+                case 'L': return QRCode.CorrectLevel.L;
+                case 'M': return QRCode.CorrectLevel.M;
+                case 'Q': return QRCode.CorrectLevel.Q;
+                case 'H': return QRCode.CorrectLevel.H;
+                default: return QRCode.CorrectLevel.M;
+            }
+        }
+        
+        // regenerate on demand
+        function refreshQR() {
+            generateProfessionalQR();
+        }
+        
+        // Download as PNG (professional)
+        function downloadPNG() {
+            if (!window.__currentQRCanvas) {
+                alert("Generate a QR code first.");
+                return;
+            }
+            const canvas = window.__currentQRCanvas;
+            const link = document.createElement('a');
+            const timestamp = new Date().toISOString().slice(0,19).replace(/:/g, '-');
+            link.download = `NexusQR-${timestamp}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // copy as image (base64)
+        async function copyImageToClipboard() {
+            if (!window.__currentQRCanvas) {
+                alert("Please generate the QR code first.");
+                return;
+            }
+            try {
+                const canvas = window.__currentQRCanvas;
+                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+                await navigator.clipboard.write([
+                    new ClipboardItem({
+                        [blob.type]: blob
+                    })
+                ]);
+                copyFeedbackSpan.innerText = "✓ QR image copied to clipboard!";
+                setTimeout(() => copyFeedbackSpan.innerText = "", 2200);
+            } catch(err) {
+                copyFeedbackSpan.innerText = "⚠️ Copy failed, try download.";
+                console.error(err);
+            }
+        }
+        
+        // Event listeners
+        generateBtn.addEventListener('click', () => {
+            refreshQR();
+        });
+        
+        downloadBtn.addEventListener('click', downloadPNG);
+        copyBtn.addEventListener('click', copyImageToClipboard);
+        
+        // live preview on color/size changes (optional)
+        function bindLiveUpdate() {
+            const update = () => refreshQR();
+            fgColorPicker.addEventListener('input', update);
+            bgColorPicker.addEventListener('input', update);
+            sizeSlider.addEventListener('input', function() {
+                sizeValueSpan.innerText = sizeSlider.value + "px";
+                update();
+            });
+            errorLevelSelect.addEventListener('change', update);
+            urlInput.addEventListener('change', update);
+        }
+        
+        sizeSlider.addEventListener('input', function() {
+            sizeValueSpan.innerText = sizeSlider.value + "px";
+        });
+        bindLiveUpdate();
+        // initial generation
+        refreshQR();
+        
+        // set size value on start
+        sizeValueSpan.innerText = sizeSlider.value + "px";
+        // fallback set url preview
+        currentUrlPreviewSpan.innerText = urlInput.value.length > 36 ? urlInput.value.substring(0,33)+"..." : urlInput.value;
+    })();
+</script>
+</body>
+</html>
